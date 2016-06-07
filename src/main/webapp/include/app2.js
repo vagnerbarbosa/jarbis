@@ -175,7 +175,8 @@
             $scope.isDeleteDisabled = true;
             $scope.navTitleLeft = 'Fornecedores';
             $scope.navTitleRight = 'Notas';
-            $scope.searchName = '';
+            $scope.searchName = '';            
+            $scope.offNota = 'disabled';
 
             var response = $http.get('/SisNota/rest/nota/');
             response.success(function (data) {

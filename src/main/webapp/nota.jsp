@@ -46,7 +46,7 @@
 
             <form>
                 <table>
-                    <td><input type="text" ng-model="imei" size="30" placeholder="buscar notas fiscais por IMEI"></td>   
+                    <td><input type="text" ng-model="imei" size="30" placeholder="Buscar Notas Fiscais Por IMEI"></td>   
                     <td><div class="nota-controle">                                         
                             <button type="button" ng-click="getNotaPorImei(imei)" class="waves-effect light-blue btn-large" style="width: 32%; float: left; margin-right: 1%"><i class="material-icons left">search</i>Buscar</button>                                
                             <button ng-click="addNew()" class="waves-effect light-blue btn-large" style="width: 32%; float: left; margin-right: 1%"><i class="material-icons left">tab</i>Incluir Nota Fiscal</button>
@@ -78,7 +78,7 @@
                     <tr><td class="display_bold"><label for="imei">IMEI's:</label></td></tr>
                     <tr>
                         <td class="input_fields_wrap">
-                            <textarea  ng-model="nota.imei" name="nota.imei" ng-list="&#10;" ng-trim="false" required="true" ng-disabled="isSaveDisabled"></textarea></td>                            
+                            <textarea  ng-model="nota.imei" name="nota.imei" ng-list="&#10;" ng-trim="false" required="true" ng-disabled="isSaveDisabled" style="height: 200%;"></textarea></td>                            
                     </tr>                                           
                     <td class="display_bold"><label for="fornecedor">CNPJ do Fornecedor:</label></td>
                     </tr>

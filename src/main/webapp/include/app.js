@@ -142,6 +142,7 @@
             $scope.navTitleLeft = 'Fornecedores';
             $scope.navTitleRight = 'Notas';
             $scope.searchName = '';
+            $scope.off = 'disabled';
 
             var response = $http.get('/SisNota/rest/fornecedor/');
             response.success(function (data) {

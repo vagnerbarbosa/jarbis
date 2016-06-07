@@ -45,7 +45,7 @@
 
             <form>
                 <table>
-                    <td><input type="text" ng-model="cnpj" size="30" placeholder="buscar fornecedor por CNPJ"></td>   
+                    <td><input type="text" ng-model="cnpj" size="30" placeholder="Buscar Fornecedor Por CNPJ"></td>   
                     <td><div class="controles-fornecedor">                                          
                             <button type="button" ng-click="getFornecedorPorCnpj(cnpj)" class="waves-effect light-blue btn-large" style="width: 32%; float: left; margin-right: 1%"><i class="material-icons left">search</i>Buscar</button>                                
                             <button ng-click="addNew()" class="waves-effect light-blue btn-large" style="width: 32%; float: left; margin-right: 1%"><i class="material-icons left">assignment_ind</i>Novo Fornecedor</button>
