@@ -82,6 +82,26 @@ public class InvoiceDataSetImpl implements InvoiceDataSet {
         nf.setImei(imeis);
         nf.setCnpjFornecedor(nfs.get(0).getCnpjFornecedor());
         return nf;
+    }
+
+    @Override
+    public Invoice getInvoiceByNumber(Integer number) {
+        MANAGER.getTransaction().begin();
+        String jpql = "SELECT notafiscal.id, notafiscal.dataEmissao, notafiscal.dataEntrada, notafiscal.cnpj_fornecedor, notafiscal.numero, fornecedor.cnpj, fornecedor.ie, fornecedor.uf, fornecedor.bairro, fornecedor.cidade, fornecedor.endereco, fornecedor.numero, fornecedor.razao_social, imei_por_nota.imei FROM imei_por_nota INNER JOIN notafiscal ON (notafiscal.id = imei_por_nota.invoice_id) INNER JOIN fornecedor ON (notafiscal.cnpj_fornecedor = fornecedor.cnpj) WHERE notafiscal.numero = :numero";
+        List<Invoice> nfs = MANAGER.createNativeQuery(jpql, Invoice.class).setParameter("numero", number).getResultList();
+        MANAGER.getTransaction().commit();
+        Invoice nf = new Invoice();
+        nf.setId(nfs.get(0).getId());
+        nf.setNumber(nfs.get(0).getNumber());
+        nf.setIssuanceDate(nfs.get(0).getIssuanceDate());
+        nf.setDateEntry(nfs.get(0).getDateEntry());
+        List<String> imeis = new ArrayList<>();
+        for (int i = 0; i < nfs.size(); i++) {
+            imeis.add(nfs.get(i).getImei().get(i));
+        }
+        nf.setImei(imeis);
+        nf.setCnpjFornecedor(nfs.get(0).getCnpjFornecedor());
+        return nf;
     }    
 
     /**

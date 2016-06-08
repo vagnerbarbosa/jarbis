@@ -45,6 +45,13 @@ public interface InvoiceDataSet {
      * @return
      */
     public Invoice getInvoiceByImei(String imei);
+    
+    /**
+     *
+     * @param number
+     * @return
+     */
+    public Invoice getInvoiceByNumber(Integer number);    
 
     /**
      *

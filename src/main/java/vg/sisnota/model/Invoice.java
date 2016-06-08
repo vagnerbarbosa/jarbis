@@ -46,7 +46,7 @@ public class Invoice implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_gen")
     private Integer id;
-    @Column(name = "numero", nullable = false)
+    @Column(name = "numero", nullable = false, unique = true)
     private Integer number;
     @Temporal(TemporalType.DATE)
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
@@ -69,6 +69,13 @@ public class Invoice implements Serializable {
      */
     public Invoice() {
     }
+
+    public Invoice(Integer number, Date issuanceDate, Date dateEntry, Supplier supplier) {
+        this.number = number;
+        this.issuanceDate = issuanceDate;
+        this.dateEntry = dateEntry;
+        this.supplier = supplier;
+    }    
 
     /**
      *

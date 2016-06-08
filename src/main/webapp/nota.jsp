@@ -106,6 +106,7 @@
 
 
             <div class="MainBody">
+                <a href="#fornecedor"></a>
                 <div class="leftPanel" >
                     <div id="LeftPanelHeader" class="card-panel light-blue lighten-1"><a class="white-text" href="fornecedores.jsp">{{navTitleLeft}}</a></div>
                     <ul class="collection">

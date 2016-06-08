@@ -21,10 +21,11 @@ public class Main {
         SupplierDataSetImpl dao = new SupplierDataSetImpl();
         InvoiceDataSetImpl daon = new InvoiceDataSetImpl();    
         
-        //daon.setInvoice(new Invoice(4444, new Date(), new Date(), "dsfsdf", 74348916000173l));
+        
         
         //EntityManagerFactory factory = Persistence.createEntityManagerFactory("sisnota");
-        //Supplier fornecedor = new Supplier(53423434l, "TESTE II", "PB", "CAJAZEIRAS", "CENTRO", "RUA", 0, 0);
+        Supplier fornecedor = new Supplier(53423434l, "TESTE II", "PB", "CAJAZEIRAS", "CENTRO", "RUA", 0, 0);
+        daon.setInvoice(new Invoice(16638227, new Date(), new Date(), fornecedor));
         //dao.setSupplier(fornecedor);
         //Persistence.createEntityManagerFactory("sisnota");
 //        Invoice nf = new Invoice();
@@ -41,7 +42,7 @@ public class Main {
 //        
 //        nf.setImei(imeis);
 //        daon.setInvoice(nf);
-        System.out.println(daon.getInvoiceByImei("4h89g474674h4dgf86hdfg"));
+        System.out.println(daon.getInvoiceByNumber(1663837));
     }
     
 }

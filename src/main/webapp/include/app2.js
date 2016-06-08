@@ -139,15 +139,17 @@
                 var response = $http.put('/SisNota/rest/nota/' + numero, $scope.jsonObj);
                 response.success(function (data, status, headers, config) {
                     $scope.resetSearch();
+                    window.location = '/SisNota/nota.jsp';
                 });
 
                 response.error(function (data, status, headers, config) {
                     //alert("AJAX failed to get data, status=" + status);
                 });
-            } else if ($scope.operation === "create") {
+            } else if ($scope.operation === "create") {                
                 var response = $http.post('/SisNota/rest/nota/add', $scope.jsonObj);
                 response.success(function (data, status, headers, config) {
                     $scope.resetSearch();
+                    window.location = '/SisNota/nota.jsp';
                 });
 
                 response.error(function (data, status, headers, config) {
@@ -160,6 +162,7 @@
             var response = $http.delete('/SisNota/rest/nota/' + numero);
             response.success(function (data, status, headers, config) {
                 $scope.resetSearch();
+                window.location = '/SisNota/nota.jsp';
             });
 
             response.error(function (data, status, headers, config) {

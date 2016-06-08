@@ -104,6 +104,7 @@
                 var response = $http.put('/SisNota/rest/fornecedor/' + cnpj, $scope.jsonObj);
                 response.success(function (data, status, headers, config) {
                     $scope.resetSearch();
+                     window.location = '/SisNota/fornecedores.jsp';
                 });
 
                 response.error(function (data, status, headers, config) {
@@ -113,6 +114,7 @@
                 var response = $http.post('/SisNota/rest/fornecedor/add', $scope.jsonObj);
                 response.success(function (data, status, headers, config) {
                     $scope.resetSearch();
+                    window.location = '/SisNota/fornecedores.jsp';
                 });
 
                 response.error(function (data, status, headers, config) {
@@ -125,6 +127,7 @@
             var response = $http.delete('/SisNota/rest/fornecedor/' + cnpj);
             response.success(function (data, status, headers, config) {
                 $scope.resetSearch();
+                window.location = '/SisNota/fornecedores.jsp';
             });
 
             response.error(function (data, status, headers, config) {
