@@ -6,11 +6,11 @@
     <!-- entidades mapeadas -->
     <class>vg.sisnota.model.Invoice</class>
     <class>vg.sisnota.model.Supplier</class>
-    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <!-- dados da conexao -->
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/sis"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/sis2"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
       <property name="javax.persistence.jdbc.password" value="123"/>
       <!--  propriedades do hibernate -->

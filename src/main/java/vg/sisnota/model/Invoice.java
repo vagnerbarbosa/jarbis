@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -21,8 +22,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 /**
  * Classe para os objetos do tipo Invoice, onde serão contidos os métodos
@@ -40,7 +39,6 @@ import org.hibernate.annotations.OnDeleteAction;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonSerialize
 @SequenceGenerator(name = "seq_gen", sequenceName = "nota_seq", initialValue = 1, allocationSize = 20)
-@OnDelete(action = OnDeleteAction.CASCADE)
 public class Invoice implements Serializable {
 
     @Id
@@ -59,9 +57,9 @@ public class Invoice implements Serializable {
     @ElementCollection
     @CollectionTable(name = "imei_por_nota")
     @JoinColumn(name = "notafiscal_id", referencedColumnName = "id")    
-    private List<String> Imei;
+    private List<String> Imei;    
+    @JoinColumn(name = "id_fornecedor", referencedColumnName = "id")
     @ManyToOne
-    @JoinColumn(name = "cnpj_fornecedor", referencedColumnName = "cnpj")
     private Supplier supplier;
 
     /**

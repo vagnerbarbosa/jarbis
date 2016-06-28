@@ -37,7 +37,12 @@
         });       
 
         $scope.getFornecedorPorCnpj = function (cnpj) {
-            var response = $http.get('/SisNota/rest/fornecedor/' + cnpj);
+            var unformattedCnpj = cnpj.replace('.','');
+            unformattedCnpj = unformattedCnpj.replace('.','');
+            unformattedCnpj = unformattedCnpj.replace('/','');
+            unformattedCnpj = unformattedCnpj.replace('-','');
+          
+            var response = $http.get('/SisNota/rest/fornecedor/' + unformattedCnpj);
 
             response.success(function (data) {
                 $scope.fornecedor = data;
@@ -124,7 +129,11 @@
         };
 
         $scope.deleteFornecedor = function (cnpj) {
-            var response = $http.delete('/SisNota/rest/fornecedor/' + cnpj);
+            var unformattedCnpj = cnpj.replace('.','');
+            unformattedCnpj = unformattedCnpj.replace('.','');
+            unformattedCnpj = unformattedCnpj.replace('/','');
+            unformattedCnpj = unformattedCnpj.replace('-','');
+            var response = $http.delete('/SisNota/rest/fornecedor/' + unformattedCnpj);
             response.success(function (data, status, headers, config) {
                 $scope.resetSearch();
                 window.location = '/SisNota/fornecedores.jsp';

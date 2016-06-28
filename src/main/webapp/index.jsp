@@ -22,6 +22,7 @@
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="include/jquery.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="include/jquery.mask.min.js"></script>
         <div class="container" >
 
             <div class="header">
@@ -39,7 +40,7 @@
                         <li>
                             <div id="LeftPanelHeader" class="collapsible-header light-blue lighten-1"><span class="white-text"><i class="material-icons left">assignment_ind</i>{{navTitleLeft}}</span></div>
                             <div class="collapsible-body" id="collection-item" ng-repeat="f in fornecedores" >
-                                <span style="margin-left: 0.5%;">{{f.companyName}} - CNPJ: {{f.cnpj}}</span>                                               
+                                <span style="margin-left: 0.5%;">{{f.companyName}} - CNPJ: <i class="cnpj">{{f.cnpj}}</i></span>                                               
                             </div>
                         </li>
                     </ul>
@@ -64,5 +65,11 @@
             </footer>
 
         </div>
+        <script type="text/javascript">  
+    $(function() {
+    $('.cnpj').mask('00.000.000/0000-00');
+  });
+        </script>        
+
     </body>
 </html>

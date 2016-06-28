@@ -19,12 +19,18 @@ public interface SupplierDataSet {
      * @param supplier
      */
     public void setSupplier(Supplier supplier);
-
+    
     /**
+     *
+     * @param id
+     */
+    public void removeSupplier(Long id);
+    
+/**
      *
      * @param cnpj
      */
-    public void removeSupplier(Long cnpj);
+    public void removeSupplierByCnpj(String cnpj);    
     
     /**
      *
@@ -37,7 +43,14 @@ public interface SupplierDataSet {
      * @param cnpj
      * @return
      */
-    public Supplier getSupplierByCnpj(Long cnpj);
+    public Supplier getSupplierByCnpj(String cnpj);
+    
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Supplier getSupplierById(Long id);    
 
     /**
      *

@@ -153,7 +153,8 @@
                 });
 
                 response.error(function (data, status, headers, config) {
-                    //alert("AJAX failed to get data, status=" + status);
+                    if (status === 500)
+                    alert("Nota ja foi cadastrada!");
                 });
             }
         };
