@@ -1,7 +1,16 @@
 # jarvis
-Sistema para controle de Fornecedor/Nota/IMEI.
+Supplier / Invoice / IMEI control system.
 
-Tecnologias usadas:
+----------------------------------------------------------------------------
+
+:beers: *THE BEER-WARE LICENSE* (Revision 42): 
+
+	As long as you retain this notice you can do whatever you want with this stuff.	
+	If we meet some day, and you think this stuff is worth it, you can buy me a beer in return.
+	Vagner Barbosa 
+ ----------------------------------------------------------------------------
+
+Technologies:
 
 - Hibernate ORM
 - JAX-RS 2.0
