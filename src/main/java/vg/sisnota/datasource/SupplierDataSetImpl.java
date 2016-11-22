@@ -37,25 +37,15 @@ public class SupplierDataSetImpl implements SupplierDataSet {
     /**
      *
      * @param cnpj
-     */
-    @Override
-    public void removeSupplier(Long cnpj) {
-        MANAGER.getTransaction().begin();
-        MANAGER.remove(MANAGER.find(Supplier.class, cnpj));
-        MANAGER.getTransaction().commit();
-    }
-
-    /**
-     *
-     * @param cnpj
      * @return
      */
     @Override
-    public Supplier getSupplierByCnpj(Long cnpj) {        
+    public Supplier getSupplierByCnpj(String cnpj) {        
         MANAGER.getTransaction().begin();
-        Supplier supplier = MANAGER.find(Supplier.class, cnpj);
+        Query query = MANAGER.createQuery("SELECT u FROM Supplier u WHERE u.cnpj = :cnpj");
+        query.setParameter("cnpj", cnpj);
         MANAGER.getTransaction().commit();
-        return supplier;
+        return (Supplier) query.getSingleResult();
     }
 
     /**
@@ -79,6 +69,29 @@ public class SupplierDataSetImpl implements SupplierDataSet {
     public void updateSupplier(Supplier supplier) {
         MANAGER.getTransaction().begin();
         MANAGER.merge(supplier);
+        MANAGER.getTransaction().commit();
+    }
+
+    @Override
+    public Supplier getSupplierById(Long id) {
+        MANAGER.getTransaction().begin();
+        Supplier supplier = MANAGER.find(Supplier.class, id);
+        MANAGER.getTransaction().commit();
+        return supplier;
+    }
+
+    @Override
+    public void removeSupplier(Long id) {
+        MANAGER.getTransaction().begin();
+        MANAGER.remove(MANAGER.find(Supplier.class, id));
+        MANAGER.getTransaction().commit();
+    }
+
+    @Override
+    public void removeSupplierByCnpj(String cnpj) {
+        MANAGER.getTransaction().begin();
+        Query query = MANAGER.createQuery("DELETE FROM Supplier f WHERE f.cnpj = :cnpj");
+        query.setParameter("cnpj", cnpj).executeUpdate();        
         MANAGER.getTransaction().commit();
     }
 

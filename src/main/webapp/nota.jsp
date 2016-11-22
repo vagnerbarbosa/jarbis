@@ -16,29 +16,30 @@
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>		
         <meta charset="UTF-8">
-        
+
         <script src="include/jquery.min.js"></script>
+        <script type="text/javascript" src="include/jquery.mask.min.js"></script>
         <script type="text/javascript">
-            $(function() {
-            $(window).scroll(function() {
-            if ($(this).scrollTop() !== 0) {
-            $('#toTop').fadeIn();
-            } else {
-            $('#toTop').fadeOut();
-            }
-            });
-            $('#toTop').click(function() {
-            $('body, html').animate({scrollTop:0}, 800);
-            });
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() !== 0) {
+                        $('#toTop').fadeIn();
+                    } else {
+                        $('#toTop').fadeOut();
+                    }
+                });
+                $('#toTop').click(function () {
+                    $('body, html').animate({scrollTop: 0}, 800);
+                });
             });
         </script>        
 
     </head>
 
     <body ng-controller="HttpCtrl as app">
-        
+
         <div id="toTop"><i class="material-icons left" style="font-size: 300%">navigation</i></div>
-        
+
         <div class="container">
             <div class="header">
                 <a href="index.jsp"><img id="logo" src="include/logolrp.png" alt="Logo"/><h3 class="custom">J.A.R.V.I.S.<h6 class="red-text" style="margin-top: -1.5%">.beta</h6></a></h3>
@@ -46,7 +47,7 @@
 
             <form>
                 <table>
-                    <td><input type="text" ng-model="imei" size="30" placeholder="Buscar Notas Fiscais Por IMEI"></td>   
+                    <td><input type="text" ng-model="imei" size="30" placeholder="Buscar Notas Fiscais Por IMEI ou Registro"></td>   
                     <td><div class="nota-controle">                                         
                             <button type="button" ng-click="getNotaPorImei(imei)" class="waves-effect light-blue btn-large" style="width: 32%; float: left; margin-right: 1%"><i class="material-icons left">search</i>Buscar</button>                                
                             <button ng-click="addNew()" class="waves-effect light-blue btn-large" style="width: 32%; float: left; margin-right: 1%"><i class="material-icons left">tab</i>Incluir Nota Fiscal</button>
@@ -84,9 +85,10 @@
                     </tr>
                     <tr>
                         <td class="display">
-                            <input type="text" ng-model="nota.cnpjFornecedor.cnpj" list="fornecedores" name="fornecedor" ng-disabled="isSaveDisabled">
-                            <datalist id="fornecedores">
-                                <option ng-repeat="fornecedor in fornecedores" value="{{fornecedor.cnpj}}">{{fornecedor.companyName}}</option>  </td>                                  
+                            <input type="text" ng-model="nota.cnpjFornecedor.id" list="fornecedores" name="fornecedor" ng-disabled="isSaveDisabled" class="input-field col s12">
+                        <datalist id="fornecedores">
+                                <option ng-repeat="fornecedor in fornecedores" value="{{fornecedor.id}}">{{fornecedor.cnpj}} {{fornecedor.companyName}}</option>
+                        </td>                                  
                         </datalist>
                         </select>                                                
                     </tr>
@@ -111,7 +113,7 @@
                     <div id="LeftPanelHeader" class="card-panel light-blue lighten-1"><a class="white-text" href="fornecedores.jsp">{{navTitleLeft}}</a></div>
                     <ul class="collection">
                         <li class="collection-item" ng-repeat="f in fornecedores" >
-                            {{f.companyName}} - CNPJ: {{f.cnpj}}
+                            {{f.companyName}} - CNPJ: <i class="cnpj">{{f.cnpj}}</i>
                         </li>
                     </ul>
                 </div>
@@ -133,5 +135,11 @@
                 </div>
             </footer>
         </div>
-</body>
+        <script type="text/javascript">
+  $(function() {
+    $('.cnpj').mask('00.000.000/0000-00');
+  });
+        </script>        
+
+    </body>
 </html>

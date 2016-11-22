@@ -3,7 +3,7 @@
     var app = angular.module("app", []);
     var offNota;
 
-    app.controller("HttpCtrl", function ($scope, $http) {
+    app.controller("HttpCtrl", function ($scope, $http, $timeout, $interval) {
         var app = this;
         $scope.navTitleLeft = 'Fornecedores Cadastrados';
         $scope.navTitleRight = 'Notas Cadastradas';
@@ -11,6 +11,8 @@
         $scope.isSaveDisabled = true;
         $scope.isDeleteDisabled = true;
         $scope.offNota = 'disabled';
+        
+        $scope.alerts = [];
 
         var response = $http.get('/SisNota/rest/nota/');
         response.success(function (data) {
@@ -21,6 +23,10 @@
             });
         });
         response.error(function (data, status, headers, config) {
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $timeout(function () {
+                $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+            }, 2000);
             //alert("AJAX failed to get data, status=" + status);
         });
 
@@ -33,22 +39,40 @@
             });
         });
         response.error(function (data, status, headers, config) {
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $timeout(function () {
+                $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+            }, 2000);
             //alert("AJAX failed to get data, status=" + status);
         });
 
-
+        
         $scope.getNotaPorNumero = function (numero) {
             var response = $http.get('/SisNota/rest/nota/' + numero);
 
             response.success(function (data) {
                 $scope.nota = data;
+                if ($scope.nota.id !== undefined) {
                 $scope.operation = "update";
                 $scope.isSaveDisabled = false;
-                $scope.isDeleteDisabled = false;
+                $scope.isDeleteDisabled = false;                    
+                $scope.alerts.push({type: 'success', msg: 'Nota encontrada!', show: true});
+                $timeout(function () {
+                    $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                }, 3000); } else {
+                $scope.alerts.push({type: 'danger', msg: 'Nota nao encontrada!', show: true});
+                $timeout(function () {
+                    $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                }, 2000);                
+                }               
             });
 
-            response.error(function (data, status, headers, config) {
-                //alert("AJAX failed to get data, status=" + status);
+        response.error(function (data, status, headers, config) {
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $timeout(function () {
+                $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+            }, 2000);
+            //alert("AJAX failed to get data, status=" + status);
             });
         };
 
@@ -57,15 +81,29 @@
 
             response.success(function (data) {
                 $scope.nota = data;
+                if ($scope.nota.id !== undefined) {
                 $scope.operation = "update";
                 $scope.isSaveDisabled = false;
                 $scope.isDeleteDisabled = false;
-                $scope.offNota = '';
+                $scope.offNota = '';                    
+                $scope.alerts.push({type: 'success', msg: 'Nota encontrada!', show: true});
+                $timeout(function () {
+                    $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                }, 2000);
+            } else {
+                $scope.alerts.push({type: 'danger', msg: 'Nota nao encontrada!', show: true});
+                $timeout(function () {
+                    $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                }, 2000);                
+                }                 
             });
 
-            response.error(function (data, status, headers, config) {
-                //alert("AJAX failed to get data, status=" + status);                
-                alert("Sem nota encontrada!");
+        response.error(function (data, status, headers, config) {
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $timeout(function () {
+                $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+            }, 2000);
+            //alert("AJAX failed to get data, status=" + status);
 
             });
         };
@@ -77,6 +115,10 @@
             response.success(function (data) {
                 $scope.fornecedor = data;
                 $scope.$apply();
+                $scope.alerts.push({type: 'success', msg: 'Nota encontrada!', show: true});
+                $timeout(function () {
+                    $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                }, 2000);                
 
                 console.log("[searchFornecedor] # of items: " + data.length);
                 angular.forEach(data, function (element) {
@@ -85,8 +127,12 @@
 
             });
 
-            response.error(function (data, status, headers, config) {
-                //alert("AJAX failed to get data, status=" + status);
+        response.error(function (data, status, headers, config) {
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $timeout(function () {
+                $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+            }, 2000);
+            //alert("AJAX failed to get data, status=" + status);
             });
         };
 
@@ -99,6 +145,10 @@
             response.success(function (data) {
                 $scope.nota = data;
                 $scope.$apply();
+                $scope.alerts.push({type: 'success', msg: 'Nota encontrada!', show: true});
+                $timeout(function () {
+                    $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                }, 2000);                
 
                 console.log("[searchNota] # of items: " + data.length);
                 angular.forEach(data, function (element) {
@@ -107,8 +157,12 @@
 
             });
 
-            response.error(function (data, status, headers, config) {
-                //alert("AJAX failed to get data, status=" + status);
+        response.error(function (data, status, headers, config) {
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $timeout(function () {
+                $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+            }, 2000);
+            //alert("AJAX failed to get data, status=" + status);
             });
         };
 
@@ -139,21 +193,39 @@
                 var response = $http.put('/SisNota/rest/nota/' + numero, $scope.jsonObj);
                 response.success(function (data, status, headers, config) {
                     $scope.resetSearch();
-                    window.location = '/SisNota/nota.jsp';
+                $scope.alerts.push({type: 'success', msg: 'Nota atualizada!', show: true});
+                $timeout(function () {
+                    $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                    $scope.atualizaModals();
+                }, 2000);                    
+                    
                 });
 
-                response.error(function (data, status, headers, config) {
-                    //alert("AJAX failed to get data, status=" + status);
+        response.error(function (data, status, headers, config) {
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $timeout(function () {
+                $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+            }, 2000);
+            //alert("AJAX failed to get data, status=" + status);
                 });
             } else if ($scope.operation === "create") {                
                 var response = $http.post('/SisNota/rest/nota/add', $scope.jsonObj);
                 response.success(function (data, status, headers, config) {
-                    $scope.resetSearch();
-                    window.location = '/SisNota/nota.jsp';
+                    $scope.resetSearch();                    
+                $scope.alerts.push({type: 'success', msg: 'Nota incluida!', show: true});
+                $timeout(function () {
+                    $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                    $scope.atualizaModals();
+                }, 2000);                    
+                    
                 });
 
-                response.error(function (data, status, headers, config) {
-                    //alert("AJAX failed to get data, status=" + status);
+        response.error(function (data, status, headers, config) {
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $timeout(function () {
+                $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+            }, 2000);
+            //alert("AJAX failed to get data, status=" + status);
                 });
             }
         };
@@ -162,11 +234,19 @@
             var response = $http.delete('/SisNota/rest/nota/' + numero);
             response.success(function (data, status, headers, config) {
                 $scope.resetSearch();
-                window.location = '/SisNota/nota.jsp';
+                $scope.alerts.push({type: 'success', msg: 'Nota excluida!', show: true});
+                $scope.atualizaModals();
+                $timeout(function () {
+                    $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                }, 2000);                
             });
 
-            response.error(function (data, status, headers, config) {
-                //alert("AJAX failed to get data, status=" + status);
+        response.error(function (data, status, headers, config) {
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $timeout(function () {
+                $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+            }, 2000);
+            //alert("AJAX failed to get data, status=" + status);
             });
         };
 
@@ -188,10 +268,61 @@
                 console.log("[resetSearch] # of items: " + data.length);
             });
 
-            response.error(function (data, status, headers, config) {
-                //alert("AJAX failed to get data, status=" + status);
+        response.error(function (data, status, headers, config) {
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $timeout(function () {
+                $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+            }, 2000);
+            //alert("AJAX failed to get data, status=" + status);
             }, 100);
         };
+        
+//Gods Of Angular Forgive me...                
+        
+        $scope.atualizaModals = function () {
+        
+                var response = $http.get('/SisNota/rest/nota/');
+        response.success(function (data) {
+            $scope.notas = data;
+            console.log("[main] # of items: " + data.length);
+            angular.forEach(data, function (element) {
+                console.log("[main] nota: " + element.numero);
+            });
+        });
+        response.error(function (data, status, headers, config) {
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $timeout(function () {
+                $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+            }, 2000);
+            //alert("AJAX failed to get data, status=" + status);
+        });
+
+        var response = $http.get('/SisNota/rest/fornecedor/');
+        response.success(function (data) {
+            $scope.fornecedores = data;
+            console.log("[main] # of items: " + data.length);
+            angular.forEach(data, function (element) {
+                console.log("[main] fornecedor: " + element.razaoSocial);
+            });
+        });
+        response.error(function (data, status, headers, config) {
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $timeout(function () {
+                $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+            }, 2000);
+            //alert("AJAX failed to get data, status=" + status);
+        });
+        
+        
+        
+        
+        
+        };
+        
+        
+        
+        
+        
 
     });
 })();

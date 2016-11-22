@@ -1,5 +1,7 @@
 package vg.sisnota.resource;
 
+import br.com.caelum.stella.format.CNPJFormatter;
+import br.com.caelum.stella.format.Formatter;
 import vg.sisnota.datasource.SupplierDataSetImpl;
 import vg.sisnota.model.Supplier;
 import java.util.ArrayList;
@@ -30,6 +32,7 @@ public class SupplierResource {
     static Logger logger = Logger.getLogger(SupplierResource.class);
     static String xmlString = null;
     SupplierDataSetImpl supplierDataSet;
+    Formatter formatter = new CNPJFormatter();
 
     /**
      *
@@ -70,9 +73,12 @@ public class SupplierResource {
     @Path("{cnpj}")
     @GET
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public Supplier getSupplierByCnpj(@PathParam("cnpj") String cnpj) {
+    public Supplier getSupplierByCnpj(@PathParam("cnpj") String cnpj) {               
+        Formatter formatter = new CNPJFormatter();
         System.out.println("Get Supplier by CNPJ: " + cnpj);
-        Supplier supplier = supplierDataSet.getSupplierByCnpj(Long.valueOf(cnpj));
+        String formattedCNPJ = formatter.format(cnpj);
+        System.out.println("Get Supplier by CNPJ: " + formattedCNPJ);
+        Supplier supplier = supplierDataSet.getSupplierByCnpj(formattedCNPJ);
         return supplier;
     }
 
@@ -98,9 +104,12 @@ public class SupplierResource {
     @Path("{cnpj}")
     @DELETE
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public void deleteSupplierByCnpj(@PathParam("cnpj") String cnpj) {
-        System.out.println("Deleting supplier by CNPJ: " + cnpj);
-        supplierDataSet.removeSupplier(Long.valueOf(cnpj));
+    public void deleteSupplierByCnpj(@PathParam("cnpj") String cnpj) {        
+        System.out.println("Get Supplier by CNPJ: " + cnpj);
+        String formattedCNPJ = formatter.format(cnpj);
+        System.out.println("Get Supplier by CNPJ: " + formattedCNPJ);        
+        System.out.println("Deleting supplier by CNPJ: " + formattedCNPJ);
+        supplierDataSet.removeSupplierByCnpj(formattedCNPJ);
     }
 
     /**
@@ -114,8 +123,12 @@ public class SupplierResource {
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Supplier supplierPersist(Supplier supplier) {
         System.out.println("Adding supplier with cnpj: " + supplier.getCnpj());
-        if (supplier.getCnpj() != null) {
+        if (supplier.getCnpj() != null && formatter.isFormatted(supplier.getCnpj())) {
             System.out.println("Inside supplierPersist, returned: " + supplier.toString());
+            supplierDataSet.setSupplier(supplier);
+        } else if (supplier.getCnpj() != null) {
+            System.out.println("Inside supplierPersist, returned: " + supplier.toString());
+            supplier.setCnpj(formatter.format(supplier.getCnpj()));
             supplierDataSet.setSupplier(supplier);
         }
         return supplier;

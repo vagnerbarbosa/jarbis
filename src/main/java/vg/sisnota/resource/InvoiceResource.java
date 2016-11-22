@@ -80,10 +80,24 @@ public class InvoiceResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Invoice getInvoceByImei(@PathParam("imei") String imei) {
-        System.out.println("Geting Invoice by Imei: " + imei);
-        Invoice notaFiscal = invoiceDataSet.getInvoiceByImei(imei);
+        System.out.println("Geting Invoice by Imei/Id: " + imei);
+        Invoice notaFiscal = invoiceDataSet.getInvoiceByGenericSearch(imei);
         return notaFiscal;
     }
+    
+    /**
+     *
+     * @param id
+     * @return
+     */
+    @Path("registro/{registro : \\d+}")
+    @GET
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    public Invoice getInvoceById(@PathParam("registro") String id) {
+        System.out.println("Geting Invoice by Imei: " + id);
+        Invoice notaFiscal = invoiceDataSet.getInvoiceById(Integer.valueOf(id));
+        return notaFiscal;
+    }    
 
     /**
      *
@@ -95,7 +109,7 @@ public class InvoiceResource {
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Invoice updateInvoiceByNumber(Invoice invoice) {
-        System.out.println("Updating Invoce by number: " + invoice.getNumber());
+        System.out.println("Update invoced, returned: " + invoice.toString());
         invoiceDataSet.updateInvoice(invoice);
         return invoice;
     }

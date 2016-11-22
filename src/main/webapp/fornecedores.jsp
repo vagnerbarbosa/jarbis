@@ -18,6 +18,7 @@
         <meta charset="UTF-8">
 
         <script src="include/jquery.min.js"></script>
+        <script type="text/javascript" src="include/jquery.mask.min.js"></script>
         <script type="text/javascript">
             $(function() {
             $(window).scroll(function() {
@@ -45,7 +46,7 @@
 
             <form>
                 <table>
-                    <td><input type="text" ng-model="cnpj" size="30" placeholder="Buscar Fornecedor Por CNPJ"></td>   
+                    <td><input type="text" ng-model="cnpj" ngChange="/[^0-9]/" class="cnpj" size="30" placeholder="Buscar Fornecedor Por CNPJ"></td>   
                     <td><div class="controles-fornecedor">                                          
                             <button type="button" ng-click="getFornecedorPorCnpj(cnpj)" class="waves-effect light-blue btn-large" style="width: 32%; float: left; margin-right: 1%"><i class="material-icons left">search</i>Buscar</button>                                
                             <button ng-click="addNew()" class="waves-effect light-blue btn-large" style="width: 32%; float: left; margin-right: 1%"><i class="material-icons left">assignment_ind</i>Novo Fornecedor</button>
@@ -60,7 +61,7 @@
                         <td class="display_bold"><label for="cnpj">CNPJ</label></td>
                     </tr>
                     <tr>
-                        <td class="display"><input id="cnpj" type="number" ng-model="fornecedor.cnpj" pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})" required="true" ng-disabled="isSaveDisabled"></td>
+                        <td class="display"><input id="cnpj" type="text" ng-model="fornecedor.cnpj" class="cnpj" required="true" ng-disabled="isSaveDisabled" maxlength="18"></td>
                     </tr>
                     <tr>
                         <td class="display_bold"><label for="fantasia">Nome Fantasia:</label></td>
@@ -126,7 +127,7 @@
                     <div id="LeftPanelHeader" class="card-panel light-blue lighten-1"><a class="white-text" href="fornecedores.jsp">{{navTitleLeft}}</a></div>
                     <ul class="collection">
                         <li class="collection-item" ng-repeat="f in fornecedores" >
-                            {{f.companyName}} - CNPJ: {{f.cnpj}}
+                            {{f.companyName}} - CNPJ: <i class="cnpj">{{f.cnpj}}</i>
                         </li>
                     </ul>
                 </div>
@@ -148,5 +149,10 @@
                 </div>
             </footer>
         </div>
+        <script type="text/javascript">
+  $(function() {
+    $('.cnpj').mask('00.000.000/0000-00');
+  });
+        </script>        
     </body>
 </html>

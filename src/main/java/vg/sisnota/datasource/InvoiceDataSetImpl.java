@@ -58,16 +58,16 @@ public class InvoiceDataSetImpl implements InvoiceDataSet {
         MANAGER.getTransaction().commit();
         return invoice;
     }
-    
+
     /**
      *
      * @param imei
      * @return
      */
     @Override
-    public Invoice getInvoiceByImei(String imei) {        
+    public Invoice getInvoiceByImei(String imei) {
         MANAGER.getTransaction().begin();
-        String jpql = "SELECT notafiscal.id, notafiscal.dataEmissao, notafiscal.dataEntrada, notafiscal.cnpj_fornecedor, notafiscal.numero, fornecedor.cnpj, fornecedor.ie, fornecedor.uf, fornecedor.bairro, fornecedor.cidade, fornecedor.endereco, fornecedor.numero, fornecedor.razao_social, imei_por_nota.imei FROM imei_por_nota INNER JOIN notafiscal ON (notafiscal.id = imei_por_nota.invoice_id) INNER JOIN fornecedor ON (notafiscal.cnpj_fornecedor = fornecedor.cnpj) WHERE imei_por_nota.invoice_id = (SELECT notafiscal.id FROM notafiscal INNER JOIN imei_por_nota ON (notafiscal.id = imei_por_nota.invoice_id) WHERE imei_por_nota.imei iLike :imei)";
+        String jpql = "SELECT notafiscal.id, notafiscal.dataEmissao, notafiscal.dataEntrada, notafiscal.id_fornecedor, notafiscal.numero, fornecedor.cnpj, fornecedor.ie, fornecedor.uf, fornecedor.bairro, fornecedor.cidade, fornecedor.endereco, fornecedor.numero, fornecedor.razao_social, imei_por_nota.imei FROM imei_por_nota INNER JOIN notafiscal ON (notafiscal.id = imei_por_nota.invoice_id) INNER JOIN fornecedor ON (notafiscal.id_fornecedor = fornecedor.id) WHERE imei_por_nota.invoice_id = (SELECT notafiscal.id FROM notafiscal INNER JOIN imei_por_nota ON (notafiscal.id = imei_por_nota.invoice_id) WHERE imei_por_nota.imei iLike :imei)";
         List<Invoice> nfs = MANAGER.createNativeQuery(jpql, Invoice.class).setParameter("imei", imei).getResultList();
         MANAGER.getTransaction().commit();
         Invoice nf = new Invoice();
@@ -87,7 +87,7 @@ public class InvoiceDataSetImpl implements InvoiceDataSet {
     @Override
     public Invoice getInvoiceByNumber(Integer number) {
         MANAGER.getTransaction().begin();
-        String jpql = "SELECT notafiscal.id, notafiscal.dataEmissao, notafiscal.dataEntrada, notafiscal.cnpj_fornecedor, notafiscal.numero, fornecedor.cnpj, fornecedor.ie, fornecedor.uf, fornecedor.bairro, fornecedor.cidade, fornecedor.endereco, fornecedor.numero, fornecedor.razao_social, imei_por_nota.imei FROM imei_por_nota INNER JOIN notafiscal ON (notafiscal.id = imei_por_nota.invoice_id) INNER JOIN fornecedor ON (notafiscal.cnpj_fornecedor = fornecedor.cnpj) WHERE notafiscal.numero = :numero";
+        String jpql = "SELECT notafiscal.id, notafiscal.dataEmissao, notafiscal.dataEntrada, notafiscal.id_fornecedor, notafiscal.numero, fornecedor.cnpj, fornecedor.ie, fornecedor.uf, fornecedor.bairro, fornecedor.cidade, fornecedor.endereco, fornecedor.numero, fornecedor.razao_social, imei_por_nota.imei FROM imei_por_nota INNER JOIN notafiscal ON (notafiscal.id = imei_por_nota.invoice_id) INNER JOIN fornecedor ON (notafiscal.id_fornecedor = fornecedor.id) WHERE notafiscal.numero = :numero";
         List<Invoice> nfs = MANAGER.createNativeQuery(jpql, Invoice.class).setParameter("numero", number).getResultList();
         MANAGER.getTransaction().commit();
         Invoice nf = new Invoice();
@@ -102,14 +102,14 @@ public class InvoiceDataSetImpl implements InvoiceDataSet {
         nf.setImei(imeis);
         nf.setCnpjFornecedor(nfs.get(0).getCnpjFornecedor());
         return nf;
-    }    
+    }
 
     /**
      *
      * @return
      */
     @Override
-    public List<Invoice> getInvoices() {        
+    public List<Invoice> getInvoices() {
         MANAGER.getTransaction().begin();
         Query query = MANAGER.createQuery("SELECT u FROM Invoice u");
         MANAGER.getTransaction().commit();
@@ -126,6 +126,16 @@ public class InvoiceDataSetImpl implements InvoiceDataSet {
         MANAGER.getTransaction().begin();
         MANAGER.merge(invoice);
         MANAGER.getTransaction().commit();
+    }
+
+    public Invoice getInvoiceByGenericSearch(String search) {
+        Invoice invoice;
+        try {
+            invoice = this.getInvoiceById(Integer.valueOf(search));
+        } catch(NumberFormatException n) {
+            invoice = this.getInvoiceByImei(search);
+        }
+        return invoice;
     }
 
 }

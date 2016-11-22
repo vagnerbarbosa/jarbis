@@ -3,7 +3,7 @@
     var app = angular.module("app", []);
     var off;
 
-    app.controller("HttpCtrl", function ($scope, $http) {
+    app.controller("HttpCtrl", function ($scope, $http, $timeout) {
         var app = this;
         $scope.navTitleLeft = 'Fornecedores Cadastrados';
         $scope.navTitleRight = 'Notas Cadastradas';
@@ -11,6 +11,9 @@
         $scope.isSaveDisabled = true;
         $scope.isDeleteDisabled = true;
         $scope.off = 'disabled';
+
+
+        $scope.alerts = [];
 
         var response = $http.get('/SisNota/rest/nota/');
         response.success(function (data) {
@@ -21,9 +24,13 @@
             });
         });
         response.error(function (data, status, headers, config) {
-            alert("AJAX failed to get data, status=" + status);
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $timeout(function () {
+                $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+            }, 1000);
+            //alert("AJAX failed to get data, status=" + status);
         });
-        
+
         var response = $http.get('/SisNota/rest/fornecedor/');
         response.success(function (data) {
             $scope.fornecedores = data;
@@ -33,11 +40,21 @@
             });
         });
         response.error(function (data, status, headers, config) {
-            alert("AJAX failed to get data, status=" + status);
-        });       
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $timeout(function () {
+                $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+            }, 1000);
+            //alert("AJAX failed to get data, status=" + status);
+        });
 
         $scope.getFornecedorPorCnpj = function (cnpj) {
-            var response = $http.get('/SisNota/rest/fornecedor/' + cnpj);
+            var unformattedCnpj = cnpj.replace('.', '');
+            unformattedCnpj = unformattedCnpj.replace('.', '');
+            unformattedCnpj = unformattedCnpj.replace('/', '');
+            unformattedCnpj = unformattedCnpj.replace('-', '');
+
+            //var response = $http.get('/SisNota/rest/fornecedor/' + unformattedCnpj);
+            var response = $http.get('/SisNota/rest/fornecedor/' + unformattedCnpj);
 
             response.success(function (data) {
                 $scope.fornecedor = data;
@@ -45,11 +62,25 @@
                 $scope.isSaveDisabled = false;
                 $scope.isDeleteDisabled = false;
                 $scope.off = '';
+                $scope.alerts.push({type: 'success', msg: 'Fornecedor encontrado!', show: true});
+                $timeout(function () {
+                    $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                }, 1000);
+
             });
 
             response.error(function (data, status, headers, config) {
-                alert("AJAX failed to get data, status=" + status);
+                $scope.alerts.push({type: 'danger', msg: 'Fornecedor nao encontrado!', show: true});
+                $timeout(function () {
+                    $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                }, 1000); // maybe '}, 3000, false);' to avoid calling apply
+                //alert("AJAX failed to get data, status=" + status);
             });
+        };
+
+        $scope.closeAlert = function (index) {
+            $scope.alerts.splice(index, 1);
+
         };
 
         $scope.searchFornecedor = function (cnpj) {
@@ -61,6 +92,10 @@
             response.success(function (data) {
                 $scope.fornecedor = data;
                 $scope.$apply();
+                $scope.alerts.push({type: 'success', msg: 'Fornecedor encontrado!', show: true});
+                $timeout(function () {
+                    $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                }, 1000);
 
                 console.log("[searchFornecedor] # of items: " + data.length);
                 angular.forEach(data, function (element) {
@@ -70,7 +105,11 @@
             });
 
             response.error(function (data, status, headers, config) {
-                alert("AJAX failed to get data, status=" + status);
+                $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+                $timeout(function () {
+                    $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                }, 1000);
+                //alert("AJAX failed to get data, status=" + status);
             });
         };
 
@@ -104,36 +143,64 @@
                 var response = $http.put('/SisNota/rest/fornecedor/' + cnpj, $scope.jsonObj);
                 response.success(function (data, status, headers, config) {
                     $scope.resetSearch();
-                     window.location = '/SisNota/fornecedores.jsp';
+                    $scope.alerts.push({type: 'success', msg: 'Fornecedor atualizado!', show: true});
+                    $timeout(function () {
+                        $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                        $scope.atualizaModals();
+                    }, 1000);
                 });
 
                 response.error(function (data, status, headers, config) {
-                    alert("AJAX failed to get data, status=" + status);
+                    $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+                    $timeout(function () {
+                        $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                    }, 1000);
+                    //alert("AJAX failed to get data, status=" + status);
                 });
             } else if ($scope.operation === "create") {
                 var response = $http.post('/SisNota/rest/fornecedor/add', $scope.jsonObj);
                 response.success(function (data, status, headers, config) {
                     $scope.resetSearch();
-                    window.location = '/SisNota/fornecedores.jsp';
+                    $scope.alerts.push({type: 'success', msg: 'Fornecedor incluido!', show: true});
+                    $timeout(function () {
+                        $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                        $scope.atualizaModals();
+                    }, 1000);
                 });
 
                 response.error(function (data, status, headers, config) {
-                    alert("AJAX failed to get data, status=" + status);
+                    $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+                    $timeout(function () {
+                        $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                    }, 1000);
+                    //alert("AJAX failed to get data, status=" + status);
                 });
             }
         };
 
         $scope.deleteFornecedor = function (cnpj) {
-            var response = $http.delete('/SisNota/rest/fornecedor/' + cnpj);
+            var unformattedCnpj = cnpj.replace('.', '');
+            unformattedCnpj = unformattedCnpj.replace('.', '');
+            unformattedCnpj = unformattedCnpj.replace('/', '');
+            unformattedCnpj = unformattedCnpj.replace('-', '');
+            var response = $http.delete('/SisNota/rest/fornecedor/' + unformattedCnpj);
             response.success(function (data, status, headers, config) {
                 $scope.resetSearch();
-                window.location = '/SisNota/fornecedores.jsp';
+                $scope.alerts.push({type: 'success', msg: 'Fornecedor excluido!', show: true});
+                $timeout(function () {
+                    $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                    $scope.atualizaModals();
+                }, 1000);
             });
 
             response.error(function (data, status, headers, config) {
-                alert("AJAX failed to get data, status=" + status);
+                $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+                $timeout(function () {
+                    $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                }, 1000);
+                //alert("AJAX failed to get data, status=" + status);
             });
-        };       
+        };
 
         $scope.resetSearch = function (name) {
             var app = this;
@@ -155,11 +222,62 @@
             });
 
             response.error(function (data, status, headers, config) {
-                alert("AJAX failed to get data, status=" + status);
+                $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+                $timeout(function () {
+                    $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                }, 1000);
+                //alert("AJAX failed to get data, status=" + status);
             });
-        };        
+        };
+        
+        
+//Gods Of Angular Forgive me...        
+        
+        $scope.atualizaModals = function () {
+        
+                var response = $http.get('/SisNota/rest/nota/');
+        response.success(function (data) {
+            $scope.notas = data;
+            console.log("[main] # of items: " + data.length);
+            angular.forEach(data, function (element) {
+                console.log("[main] nota: " + element.numero);
+            });
+        });
+        response.error(function (data, status, headers, config) {
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $timeout(function () {
+                $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+            }, 1000);
+            //alert("AJAX failed to get data, status=" + status);
+        });
 
-    }            
-            
-            );
+        var response = $http.get('/SisNota/rest/fornecedor/');
+        response.success(function (data) {
+            $scope.fornecedores = data;
+            console.log("[main] # of items: " + data.length);
+            angular.forEach(data, function (element) {
+                console.log("[main] fornecedor: " + element.razaoSocial);
+            });
+        });
+        response.error(function (data, status, headers, config) {
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $timeout(function () {
+                $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+            }, 1000);
+            //alert("AJAX failed to get data, status=" + status);
+        });
+        
+        
+        
+        
+        
+        };        
+        
+        
+        
+        
+
+    }
+
+    );
 })();
