@@ -85,9 +85,9 @@
                     </tr>
                     <tr>
                         <td class="display">
-                            <input type="text" ng-model="nota.cnpjFornecedor.id" list="fornecedores" name="fornecedor" ng-disabled="isSaveDisabled" class="input-field col s12">
+                            <input type="text" ng-model="nota.cnpjFornecedor.id" value="{{fornecedor.cnpj}} {{fornecedor.companyName}}" list="fornecedores" name="fornecedor" ng-disabled="isSaveDisabled" class="input-field col s12">
                         <datalist id="fornecedores">
-                                <option ng-repeat="fornecedor in fornecedores" value="{{fornecedor.id}}">{{fornecedor.cnpj}} {{fornecedor.companyName}}</option>
+                                <option ng-repeat="fornecedor in fornecedores" value="{{fornecedor.id}}" >{{fornecedor.cnpj}} {{fornecedor.companyName}}</option>
                         </td>                                  
                         </datalist>
                         </select>                                                

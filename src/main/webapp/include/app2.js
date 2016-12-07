@@ -68,7 +68,7 @@
             });
 
         response.error(function (data, status, headers, config) {
-            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $scope.alerts.push({type: 'danger', msg: 'Nota nao encontrada!', show: true});
             $timeout(function () {
                 $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
             }, 2000);
@@ -99,7 +99,7 @@
             });
 
         response.error(function (data, status, headers, config) {
-            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $scope.alerts.push({type: 'danger', msg: 'Nota nao encontrada!', show: true});
             $timeout(function () {
                 $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
             }, 2000);
