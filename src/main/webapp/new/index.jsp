@@ -122,7 +122,7 @@
                 <!--First row-->
                 <div class="row">
                     <!--First column-->
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <!--Card-->
                         <div class="card">
 
@@ -138,7 +138,7 @@
                             <!--Card content-->
                             <div class="card-block">
                                 <!--Title-->
-                                <h4 class="card-title">Manutenção de Fornecedores</h4>
+                                <h4 class="card-title">Manutenção Fornecedores</h4>
                                 <!--Text-->
                                 <p class="card-text">Inclusão, exclusão, edição e consulta avançada de Fornecedores.</p>
                             </div>
@@ -150,7 +150,7 @@
                     <!--/.First column-->
 
                     <!--Second column-->
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <!--Card-->
                         <div class="card">
 
@@ -166,7 +166,7 @@
                             <!--Card content-->
                             <div class="card-block">
                                 <!--Title-->
-                                <h4 class="card-title">Manutenção de Notas Fiscais</h4>
+                                <h4 class="card-title">Manutenção Notas Fiscais</h4>
                                 <!--Text-->
                                 <p class="card-text">Inclusão, exclusão, edição e consulta avançada de Notas Fiscais.</p>
                             </div>
@@ -176,6 +176,33 @@
                         <!--/.Card-->
                     </div>
                     <!--/.Second column-->
+                    
+                    <div class="col-md-4">
+                        <!--Card-->
+                        <div class="card">
+
+                            <!--Card image-->
+                            <div class="view overlay hm-white-slight">
+                                <img src="img/old.jpg" class="img-fluid" alt="Consulta as últimas entradas das Notas Fiscais do antigo sistema.">
+                                <a href="nota-superloja.jsp">
+                                    <div class="mask"></div>
+                                </a>
+                            </div>
+                            <!--/.Card image-->
+
+                            <!--Card content-->
+                            <div class="card-block">
+                                <!--Title-->
+                                <h4 class="card-title">Últimas Entradas</h4>
+                                <!--Text-->
+                                <p class="card-text">Consulta as últimas entradas das Notas Fiscais do antigo sistema.</p>
+                            </div>
+                            <!--/.Card content-->
+
+                        </div>
+                        <!--/.Card-->
+                    </div>
+                    <!--/.Second column-->                    
                 </div>
                 <!--/.First row-->
 

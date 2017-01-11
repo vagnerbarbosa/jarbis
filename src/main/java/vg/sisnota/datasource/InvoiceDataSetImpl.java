@@ -31,6 +31,8 @@ public class InvoiceDataSetImpl implements InvoiceDataSet {
     @Override
     public void setInvoice(Invoice invoice) {
         MANAGER.getTransaction().begin();
+        MANAGER.flush();
+        MANAGER.clear();
         MANAGER.persist(invoice);
         MANAGER.getTransaction().commit();
     }

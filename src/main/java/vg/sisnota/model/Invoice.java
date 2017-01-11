@@ -1,7 +1,7 @@
 package vg.sisnota.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.Serializable;
 import java.util.Date;
@@ -21,6 +21,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 /**
  * Classe para os objetos do tipo Invoice, onde serão contidos os métodos
@@ -37,7 +38,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "notafiscal")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonSerialize
-@SequenceGenerator(name = "seq_gen", sequenceName = "nota_seq", initialValue = 1, allocationSize = 20)
+@SequenceGenerator(name = "seq_gen", sequenceName = "nota_seq", initialValue = 548, allocationSize = 1)
 public class Invoice implements Serializable {
 
     @Id

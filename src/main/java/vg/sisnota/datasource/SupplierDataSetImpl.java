@@ -30,6 +30,8 @@ public class SupplierDataSetImpl implements SupplierDataSet {
     @Override
     public void setSupplier(Supplier supplier) {        
         MANAGER.getTransaction().begin();
+        MANAGER.flush();
+        MANAGER.clear();
         MANAGER.persist(supplier);
         MANAGER.getTransaction().commit();
     }
