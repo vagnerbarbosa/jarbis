@@ -1,7 +1,6 @@
 (function () {
 
     var app = angular.module("app", []);
-    var off;
 
     app.controller("HttpCtrl", function ($scope, $http, $timeout) {
         var app = this;

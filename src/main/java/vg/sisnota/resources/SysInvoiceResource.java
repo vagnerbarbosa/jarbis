@@ -9,13 +9,12 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import org.apache.log4j.Logger;
-import vg.sisnote.datasource.jdbc.ConnectionException;
-import vg.sisnote.datasource.jdbc.SysInvoiceDataSetImpl;
+import vg.sisnota.datasource.jdbc.ConnectionException;
+import vg.sisnota.datasource.jdbc.SysInvoiceDataSetImpl;
 import vg.sisnota.models.SysInvoice;
 
 /**
- * Classe de recurso para objetos do tipo Invoice.
+ * Classe de recurso para objetos do tipo SysInvoice.
  *
  * @author Vagner Barbosa (contato@vagnerbarbosa.com)
  *
@@ -27,14 +26,13 @@ import vg.sisnota.models.SysInvoice;
 public class SysInvoiceResource {
 
     static final String API_VERSION = "1.01A rev.18729";
-    static Logger logger = Logger.getLogger(SupplierResource.class);
     static String xmlString = null;
     SysInvoiceDataSetImpl sysInvoiceDataSetImpl;
     ObjectMapper mapper = new ObjectMapper();
 
     /**
      *
-     * @throws vg.sisnote.datasource.jdbc.ConnectionException
+     * @throws vg.sisnota.datasource.jdbc.ConnectionException
      */
     public SysInvoiceResource() throws ConnectionException {
         mapper.enable(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT);

@@ -1,4 +1,4 @@
-package vg.sisnote.datasource.jdbc;
+package vg.sisnota.datasource.jdbc;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -1,4 +1,4 @@
-package vg.sisnote.datasource.resourcelocal;
+package vg.sisnota.datasource.resourcelocal;
 
 import vg.sisnota.models.Invoice;
 import java.util.List;

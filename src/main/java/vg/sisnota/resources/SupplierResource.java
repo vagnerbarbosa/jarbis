@@ -2,7 +2,7 @@ package vg.sisnota.resources;
 
 import br.com.caelum.stella.format.CNPJFormatter;
 import br.com.caelum.stella.format.Formatter;
-import vg.sisnote.datasource.resourcelocal.SupplierDataSetImpl;
+import vg.sisnota.datasource.resourcelocal.SupplierDataSetImpl;
 import vg.sisnota.models.Supplier;
 import java.util.ArrayList;
 import javax.ws.rs.Consumes;
@@ -14,7 +14,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import org.apache.log4j.Logger;
 
 /**
  * Classe de recurso para objetos do tipo Supplier.
@@ -29,7 +28,6 @@ import org.apache.log4j.Logger;
 public class SupplierResource {
 
     static final String API_VERSION = "1.01A rev.18729";
-    static Logger logger = Logger.getLogger(SupplierResource.class);
     static String xmlString = null;
     SupplierDataSetImpl supplierDataSet;
     Formatter formatter = new CNPJFormatter();
