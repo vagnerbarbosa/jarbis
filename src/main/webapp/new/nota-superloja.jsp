@@ -9,22 +9,9 @@
 
         <title>J.A.R.V.I.S.</title>
 
-        <script type="text/javascript" src="../js/materialize.js"></script>
-        <script type="text/javascript" src="../include/angular.min.js"></script>
-        <script type="text/javascript" src="../include/app3.js"></script>
-        <script type="text/javascript" src="../include/ui-bootstrap-tpls-0.6.0.js"></script>
-
-
-        <!-- Font Awesome -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-
-        <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Material Design Bootstrap -->
         <link href="css/mdb.min.css" rel="stylesheet">
-
-        <!-- Template styles -->
         <style rel="stylesheet">
             /* TEMPLATE STYLES */
 
@@ -224,23 +211,16 @@
             <!--/.Copyright-->
         </footer>
         <!--/.Footer-->
-
-        <!-- SCRIPTS -->
-
-        <!-- JQuery -->
+        
+        <script type="text/javascript" src="../js/materialize.js"></script>
+        <script type="text/javascript" src="../include/angular.min.js"></script>
+        <script type="text/javascript" src="../include/app3.js"></script>
+        <script type="text/javascript" src="../include/ui-bootstrap-tpls-0.6.0.js"></script>        
         <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
-
-        <!-- Bootstrap tooltips -->
         <script type="text/javascript" src="js/tether.min.js"></script>
-
-        <!-- Bootstrap core JavaScript -->
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-        <!-- MDB core JavaScript -->
         <script type="text/javascript" src="js/mdb.min.js"></script>
-
         <script type="text/javascript" src="../js/custom.js"></script>
-
 
         <!-- Modal Fornecedores -->
         <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

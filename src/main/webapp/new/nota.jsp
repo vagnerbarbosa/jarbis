@@ -9,39 +9,9 @@
 
         <title>J.A.R.V.I.S.</title>
 
-        <!---  
-        
-        <link href="../include/styles.css" rel="stylesheet">
-    
-            <script type="text/javascript" src="../include/angular.min.js"></script>
-            <script type="text/javascript" src="../include/app.js"></script>
-    
-           
-            <link href="../fonts/icon.css" rel="stylesheet">
-           
-            <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
-        
-        -->
-
-        <script type="text/javascript" src="../js/materialize.js"></script>
-        <script type="text/javascript" src="../include/angular.min.js"></script>
-        <script type="text/javascript" src="../include/app2.js"></script>
-        <script type="text/javascript" src="../include/ui-bootstrap-tpls-0.6.0.js"></script>
-
-
-        <!-- Font Awesome -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-
-        <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Material Design Bootstrap -->
         <link href="css/mdb.min.css" rel="stylesheet">
-        
-        <link href="css/style.css" rel="stylesheet">
-
-
-        <!-- Template styles -->
         <style rel="stylesheet">
             /* TEMPLATE STYLES */
 
@@ -95,7 +65,7 @@
                             </li>
                         </ul>
                      <form class="form-inline">
-                        <input class="cnpj form-control" type="text" ng-model="imei" size="30" placeholder="Busca por registros ou IMEI(s)">
+                        <input class="imei form-control" type="text" ng-model="imei" size="30" placeholder="Busca por registros ou IMEI(s)">
                         <button type="button" ng-click="getNotaPorImei(imei)" class="btn btn-primary btn-rounded btn-sm" >Buscar</button>
                     </form>
 
@@ -147,9 +117,9 @@
                     <div class="control-table">
                        
                         <div class="fornecedor-controle">
-                            <button ng-click="addNew()" class="btn btn-primary" style="width: 30%; display: inline; margin-right: 0.0%">Incluir</button>                                                                               
-                            <button type="button" ng-click="saveNota(nota)" class="btn btn-success {{off}}" style="width: 30%; display: inline; margin-right: 0.0%" ng-disabled="isSaveDisabled">Salvar</button>                                   
-                            <button type="button" ng-click="deleteNota(nota.id)" class="btn btn-danger {{off}}" style="width: 30%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled">Excluir</button>                                     	                                  
+                            <button ng-click="addNew()" class="btn btn-primary" style="width: 32%; display: inline; margin-right: 0.0%">Incluir</button>                                                                               
+                            <button type="button" ng-click="saveNota(nota)" class="btn btn-success {{off}}" style="width: 32%; display: inline; margin-right: 0.0%" ng-disabled="isSaveDisabled">Salvar</button>                                   
+                            <button type="button" ng-click="deleteNota(nota.id)" class="btn btn-danger {{off}}" style="width: 32%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled">Excluir</button>                                     	                                  
                         </div>
                         
                     </div>
@@ -248,20 +218,15 @@
 
         <!-- SCRIPTS -->
 
-        <!-- JQuery -->
+        <script type="text/javascript" src="../js/materialize.js"></script>
+        <script type="text/javascript" src="../include/angular.min.js"></script>
+        <script type="text/javascript" src="../include/app2.js"></script>
+        <script type="text/javascript" src="../include/ui-bootstrap-tpls-0.6.0.js"></script>        
         <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
-
-        <!-- Bootstrap tooltips -->
         <script type="text/javascript" src="js/tether.min.js"></script>
-
-        <!-- Bootstrap core JavaScript -->
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-        <!-- MDB core JavaScript -->
         <script type="text/javascript" src="js/mdb.min.js"></script>
-
         <script type="text/javascript" src="../js/custom.js"></script>
-
 
         <!-- Modal Fornecedores -->
         <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

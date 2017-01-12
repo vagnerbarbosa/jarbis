@@ -9,40 +9,9 @@
 
         <title>J.A.R.V.I.S.</title>
 
-        <!---  
-        
-        <link href="../include/styles.css" rel="stylesheet">
-    
-            <script type="text/javascript" src="../include/angular.min.js"></script>
-            <script type="text/javascript" src="../include/app.js"></script>
-    
-           
-            <link href="../fonts/icon.css" rel="stylesheet">
-           
-            <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
-        
-        -->
-
-        <script type="text/javascript" src="../js/materialize.js"></script>
-        <script type="text/javascript" src="../include/angular.min.js"></script>
-        <script type="text/javascript" src="../include/app.js"></script>
-        <script type="text/javascript" src="../include/ui-bootstrap-tpls-0.6.0.js"></script>
-        
-
-
-        <!-- Font Awesome -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-
-        <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Material Design Bootstrap -->
         <link href="css/mdb.min.css" rel="stylesheet">
-
-        <link href="css/style.css" rel="stylesheet">
-
-
-        <!-- Template styles -->
         <style rel="stylesheet">
             /* TEMPLATE STYLES */
 
@@ -79,7 +48,7 @@
                     <!--Collapse content-->
                     <div class="collapse navbar-toggleable-xs" id="collapseEx">
                         <!--Navbar Brand-->
-                        <a class="navbar-brand" href="http://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">LRP</a>
+                        <a class="navbar-brand" hhref="./" target="_blank">LRP</a>
                         <!--Links-->
                         <ul class="nav navbar-nav">
                             <li class="nav-item active">
@@ -157,9 +126,9 @@
                     <div class="control-table">
 
                         <div class="fornecedor-controle">                            
-                            <button ng-click="addNew()" class="btn btn-primary" style="width: 30%; display: inline; margin-right: 0.0%">Incluir</button>                                                                               
-                            <button type="button" ng-click="saveFornecedor(fornecedor)" class="btn btn-success {{off}}" style="width: 30%; display: inline; margin-right: 0.0%; text-align: center;" ng-disabled="isSaveDisabled">Salvar</button>                                   
-                            <button type="button" ng-click="deleteFornecedor(fornecedor.cnpj)" class="btn btn-danger {{off}}" style="width: 30%; display: inline; text-align: center;" ng-disabled="isDeleteDisabled">Excluir</button>                                     	                                  
+                            <button ng-click="addNew()" class="btn btn-primary" style="width: 32%; display: inline; margin-right: 0.0%">Incluir</button>                                                                               
+                            <button type="button" ng-click="saveFornecedor(fornecedor)" class="btn btn-success {{off}}" style="width: 32%; display: inline; margin-right: 0.0%" ng-disabled="isSaveDisabled">Salvar</button>                                   
+                            <button type="button" ng-click="deleteFornecedor(fornecedor.cnpj)" class="btn btn-danger {{off}}" style="width: 32%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled">Excluir</button>                                     	                                  
                         </div>
 
                     </div>
@@ -256,22 +225,15 @@
         </footer>
         <!--/.Footer-->
 
-        <!-- SCRIPTS -->
-
-        <!-- JQuery -->
+        <script type="text/javascript" src="../js/materialize.js"></script>
+        <script type="text/javascript" src="../include/angular.min.js"></script>
+        <script type="text/javascript" src="../include/app.js"></script>
+        <script type="text/javascript" src="../include/ui-bootstrap-tpls-0.6.0.js"></script>        
         <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
-
-        <!-- Bootstrap tooltips -->
         <script type="text/javascript" src="js/tether.min.js"></script>
-
-        <!-- Bootstrap core JavaScript -->
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-        <!-- MDB core JavaScript -->
         <script type="text/javascript" src="js/mdb.min.js"></script>
-
         <script type="text/javascript" src="../js/custom.js"></script>
-
 
         <!-- Modal Fornecedores -->
         <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
