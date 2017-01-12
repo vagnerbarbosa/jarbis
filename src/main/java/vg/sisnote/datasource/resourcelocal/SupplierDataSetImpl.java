@@ -1,6 +1,6 @@
-package vg.sisnota.datasource;
+package vg.sisnote.datasource.resourcelocal;
 
-import vg.sisnota.model.Supplier;
+import vg.sisnota.models.Supplier;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;

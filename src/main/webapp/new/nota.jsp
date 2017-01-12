@@ -67,7 +67,7 @@
 
         <header>
             <!--Navbar-->
-            <nav class="navbar navbar-dark light-blue">
+            <nav class="navbar navbar-dark bg-primary">
                 <!-- Collapse button-->
                 <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx">
                     <i class="fa fa-bars"></i>
@@ -95,8 +95,10 @@
                             </li>
                         </ul>
                      <form class="form-inline">
-                        <input class="form-control" type="text" ng-model="imei" size="30" placeholder="Busca por registro ou IMEI">
+                        <input class="cnpj form-control" type="text" ng-model="imei" size="30" placeholder="Busca por registros ou IMEI(s)">
+                        <button type="button" ng-click="getNotaPorImei(imei)" class="btn btn-primary btn-rounded btn-sm" >Buscar</button>
                     </form>
+
                     </div>
                     <!--/.Collapse content-->
 
@@ -145,10 +147,9 @@
                     <div class="control-table">
                        
                         <div class="fornecedor-controle">
-                            <button type="button" ng-click="getNotaPorImei(imei)" class="btn btn-primary" style="width: 23.5%; float: left; margin-right: 0.0%; margin-left: -3.5%;"><span class="glyphicon glyphicon-floppy-disk"></span>Buscar</button>                                
-                            <button ng-click="addNew()" class="btn btn-primary" style="width: 23.5%; float: left; margin-right: 0.0%">Incluir</button>                                                                               
-                            <button type="button" ng-click="saveNota(nota)" class="btn btn-success {{off}}" style="width: 23.5%; float: left; margin-right: 0.0%; text-align: center;" ng-disabled="isSaveDisabled">Salvar</button>                                   
-                            <button type="button" ng-click="deleteNota(nota.id)" class="btn btn-danger {{off}}" style="width: 23.5%; float: left;" ng-disabled="isDeleteDisabled">Excluir</button>                                     	                                  
+                            <button ng-click="addNew()" class="btn btn-primary" style="width: 30%; display: inline; margin-right: 0.0%">Incluir</button>                                                                               
+                            <button type="button" ng-click="saveNota(nota)" class="btn btn-success {{off}}" style="width: 30%; display: inline; margin-right: 0.0%" ng-disabled="isSaveDisabled">Salvar</button>                                   
+                            <button type="button" ng-click="deleteNota(nota.id)" class="btn btn-danger {{off}}" style="width: 30%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled">Excluir</button>                                     	                                  
                         </div>
                         
                     </div>
@@ -159,7 +160,7 @@
         </main>
 
         <!--Footer-->
-        <footer class="page-footer center-on-small-only light-blue">
+        <footer class="page-footer center-on-small-only navbar-dark bg-primary">
             <!--Footer links-->
             <div class="container-fluid">
                 <div class="row">

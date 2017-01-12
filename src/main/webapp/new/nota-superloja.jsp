@@ -50,7 +50,7 @@
 
         <header>
             <!--Navbar-->
-            <nav class="navbar navbar-dark light-blue">
+            <nav class="navbar navbar-dark bg-primary">
                 <!-- Collapse button-->
                 <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx">
                     <i class="fa fa-bars"></i>
@@ -78,8 +78,10 @@
                             </li>
                         </ul>
                      <form class="form-inline">
-                        <input class="form-control" type="text" ng-model="code" size="30" placeholder="Busca por código do produto">
-                    </form>                        
+                        <input class="form-control" type="text" ng-model="code" size="30" placeholder="Busca por código do produto" >
+                        <button type="button" ng-click="getNotaPorCodigo(code)" class="btn btn-primary btn-rounded btn-sm" >Buscar</button>
+                    </form>
+                        
                     </div>
                     <!--/.Collapse content-->
 
@@ -91,11 +93,12 @@
         
         <div style="float: top; position: relative; width: 100%; z-index: 10;">
         <alert class="alert" style="left: 50%; position: absolute; transform: translateX(-50%);" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"  close="closeAlert()" ><strong>{{alert.msg}}</strong></alert>
-        </div>        
-
+        </div>
+        
+        <img style="float: top; width: 100%; padding-bottom: 0.1%; opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */" src="img/oldbg.jpg" alt="Notas Fiscais"/>
         <main>
             <!--Main layout-->
-            <div class="fill" style="font-size: 80%;">               
+            <div class="container" style="font-size: 80%; width: 90%;">               
 
                 <table class="table table-sm">
                     <thead>
@@ -113,7 +116,7 @@
                     <tbody ng-repeat="s in notas">
                         <tr>
                             <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.codigoCompra}}</td>
-                            <td class="text-lg-center" style="color: red; font-weight: bold;">{{s.dataEntrada}}</td>
+                            <td class="text-lg-center" style="color: red; font-weight: bold;">{{s.dataEntrada | date:"dd/MM/yyyy"}}</td>
                             <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.chaveNotaFiscal}}</td>
                             <td class="text-lg-center" style="color: red; font-weight: bold;">{{s.numeroNotaFiscal}}</td>
                             <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.codigoProduto}}</td>
@@ -121,25 +124,22 @@
                             <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.nomeFornecedor}}</td>
                         </tr>  
                     </tbody>
-                </table>     
-                           
-                    
-
+                </table>  
                     <div class="control-table">
                        
-                        <div class="notas-controle">
-                            <button type="button" ng-click="getNotaPorCodigo(code)" class="btn btn-primary" style="width: 23.5%; float: left; margin-right: 0.0%; margin-left: 50%; margin-right: 50%;"><span class="glyphicon glyphicon-floppy-disk"></span>Buscar</button>                                
+                        <div class="fornecedor-controle">
+                            <button ng-click="addNew()" class="btn btn-primary" style="width: 32%; display: inline; margin-right: 0.0%" ng-disabled="isAddDisabled">Incluir</button>                                                                               
+                            <button type="button" ng-click="saveNota(nota)" class="btn btn-success {{off}}" style="width: 32%; display: inline; margin-right: 0.0%" ng-disabled="isSaveDisabled">Salvar</button>                                   
+                            <button type="button" ng-click="deleteNota(nota.id)" class="btn btn-danger {{off}}" style="width: 32%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled">Excluir</button>                                     	                                  
                         </div>
                         
-                    </div>
-                              
-
+                    </div>                
             </div>
             <!--/.Main layout-->
         </main>
 
         <!--Footer-->
-        <footer class="page-footer center-on-small-only light-blue">
+        <footer class="page-footer center-on-small-only navbar-dark bg-primary">
             <!--Footer links-->
             <div class="container-fluid">
                 <div class="row">

@@ -1,4 +1,4 @@
-package vg.sisnota.model;
+package vg.sisnota.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

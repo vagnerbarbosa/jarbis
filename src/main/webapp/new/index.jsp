@@ -64,7 +64,7 @@
 
         <header>
             <!--Navbar-->
-            <nav class="navbar navbar-dark light-blue">
+            <nav class="navbar navbar-dark bg-primary">
                 <!-- Collapse button-->
                 <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx">
                     <i class="fa fa-bars"></i>
@@ -211,7 +211,7 @@
         </main>
 
         <!--Footer-->
-        <footer class="page-footer center-on-small-only light-blue">
+        <footer class="page-footer center-on-small-only navbar-dark bg-primary">
             <!--Footer links-->
             <div class="container-fluid">
                 <div class="row">

@@ -1,9 +1,9 @@
-package vg.sisnota.resource;
+package vg.sisnota.resources;
 
 import br.com.caelum.stella.format.CNPJFormatter;
 import br.com.caelum.stella.format.Formatter;
-import vg.sisnota.datasource.SupplierDataSetImpl;
-import vg.sisnota.model.Supplier;
+import vg.sisnote.datasource.resourcelocal.SupplierDataSetImpl;
+import vg.sisnota.models.Supplier;
 import java.util.ArrayList;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;

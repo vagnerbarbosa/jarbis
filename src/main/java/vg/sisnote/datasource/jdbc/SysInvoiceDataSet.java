@@ -1,8 +1,8 @@
-package vg.sisnota.datasource;
+package vg.sisnote.datasource.jdbc;
 
 import java.sql.SQLException;
 import java.util.List;
-import vg.sisnota.model.SysInvoice;
+import vg.sisnota.models.SysInvoice;
 
 /**
  * Interface SysInvoiceDataSet.

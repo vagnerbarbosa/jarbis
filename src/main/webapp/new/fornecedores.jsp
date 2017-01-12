@@ -68,7 +68,7 @@
 
         <header>
             <!--Navbar-->
-            <nav class="navbar navbar-dark light-blue">
+            <nav class="navbar navbar-dark bg-primary">
                 <!-- Collapse button-->
                 <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx">
                     <i class="fa fa-bars"></i>
@@ -95,9 +95,11 @@
                                 <a class="nav-link" data-toggle="modal" data-target="#myModal3" href="#myModal3">Sobre</a>
                             </li>
                         </ul>
-                        <form class="form-inline">
-                            <input class="cnpj form-control" type="text" ng-model="cnpj" ngChange="/[^0-9]/" size="30" placeholder="Busca por CNPJ">
-                        </form>                        
+                     <form class="form-inline">
+                        <input class="cnpj form-control" type="text" ng-model="cnpj" ngChange="/[^0-9]/" size="30" placeholder="Busca por CNPJ">
+                        <button type="button" ng-click="getFornecedorPorCnpj(cnpj)" class="btn btn-primary btn-rounded btn-sm" >Buscar</button>
+                    </form>
+                        
                     </div>
                     <!--/.Collapse content-->
 
@@ -155,10 +157,9 @@
                     <div class="control-table">
 
                         <div class="fornecedor-controle">                            
-                            <button type="button" ng-click="getFornecedorPorCnpj(cnpj)" class="btn btn-primary" style="width: 23.5%; float: left; margin-right: 0.0%; margin-left: -3.5%;"><span class="glyphicon glyphicon-floppy-disk"></span>Buscar</button>                                
-                            <button ng-click="addNew()" class="btn btn-primary" style="width: 23.5%; float: left; margin-right: 0.0%">Incluir</button>                                                                               
-                            <button type="button" ng-click="saveFornecedor(fornecedor)" class="btn btn-success {{off}}" style="width: 23.5%; float: left; margin-right: 0.0%; text-align: center;" ng-disabled="isSaveDisabled">Salvar</button>                                   
-                            <button type="button" ng-click="deleteFornecedor(fornecedor.cnpj)" class="btn btn-danger {{off}}" style="width: 23.5%; float: left;" ng-disabled="isDeleteDisabled">Excluir</button>                                     	                                  
+                            <button ng-click="addNew()" class="btn btn-primary" style="width: 30%; display: inline; margin-right: 0.0%">Incluir</button>                                                                               
+                            <button type="button" ng-click="saveFornecedor(fornecedor)" class="btn btn-success {{off}}" style="width: 30%; display: inline; margin-right: 0.0%; text-align: center;" ng-disabled="isSaveDisabled">Salvar</button>                                   
+                            <button type="button" ng-click="deleteFornecedor(fornecedor.cnpj)" class="btn btn-danger {{off}}" style="width: 30%; display: inline; text-align: center;" ng-disabled="isDeleteDisabled">Excluir</button>                                     	                                  
                         </div>
 
                     </div>
@@ -169,7 +170,7 @@
         </main>
 
         <!--Footer-->
-        <footer class="page-footer center-on-small-only light-blue">
+        <footer class="page-footer center-on-small-only navbar-dark bg-primary">
             <!--Footer links-->
             <div class="container-fluid">
                 <div class="row">

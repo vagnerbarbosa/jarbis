@@ -1,8 +1,8 @@
-package vg.sisnota.resource;
+package vg.sisnota.resources;
 
-import vg.sisnota.datasource.SupplierDataSetImpl;
-import vg.sisnota.datasource.InvoiceDataSetImpl;
-import vg.sisnota.model.Invoice;
+import vg.sisnote.datasource.resourcelocal.SupplierDataSetImpl;
+import vg.sisnote.datasource.resourcelocal.InvoiceDataSetImpl;
+import vg.sisnota.models.Invoice;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import org.apache.log4j.Logger;
-import vg.sisnota.datasource.SupplierDataSet;
+import vg.sisnote.datasource.resourcelocal.SupplierDataSet;
 
 /**
  * Classe de recurso para objetos do tipo Invoice.

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vg.sisnota.datasource;
+package vg.sisnote.datasource.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

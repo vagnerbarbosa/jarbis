@@ -1,4 +1,4 @@
-package vg.sisnota.datasource;
+package vg.sisnote.datasource.jdbc;
 
 import java.sql.Connection;
 

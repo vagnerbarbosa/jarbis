@@ -4,8 +4,8 @@
     <!-- provedor/implementacao do JPA -->
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <!-- entidades mapeadas -->
-    <class>vg.sisnota.model.Invoice</class>
-    <class>vg.sisnota.model.Supplier</class>
+    <class>vg.sisnota.models.Supplier</class>
+    <class>vg.sisnota.models.Invoice</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <!-- dados da conexao -->

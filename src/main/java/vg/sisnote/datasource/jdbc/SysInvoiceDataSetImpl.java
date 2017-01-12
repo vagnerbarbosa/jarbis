@@ -1,4 +1,4 @@
-package vg.sisnota.datasource;
+package vg.sisnote.datasource.jdbc;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import vg.sisnota.model.SysInvoice;
+import vg.sisnota.models.SysInvoice;
 
 /**
  * Classe de pesistência para objetos do tipo SysInvoice.

@@ -1,4 +1,4 @@
-package vg.sisnota.resource;
+package vg.sisnota.resources;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,9 +10,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import org.apache.log4j.Logger;
-import vg.sisnota.datasource.ConnectionException;
-import vg.sisnota.datasource.SysInvoiceDataSetImpl;
-import vg.sisnota.model.SysInvoice;
+import vg.sisnote.datasource.jdbc.ConnectionException;
+import vg.sisnote.datasource.jdbc.SysInvoiceDataSetImpl;
+import vg.sisnota.models.SysInvoice;
 
 /**
  * Classe de recurso para objetos do tipo Invoice.
@@ -34,7 +34,7 @@ public class SysInvoiceResource {
 
     /**
      *
-     * @throws vg.sisnota.datasource.ConnectionException
+     * @throws vg.sisnote.datasource.jdbc.ConnectionException
      */
     public SysInvoiceResource() throws ConnectionException {
         mapper.enable(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT);
