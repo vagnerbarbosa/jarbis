@@ -16,5 +16,5 @@ Technologies:
 - JAX-RS 2.0
 - Jersey
 - AngularJS
-- Materialize
+- Material Design for Bootstrap
 
