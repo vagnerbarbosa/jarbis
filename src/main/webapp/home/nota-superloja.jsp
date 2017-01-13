@@ -115,9 +115,9 @@
                     <div class="control-table">
                        
                         <div class="fornecedor-controle">
-                            <button ng-click="addNew()" class="btn btn-primary" style="width: 32%; display: inline; margin-right: 0.0%" ng-disabled="isAddDisabled">Incluir</button>                                                                               
-                            <button type="button" ng-click="saveNota(nota)" class="btn btn-success {{off}}" style="width: 32%; display: inline; margin-right: 0.0%" ng-disabled="isSaveDisabled">Salvar</button>                                   
-                            <button type="button" ng-click="deleteNota(nota.id)" class="btn btn-danger {{off}}" style="width: 32%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled">Excluir</button>                                     	                                  
+                            <button ng-click="addNew()" class="btn btn-primary" style="width: 31%; display: inline; margin-right: 0.0%" ng-disabled="isAddDisabled">Incluir</button>                                                                               
+                            <button type="button" ng-click="saveNota(nota)" class="btn btn-success {{off}}" style="width: 31%; display: inline; margin-right: 0.0%" ng-disabled="isSaveDisabled">Salvar</button>                                   
+                            <button type="button" ng-click="deleteNota(nota.id)" class="btn btn-danger {{off}}" style="width: 31%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled">Excluir</button>                                     	                                  
                         </div>
                         
                     </div>                
@@ -214,8 +214,10 @@
         
         <script type="text/javascript" src="js/angular.min.js"></script>
         <script type="text/javascript" src="js/app3.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/ui-bootstrap-tpls-0.6.0.js"></script>        
         <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mask.min.js"></script>
         <script type="text/javascript" src="js/tether.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/mdb.min.js"></script>
