@@ -217,7 +217,6 @@
         
         <script type="text/javascript" src="js/angular.min.js"></script>
         <script type="text/javascript" src="js/app3.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/ui-bootstrap-tpls-0.6.0.js"></script>        
         <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
         <script type="text/javascript" src="js/jquery.mask.min.js"></script>
