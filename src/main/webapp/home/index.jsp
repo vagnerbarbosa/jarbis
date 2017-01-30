@@ -9,9 +9,9 @@
 
         <title>J.A.R.V.I.S.</title>
 
-        <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/mdb.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
         <style rel="stylesheet">
             /* TEMPLATE STYLES */
 
@@ -55,14 +55,17 @@
                                 <a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="modal" data-target="#myModal1" href="#myModal1">Fornecedores</a>
+                                <a class="nav-link" href="fornecedores.jsp">Fornecedores</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="modal" data-target="#myModal2" href="#myModal2">Notas Fiscais</a>
+                                <a class="nav-link" href="nota.jsp">Notas Fiscais</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="nota-superloja.jsp">Últimas Entradas</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target="#myModal3" href="#myModal3">Sobre</a>
-                            </li>
+                            </li>                            
                         </ul>
                     </div>
                     <!--/.Collapse content-->

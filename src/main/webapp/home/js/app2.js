@@ -1,7 +1,6 @@
 (function () {
 
     var app = angular.module("app", []);
-    var offNota;
 
     app.controller("HttpCtrl", function ($scope, $http, $timeout, $interval) {
         var app = this;
@@ -23,7 +22,7 @@
             });
         });
         response.error(function (data, status, headers, config) {
-            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema! Código: ' + status, show: true});
             $timeout(function () {
                 $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
             }, 2000);
@@ -39,7 +38,7 @@
             });
         });
         response.error(function (data, status, headers, config) {
-            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema! Código: ' + status, show: true});
             $timeout(function () {
                 $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
             }, 2000);
@@ -128,7 +127,7 @@
             });
 
         response.error(function (data, status, headers, config) {
-            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema! Código: ' + status, show: true});
             $timeout(function () {
                 $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
             }, 2000);
@@ -158,7 +157,7 @@
             });
 
         response.error(function (data, status, headers, config) {
-            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema! Código: ' + status, show: true});
             $timeout(function () {
                 $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
             }, 2000);
@@ -202,7 +201,7 @@
                 });
 
         response.error(function (data, status, headers, config) {
-            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema! Código: ' + status, show: true});
             $timeout(function () {
                 $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
             }, 2000);
@@ -221,7 +220,7 @@
                 });
 
         response.error(function (data, status, headers, config) {
-            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema! Código: ' + status, show: true});
             $timeout(function () {
                 $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
             }, 2000);
@@ -242,7 +241,7 @@
             });
 
         response.error(function (data, status, headers, config) {
-            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema! Código: ' + status, show: true});
             $timeout(function () {
                 $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
             }, 2000);
@@ -269,7 +268,7 @@
             });
 
         response.error(function (data, status, headers, config) {
-            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema! Código: ' + status, show: true});
             $timeout(function () {
                 $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
             }, 2000);
@@ -290,7 +289,7 @@
             });
         });
         response.error(function (data, status, headers, config) {
-            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema! Código: ' + status, show: true});
             $timeout(function () {
                 $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
             }, 2000);
@@ -306,17 +305,12 @@
             });
         });
         response.error(function (data, status, headers, config) {
-            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
+            $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema! Código: ' + status, show: true});
             $timeout(function () {
                 $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
             }, 2000);
             //alert("AJAX failed to get data, status=" + status);
         });
-        
-        
-        
-        
-        
         };
         
         
