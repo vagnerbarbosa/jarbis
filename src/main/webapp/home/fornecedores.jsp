@@ -103,7 +103,7 @@
                     </p>
                     <p style="float: left; width: 50%; padding-right: 1%;">
                         <span class="display_bold"><label for="cnpj">UF</label></span>
-                        <input type="text" ng-model="fornecedor.fu" maxlength="2" value="{{ fornecedor.fu | uppercase}}" size="2" ng-disabled="isSaveDisabled">
+                        <input type="text" ng-model="fornecedor.FU" maxlength="2" value="{{ fornecedor.fu | uppercase}}" size="2" ng-disabled="isSaveDisabled">
                     </p> 
                     <p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Cidade</label></span>
@@ -123,7 +123,7 @@
                     </p>                                        
                     <p><p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Inscrição Estadual</label></span>
-                        <input type="number" ng-model="fornecedor.ie" size="10" ng-disabled="isSaveDisabled">
+                        <input type="number" ng-model="fornecedor.IE" size="10" ng-disabled="isSaveDisabled">
                     </p>                                                            
 
                     <div class="control-table">

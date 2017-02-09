@@ -13,7 +13,7 @@
         
         $scope.alerts = [];
 
-        var response = $http.get('/SisNota/rest/nota/');
+        var response = $http.get('/riodopeixe-rest/webservice/nota/');
         response.success(function (data) {
             $scope.notas = data;
             console.log("[main] # of items: " + data.length);
@@ -29,7 +29,7 @@
             //alert("AJAX failed to get data, status=" + status);
         });
 
-        var response = $http.get('/SisNota/rest/fornecedor/');
+        var response = $http.get('/riodopeixe-rest/webservice/fornecedor/');
         response.success(function (data) {
             $scope.fornecedores = data;
             console.log("[main] # of items: " + data.length);
@@ -47,7 +47,7 @@
 
         
         $scope.getNotaPorNumero = function (numero) {
-            var response = $http.get('/SisNota/rest/nota/' + numero);
+            var response = $http.get('/riodopeixe-rest/webservice/nota/' + numero);
 
             response.success(function (data) {
                 $scope.nota = data;
@@ -76,7 +76,7 @@
         };
 
         $scope.getNotaPorImei = function (imei) {
-            var response = $http.get('/SisNota/rest/nota/' + imei);
+            var response = $http.get('/riodopeixe-rest/webservice/nota/' + imei);
 
             response.success(function (data) {
                 $scope.nota = data;
@@ -110,7 +110,7 @@
         $scope.searchFornecedor = function (cnpj) {
             var app = this;
 
-            var response = $http.get('/SisNota/rest/fornecedor/' + cnpj);
+            var response = $http.get('/riodopeixe-rest/webservice/fornecedor/' + cnpj);
             response.success(function (data) {
                 $scope.fornecedor = data;
                 $scope.$apply();
@@ -140,7 +140,7 @@
             $scope.navTitleLeft = 'Fornecedores';
             $scope.navTitleRight = 'Notas';
 
-            var response = $http.get('/SisNota/rest/nota/' + numero);
+            var response = $http.get('/riodopeixe-rest/webservice/nota/' + numero);
             response.success(function (data) {
                 $scope.nota = data;
                 $scope.$apply();
@@ -189,7 +189,7 @@
             console.log("[update] data: " + $scope.jsonObj);
 
             if ($scope.operation === "update") {
-                var response = $http.put('/SisNota/rest/nota/' + numero, $scope.jsonObj);
+                var response = $http.put('/riodopeixe-rest/webservice/nota/' + numero, $scope.jsonObj);
                 response.success(function (data, status, headers, config) {
                     $scope.resetSearch();
                 $scope.alerts.push({type: 'success', msg: 'Nota atualizada!', show: true});
@@ -208,7 +208,7 @@
             //alert("AJAX failed to get data, status=" + status);
                 });
             } else if ($scope.operation === "create") {                
-                var response = $http.post('/SisNota/rest/nota/add', $scope.jsonObj);
+                var response = $http.post('/riodopeixe-rest/webservice/nota/add', $scope.jsonObj);
                 response.success(function (data, status, headers, config) {
                     $scope.resetSearch();                    
                 $scope.alerts.push({type: 'success', msg: 'Nota incluida!', show: true});
@@ -230,7 +230,7 @@
         };
 
         $scope.deleteNota = function (numero) {
-            var response = $http.delete('/SisNota/rest/nota/' + numero);
+            var response = $http.delete('/riodopeixe-rest/webservice/nota/' + numero);
             response.success(function (data, status, headers, config) {
                 $scope.resetSearch();
                 $scope.alerts.push({type: 'success', msg: 'Nota excluida!', show: true});
@@ -260,7 +260,7 @@
             $scope.searchName = '';            
             $scope.offNota = 'disabled';
 
-            var response = $http.get('/SisNota/rest/nota/');
+            var response = $http.get('/riodopeixe-rest/webservice/nota/');
             response.success(function (data) {
                 $scope.nota = data;
                 $scope.$apply();
@@ -280,7 +280,7 @@
         
         $scope.atualizaModals = function () {
         
-                var response = $http.get('/SisNota/rest/nota/');
+                var response = $http.get('/riodopeixe-rest/webservice/nota/');
         response.success(function (data) {
             $scope.notas = data;
             console.log("[main] # of items: " + data.length);
@@ -296,7 +296,7 @@
             //alert("AJAX failed to get data, status=" + status);
         });
 
-        var response = $http.get('/SisNota/rest/fornecedor/');
+        var response = $http.get('/riodopeixe-rest/webservice/fornecedor/');
         response.success(function (data) {
             $scope.fornecedores = data;
             console.log("[main] # of items: " + data.length);

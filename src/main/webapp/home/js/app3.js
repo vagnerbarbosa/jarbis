@@ -17,8 +17,8 @@
 
         $scope.getNotaPorCodigo = function (code) {
 
-            //var response = $http.get('/SisNota/rest/fornecedor/' + unformattedCnpj);
-            var response = $http.get('/SisNota/rest/nota-entrada/' + code);
+            //var response = $http.get('/riodopeixe-rest/webservice/fornecedor/' + unformattedCnpj);
+            var response = $http.get('/riodopeixe-rest/webservice/nota-entrada/' + code);
 
             response.success(function (data) {
                 $scope.olds = data;
@@ -53,7 +53,7 @@
 
         $scope.atualizaModals = function () {
 
-            var response = $http.get('/SisNota/rest/nota/');
+            var response = $http.get('/riodopeixe-rest/webservice/nota/');
             response.success(function (data) {
                 $scope.notas = data;
                 console.log("[main] # of items: " + data.length);
@@ -69,7 +69,7 @@
                 //alert("AJAX failed to get data, status=" + status);
             });
 
-            var response = $http.get('/SisNota/rest/fornecedor/');
+            var response = $http.get('/riodopeixe-rest/webservice/fornecedor/');
             response.success(function (data) {
                 $scope.fornecedores = data;
                 console.log("[main] # of items: " + data.length);

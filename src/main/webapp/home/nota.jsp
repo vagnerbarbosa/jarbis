@@ -8,15 +8,9 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
         <title>J.A.R.V.I.S.</title>
-        
-        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/mdb.min.css" rel="stylesheet">
-            <script>
-        $(function() {
-            $( "#datepicker" ).datepicker();
-        });
-   </script>
         <style rel="stylesheet">
             /* TEMPLATE STYLES */
 
@@ -34,6 +28,7 @@
                     text-align: center;
                 }
             }
+            
         </style>       
 
     </head>
@@ -105,16 +100,16 @@
                         <span class="display_bold"><label for="cnpj">Fornecedor</label></span>
                         <input type="text" ng-model="nota.cnpjFornecedor.id" list="fornecedores" name="fornecedor" ng-disabled="isSaveDisabled" class="input-field col s12">
                         <datalist id="fornecedores">
-                            <option ng-repeat="fornecedor in fornecedores" value="{{fornecedor.id}}">{{fornecedor.cnpj}} {{fornecedor.companyName}}</option>                                                         
+                            <option ng-repeat="fornecedor in fornecedores" value="{{fornecedor.id}}" >{{fornecedor.cnpj}} {{fornecedor.companyName}}</option>                                                         
                         </datalist>
                     </p>                    
                     <p style="float: left; width: 50%; padding-right: 1%;">
                         <span class="display_bold"><label for="cnpj">Data de Emissão</label></span>
-                        <input type="date" id="datetimepicker" ng-model="nota.issuanceDate" value="{{nota.issuanceDate}}" name="nota.dataEmissao" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy">
+                        <input type="date" ng-model="nota.issuanceDate" value="{{nota.issuanceDate}}" name="nota.dataEmissao" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy">
                     </p> 
                     <p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Data de Entrada</label></span>
-                        <input type="date" id="datetimepicker" ng-model="nota.dateEntry" value="{{nota.dateEntry}}" name="nota.dataEntrada" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy">
+                        <input type="date" ng-model="nota.dateEntry" value="{{nota.dateEntry}}" name="nota.dataEntrada" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy">
                     </p> 
                     <p style="float: none; width: 100%; height: 200%; padding-right: 1%;">
                         <span class="display_bold"><label for="cnpj">IMEIs</label></span>
@@ -235,7 +230,6 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/mdb.min.js"></script>
         <script type="text/javascript" src="js/custom.js"></script>
-        <script type="text/javascript" src="js/jquery.ui.datepicker-pt-BR.js"></script>
 
 
         <!-- Modal Fornecedores -->
