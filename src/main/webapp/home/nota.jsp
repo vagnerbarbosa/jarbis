@@ -9,8 +9,9 @@
 
         <title>J.A.R.V.I.S.</title>
         <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/mdb.min.css" rel="stylesheet">
+        <link href="local_components/css/bootstrap.min.css" rel="stylesheet">
+        <link href="local_components/css/mdb.min.css" rel="stylesheet">
+        <link href="local_components/css/style.css" rel="stylesheet">
         <style rel="stylesheet">
             /* TEMPLATE STYLES */
 
@@ -85,7 +86,7 @@
             <alert class="alert" style="left: 50%; position: absolute; transform: translateX(-50%);" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"  close="closeAlert()" ><strong>{{alert.msg}}</strong></alert>
         </div>
 
-        <img style="float: top; width: 100%; padding-bottom: 0.5%; opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */" src="img/nfnf.jpg" alt="Fornecedores"/>
+        <img style="float: top; width: 100%; padding-bottom: 0.5%; opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */" src="local_components/img/nfnf.jpg" alt="Fornecedores"/>
         <main>
             <!--Main layout-->
             <div class="container">
@@ -221,15 +222,15 @@
 
         <!-- SCRIPTS -->
 
-        <script type="text/javascript" src="js/angular.min.js"></script>
-        <script type="text/javascript" src="js/app2.js"></script>
-        <script type="text/javascript" src="js/ui-bootstrap-tpls-0.6.0.js"></script>        
-        <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
-        <script type="text/javascript" src="js/jquery.mask.min.js"></script>
-        <script type="text/javascript" src="js/tether.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/mdb.min.js"></script>
-        <script type="text/javascript" src="js/custom.js"></script>
+        <script type="text/javascript" src="local_components/js/angular.min.js"></script>
+        <script type="text/javascript" src="local_components/js/app2.js"></script>
+        <script type="text/javascript" src="local_components/js/ui-bootstrap-tpls-0.6.0.js"></script>        
+        <script type="text/javascript" src="local_components/js/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="local_components/js/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="local_components/js/tether.min.js"></script>
+        <script type="text/javascript" src="local_components/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="local_components/js/mdb.min.js"></script>
+        <script type="text/javascript" src="local_components/js/custom.js"></script>
 
 
         <!-- Modal Fornecedores -->

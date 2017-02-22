@@ -9,9 +9,10 @@
 
         <title>J.A.R.V.I.S.</title>
 
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/mdb.min.css" rel="stylesheet">
+        <link href="local_components/css/font-awesome.min.css" rel="stylesheet">
+        <link href="local_components/css/bootstrap.min.css" rel="stylesheet">
+        <link href="local_components/css/mdb.min.css" rel="stylesheet">
+        <link href="local_components/css/style.css" rel="stylesheet">
         <style rel="stylesheet">
             /* TEMPLATE STYLES */
 
@@ -38,6 +39,7 @@
         <header>
             <!--Navbar-->
             <nav class="navbar navbar-dark bg-primary">
+                <!-- Collapse button-->
                 <!-- Collapse button-->
                 <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx">
                     <i class="fa fa-bars"></i>
@@ -85,7 +87,7 @@
         <alert class="alert" style="left: 50%; position: absolute; transform: translateX(-50%);" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"  close="closeAlert()" ><strong>{{alert.msg}}</strong></alert>
         </div>
         
-        <img style="float: top; width: 100%; padding-bottom: 0.5%; opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */" src="img/forn.jpg" alt="Fornecedores"/>
+        <img style="float: top; width: 100%; padding-bottom: 0.5%; opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */" src="local_components/img/forn.jpg" alt="Fornecedores"/>
         <main>           
       
             <!--Main layout-->
@@ -228,15 +230,15 @@
         </footer>
         <!--/.Footer-->
 
-        <script type="text/javascript" src="js/angular.min.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>
-        <script type="text/javascript" src="js/ui-bootstrap-tpls-0.6.0.js"></script>        
-        <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
-        <script type="text/javascript" src="js/jquery.mask.min.js"></script>
-        <script type="text/javascript" src="js/tether.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/mdb.min.js"></script>
-        <script type="text/javascript" src="js/custom.js"></script>
+        <script type="text/javascript" src="local_components/js/angular.min.js"></script>
+        <script type="text/javascript" src="local_components/js/app.js"></script>
+        <script type="text/javascript" src="local_components/js/ui-bootstrap-tpls-0.6.0.js"></script>        
+        <script type="text/javascript" src="local_components/js/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="local_components/js/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="local_components/js/tether.min.js"></script>
+        <script type="text/javascript" src="local_components/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="local_components/js/mdb.min.js"></script>
+        <script type="text/javascript" src="local_components/js/custom.js"></script>
 
         <!-- Modal Fornecedores -->
         <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -309,7 +311,7 @@
                 </div>
             </div>
 
-            <script type="text/javascript" src="../include/jquery.mask.min.js"></script>
+            <script type="text/javascript" src="local_components/js/jquery.mask.min.js"></script>
 
             <script type="text/javascript">
                                             $(function () {

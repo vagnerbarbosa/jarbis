@@ -9,9 +9,10 @@
 
         <title>J.A.R.V.I.S.</title>
 
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/mdb.min.css" rel="stylesheet">
-        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="local_components/css/bootstrap.min.css" rel="stylesheet">
+        <link href="local_components/css/mdb.min.css" rel="stylesheet">
+        <link href="local_components/css/font-awesome.min.css" rel="stylesheet">
+        <link href="local_components/css/style.css" rel="stylesheet">
         <style rel="stylesheet">
             /* TEMPLATE STYLES */
 
@@ -104,7 +105,7 @@
 
                             <!--Card image-->
                             <div class="view overlay hm-white-slight">
-                                <img src="img/invoices.jpg" class="img-fluid" alt="Inclusão, exclusão, edição e consulta avançada de Fornecedores.">
+                                <img src="local_components/img/invoices.jpg" class="img-fluid" alt="Inclusão, exclusão, edição e consulta avançada de Fornecedores.">
                                 <a href="fornecedores.jsp">
                                     <div class="mask"></div>
                                 </a>
@@ -132,7 +133,7 @@
 
                             <!--Card image-->
                             <div class="view overlay hm-white-slight">
-                                <img src="img/NF.jpg" class="img-fluid" alt="Inclusão, exclusão, edição e consulta avançada de Notas Fiscais.">
+                                <img src="local_components/img/NF.jpg" class="img-fluid" alt="Inclusão, exclusão, edição e consulta avançada de Notas Fiscais.">
                                 <a href="nota.jsp">
                                     <div class="mask"></div>
                                 </a>
@@ -159,7 +160,7 @@
 
                             <!--Card image-->
                             <div class="view overlay hm-white-slight">
-                                <img src="img/old.jpg" class="img-fluid" alt="Consulta as últimas entradas das Notas Fiscais do antigo sistema.">
+                                <img src="local_components/img/old.jpg" class="img-fluid" alt="Consulta as últimas entradas das Notas Fiscais do antigo sistema.">
                                 <a href="nota-superloja.jsp">
                                     <div class="mask"></div>
                                 </a>
@@ -273,15 +274,15 @@
         </footer>
         <!--/.Footer-->
 
-        <script type="text/javascript" src="js/angular.min.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>
-        <script type="text/javascript" src="js/ui-bootstrap-tpls-0.6.0.js"></script>        
-        <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
-        <script type="text/javascript" src="js/jquery.mask.min.js"></script>
-        <script type="text/javascript" src="js/tether.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/mdb.min.js"></script>
-        <script type="text/javascript" src="js/custom.js"></script>
+        <script type="text/javascript" src="local_components/js/angular.min.js"></script>
+        <script type="text/javascript" src="local_components/js/app.js"></script>
+        <script type="text/javascript" src="local_components/js/ui-bootstrap-tpls-0.6.0.js"></script>        
+        <script type="text/javascript" src="local_components/js/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="local_components/js/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="local_components/js/tether.min.js"></script>
+        <script type="text/javascript" src="local_components/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="local_components/js/mdb.min.js"></script>
+        <script type="text/javascript" src="local_components/js/custom.js"></script>
 
 
         <!-- Modal Fornecedores -->
