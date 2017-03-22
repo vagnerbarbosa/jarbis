@@ -1,0 +1,7 @@
+html {
+    font-size: 90%;
+}
+
+.adaptable {
+  @media screen and (max-width: 1024px) { padding-left: 25%; }
+}
