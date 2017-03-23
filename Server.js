@@ -1,4 +1,5 @@
 var express = require("express");
+var favicon = require('serve-favicon');
 var app = express();
 var router = express.Router();
 var path = __dirname + '/views/';
@@ -13,6 +14,7 @@ router.use(function (req,res,next) {
 
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use('/local_components',  express.static(__dirname + '/local_components'));
+app.use(favicon(__dirname + '/local_components/img/favicon.ico'));
 
 router.get("/",function(req,res){
   res.sendFile(path + "index.html");

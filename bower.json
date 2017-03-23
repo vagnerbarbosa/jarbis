@@ -1,11 +1,11 @@
 {
-  "name": "J.A.R.V.I.S.",
-  "homepage": "https://github.com/vagnerbarbosa/jarvis",
+  "name": "J.A.R.B.I.S.",
+  "homepage": "https://github.com/vagnerbarbosa/jarbis",
   "authors": [
     "Vagner Barbosa <contato@vagnerbarbosa.com>"
   ],
   "description": "",
-  "main": "index.jsp",
+  "main": "Server.js",
   "license": "THE BEER-WARE LICENSE (Revision 42)",
   "private": true,
   "ignore": [

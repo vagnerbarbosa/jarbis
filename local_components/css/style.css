@@ -1,6 +1,12 @@
 html {
     font-size: 90%;
+    height: 100%;
 }
+
+body {
+    min-height: 100%;
+}
+
 
 .adaptable {
   @media screen and (max-width: 1024px) { padding-left: 25%; }
