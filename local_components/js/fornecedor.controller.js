@@ -8,29 +8,26 @@
 
     function FornecedorController ($scope, $http) {
 
-      var hostAddress = '192.168.19.33:8080';
+      var hostAddress = 'localhost:8080';
 
-        var fornecedorResponse = $http({
-            method: 'GET',
-            url: 'http://' + hostAddress + '/riodopeixe-rest/webservice/fornecedor'
-        }).then(function successCallback(response) {
-            $scope.fornecedores = response.data;
-            console.log("#[total_de_fornecedores]: " + response.data.length);
-        }, function errorCallback(response) {
-          $scope.fornecedores = response.data;
-          console.log("#[total_de_fornecedores]: " + response.data.length);
-        });
+        $scope.getFornecedorPorCnpj = function (cnpj) {
 
-        var notaResponse = $http({
-            method: 'GET',
-            url: 'http://' + hostAddress + '/riodopeixe-rest/webservice/nota'
-        }).then(function successCallback(response) {
-            $scope.notas = response.data;
-            console.log("#[total_de_notas]: " + response.data.length);
-        }, function errorCallback(response) {
-          $scope.notas = response.data;
-          console.log("#[total_de_notas]: " + response.data.length);
-        });
+          var unformattedCnpj = cnpj.replace('.', '');
+          unformattedCnpj = unformattedCnpj.replace('.', '');
+          unformattedCnpj = unformattedCnpj.replace('/', '');
+          unformattedCnpj = unformattedCnpj.replace('-', '');
 
+          $http({
+              method: 'GET',
+              url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/fornecedor/' + unformattedCnpj
+            }).then(function successCallback(response) {
+              $scope.fornecedor = response.data;
+              console.log("#[fornecedor_recuperado!]");
+            }, function errorCallback(response) {
+              $scope.fornecedor = response.data;
+              console.log("#[fornecedor_não_recuperado!]");
+            });
+
+          };
     };
 })();
