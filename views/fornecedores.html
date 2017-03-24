@@ -9,7 +9,7 @@
 
         <title>{{systemName}}</title>
 
-        <link href="./assets/css/main.css" rel="stylesheet">
+        <link href="./assets/css/main.min.css" rel="stylesheet">
         <style rel="stylesheet">
             /* TEMPLATE STYLES */
 
@@ -84,7 +84,7 @@
         <alert class="alert" style="left: 50%; position: absolute; transform: translateX(-50%);" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"  close="closeAlert()" ><strong>{{alert.msg}}</strong></alert>
         </div>
 
-        <img style="float: top; width: 100%; padding-bottom: 0.5%; opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */" src="local_components/img/forn.jpg" alt="Fornecedores"/>
+        <img style="float: top; width: 100%; padding-bottom: 0.5%; opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */" src="assets/img/forn.jpg" alt="Fornecedores"/>
         <main>
 
             <!--Main layout-->
@@ -227,7 +227,7 @@
         </footer>
         <!--/.Footer-->
 
-        <script type="text/javascript" src="./assets/js/main.js"></script>
+        <script type="text/javascript" src="./assets/js/main.min.js"></script>
 
         <!-- Modal Fornecedores -->
         <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -299,7 +299,7 @@
                 </div>
             </div>
 
-            <script type="text/javascript" src="local_components/js/jquery.mask.min.js"></script>
+            <script type="text/javascript" src="assets/js/main.min.js"></script>
 
             <script type="text/javascript">
                                             $(function () {

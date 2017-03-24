@@ -9,7 +9,7 @@ module.exports = function( grunt ) {
 
       my_target : {
         files : {
-          'assets/js/main.js' : [ 'bower_components/angular/angular.min.js',
+          'assets/js/main.min.js' : [ 'bower_components/angular/angular.min.js',
                                   'bower_components/angular-route/angular-route.min.js',
                                   'bower_components/PACE/pace.js',
                                   'local_components/js/app.js',
@@ -36,13 +36,24 @@ module.exports = function( grunt ) {
       },
       target: {
         files: {
-          'assets/css/main.css': ['local_components/css/style.css',
+          'assets/css/main.min.css': ['local_components/css/style.css',
               'local_components/css/bootstrap.min.css',
               'local_components/css/mdb.min.css',
               'bower_components/font-awesome/css/font-awesome.min.css',
               'bower_components/roboto-fontface/css/roboto/roboto-fontface.css',
               'bower_components/PACE/themes/white/pace-theme-flash.css']
         }
+      }
+    },
+
+imagemin: {                          // Task
+  dynamic: {                         // Another target
+    files: [{
+      expand: true,                  // Enable dynamic expansion
+      cwd: 'local_components/img/',                   // Src matches are relative to this path
+      src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
+      dest: 'assets/img/'                  // Destination path prefix
+    }]
       }
     },
 
@@ -53,7 +64,7 @@ module.exports = function( grunt ) {
           'assets/_css/**/*'
         ],
 
-        tasks : [ 'uglify', 'cssmin' ]
+        tasks : [ 'uglify', 'cssmin', 'imagemin' ]
       }
     } // watch
 
@@ -63,10 +74,11 @@ module.exports = function( grunt ) {
   // Plugins do Grunt
   grunt.loadNpmTasks( 'grunt-contrib-uglify' );
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks( 'grunt-contrib-watch' );
 
   // Tarefas que serão executadas
-  grunt.registerTask( 'default', [ 'uglify', 'cssmin' ] );
+  grunt.registerTask( 'default', [ 'uglify', 'cssmin', 'imagemin' ] );
 
   // Tarefa para Watch
   grunt.registerTask( 'w', [ 'watch' ] );
