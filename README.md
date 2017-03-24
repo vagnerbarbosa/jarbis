@@ -15,3 +15,6 @@ Technologies:
 - Node JS
 - AngularJS
 - Bootstrap
+- Grunt
+- Bower
+- HTML5 & CSS3

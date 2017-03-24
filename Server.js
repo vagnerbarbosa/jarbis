@@ -12,9 +12,10 @@ router.use(function (req,res,next) {
   next();
 });
 
+app.use('/assets',  express.static(__dirname + '/assets'));
+app.use(favicon(__dirname + '/local_components/img/favicon.ico'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use('/local_components',  express.static(__dirname + '/local_components'));
-app.use(favicon(__dirname + '/local_components/img/favicon.ico'));
 
 router.get("/",function(req,res){
   res.sendFile(path + "index.html");
