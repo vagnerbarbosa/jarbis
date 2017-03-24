@@ -12,7 +12,7 @@ Supplier / Invoice / IMEI control system.
 
 Technologies:
 
-- Node JS
+- Node.js®
 - AngularJS
 - Bootstrap
 - Grunt
