@@ -96,7 +96,7 @@ copy: {
   grunt.loadNpmTasks( 'grunt-contrib-watch' );
 
   // Tarefas que serão executadas
-  grunt.registerTask( 'default', [ 'uglify', 'cssmin', 'imagemin', 'copy' ] );
+  grunt.registerTask( 'default', [ 'uglify', 'cssmin', 'imagemin', 'copy', 'watch' ] );
 
   // Tarefa para Watch
   grunt.registerTask( 'w', [ 'watch' ] );
