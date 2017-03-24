@@ -36,11 +36,10 @@ module.exports = function( grunt ) {
       },
       target: {
         files: {
-          'assets/css/main.min.css': ['local_components/css/style.css',
+              'assets/css/main.min.css': ['local_components/css/style.css',
               'local_components/css/bootstrap.min.css',
               'local_components/css/mdb.min.css',
               'bower_components/font-awesome/css/font-awesome.min.css',
-              'bower_components/roboto-fontface/css/roboto/roboto-fontface.css',
               'bower_components/PACE/themes/white/pace-theme-flash.css']
         }
       }
@@ -57,14 +56,32 @@ imagemin: {                          // Task
       }
     },
 
+copy: {
+  main: {
+    files: [
+      // includes files within path
+      {
+        expand: true,
+        cwd: 'bower_components/roboto-fontface/fonts/Roboto/',
+        src: ['**'],
+        dest: 'assets/fonts/roboto/',
+        flatten: true,
+        filter: 'isFile'
+      },
+
+    ],
+  },
+},
+
     watch : {
       dist : {
         files : [
           'assets/_js/**/*',
-          'assets/_css/**/*'
+          'assets/_css/**/*',
+          'assets/_font/**/*'
         ],
 
-        tasks : [ 'uglify', 'cssmin', 'imagemin' ]
+        tasks : [ 'uglify', 'cssmin', 'imagemin', 'copy' ]
       }
     } // watch
 
@@ -75,10 +92,11 @@ imagemin: {                          // Task
   grunt.loadNpmTasks( 'grunt-contrib-uglify' );
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks( 'grunt-contrib-watch' );
 
   // Tarefas que serão executadas
-  grunt.registerTask( 'default', [ 'uglify', 'cssmin', 'imagemin' ] );
+  grunt.registerTask( 'default', [ 'uglify', 'cssmin', 'imagemin', 'copy' ] );
 
   // Tarefa para Watch
   grunt.registerTask( 'w', [ 'watch' ] );

@@ -31,7 +31,11 @@ router.get("/notas-superloja",function(req,res){
   res.sendFile(path + "notas-superloja.html");
 });
 
-app.use("/",router);
+app.use("",router);
+
+app.use("/assets",function(req,res){
+  res.sendStatus(404);
+});
 
 app.use("*",function(req,res){
   res.sendFile(path + "404.html");
