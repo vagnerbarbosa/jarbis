@@ -35,7 +35,7 @@
 
         <header>
             <!--Navbar-->
-            <nav class="navbar navbar-dark bg-primary  navbar-fixed-top">
+            <nav class="navbar navbar-dark bg-primary">
                 <!-- Collapse button-->
                 <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx">
                     <i>≡</i>
@@ -86,29 +86,29 @@
         <img style="float: top; width: 100%; padding-bottom: 0.1%; opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */" src="assets/img/oldbg.jpg" alt="Notas Fiscais"/>
         <main>
             <!--Main layout-->
-            <div class="container" style="font-size: 80%; width: 90%;">
+            <div class="container-fluid" style="font-size: 80%; width: 95%;">
 
                 <table class="table table-sm">
                     <thead>
                         <tr>
-                            <th class="text-lg-center" data-field="fl">Código de Compra</th>
-                            <th class="text-lg-center" data-field="flname">Data de Entrada</th>
-                            <th class="text-lg-center" data-field="brutepriceprod">Chave da Nota Fiscal</th>
-                            <th class="text-lg-center" data-field="totalreturnedprod">Número da Nota Fiscal</th>
-                            <th class="text-lg-center" data-field="brutepriceserv">Código de Produto</th>
-                            <th class="text-lg-center" data-field="canceledserv">Descrição do Produto</th>
-                            <th class="text-lg-center" data-field="tickettotal">Nome do Fornecedor</th>
+                            <th class="text-lg-center visible-lg" data-field="fl">Cód. Compra</th>
+                            <th class="text-lg-center" data-field="flname">Data Entrada</th>
+                            <th class="text-lg-center" data-field="brutepriceprod">Chave NF</th>
+                            <th class="text-lg-center visible-lg" data-field="totalreturnedprod">Nº NF</th>
+                            <th class="text-lg-center" data-field="brutepriceserv">Cód. Produto</th>
+                            <th class="text-lg-center visible-lg" data-field="canceledserv">Desc. Produto</th>
+                            <th class="text-lg-center" data-field="tickettotal">Fornecedor</th>
                         </tr>
                     </thead>
 
                     <tbody ng-repeat="s in olds">
                         <tr>
-                            <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.codigoCompra}}</td>
+                            <td class="text-lg-center visible-lg" style="color: #0059bc; font-weight: bold;">{{s.codigoCompra}}</td>
                             <td class="text-lg-center" style="color: red; font-weight: bold;">{{s.dataEntrada | date:"dd/MM/yyyy"}}</td>
                             <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.chaveNotaFiscal}}</td>
-                            <td class="text-lg-center" style="color: red; font-weight: bold;">{{s.numeroNotaFiscal}}</td>
+                            <td class="text-lg-center visible-lg" style="color: red; font-weight: bold;">{{s.numeroNotaFiscal}}</td>
                             <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.codigoProduto}}</td>
-                            <td class="text-lg-center" style="color: red; font-weight: bold;">{{s.descricaoProduto}}</td>
+                            <td class="text-lg-center visible-lg" style="color: red; font-weight: bold;">{{s.descricaoProduto}}</td>
                             <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.nomeFornecedor}}</td>
                         </tr>
                     </tbody>

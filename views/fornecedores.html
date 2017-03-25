@@ -35,7 +35,7 @@
 
         <header>
             <!--Navbar-->
-            <nav class="navbar navbar-dark bg-primary  navbar-fixed-top">
+            <nav class="navbar navbar-dark bg-primary">
                 <!-- Collapse button-->
                 <!-- Collapse button-->
                 <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx">
@@ -94,35 +94,35 @@
 
                     <p style="float: left; width: 50%; padding-right: 1%;">
                         <span class="display_bold"><label for="cnpj">CNPJ</label></span>
-                        <input id="cnpj" type="text" ng-model="fornecedor.cnpj" ngChange="/[^0-9]/" class="cnpj" ng-disabled="isSaveDisabled" required="true" maxlength="30">
+                        <input id="cnpj" type="text" ng-model="fornecedor.cnpj" ngChange="/[^0-9]/" class="cnpj" required="true" maxlength="30" readonly>
                     </p>
                     <p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Nome Fantasia</label></span>
-                        <input type="text" ng-model="fornecedor.companyName" size="30" ng-disabled="isSaveDisabled">
+                        <input type="text" ng-model="fornecedor.companyName" size="30" readonly>
                     </p>
                     <p style="float: left; width: 50%; padding-right: 1%;">
                         <span class="display_bold"><label for="cnpj">UF</label></span>
-                        <input type="text" ng-model="fornecedor.FU" maxlength="2" value="{{ fornecedor.fu | uppercase}}" size="2" ng-disabled="isSaveDisabled">
+                        <input type="text" ng-model="fornecedor.FU" maxlength="2" value="{{ fornecedor.fu | uppercase}}" size="2" readonly>
                     </p>
                     <p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Cidade</label></span>
-                        <input type="text" ng-model="fornecedor.city" size="20" ng-disabled="isSaveDisabled">
+                        <input type="text" ng-model="fornecedor.city" size="20" readonly>
                     </p>
                     <p style="float: left; width: 50%; padding-right: 1%;">
                         <span class="display_bold"><label for="cnpj">Bairro</label></span>
-                        <input type="text" ng-model="fornecedor.neighborhood" size="30" ng-disabled="isSaveDisabled">
+                        <input type="text" ng-model="fornecedor.neighborhood" size="30" readonly>
                     </p>
                     <p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Rua</label></span>
-                        <input type="text" ng-model="fornecedor.address" size="30" ng-disabled="isSaveDisabled">
+                        <input type="text" ng-model="fornecedor.address" size="30" readonly>
                     </p>
                     <p style="float: left; width: 50%; padding-right: 1%;">
                         <span class="display_bold"><label for="cnpj">Número</label></span>
-                        <input type="text" ng-model="fornecedor.number" ng-disabled="isSaveDisabled">
+                        <input type="text" ng-model="fornecedor.number" readonly>
                     </p>
                     <p><p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Inscrição Estadual</label></span>
-                        <input type="text" ng-model="fornecedor.IE" ng-disabled="isSaveDisabled">
+                        <input type="text" ng-model="fornecedor.IE" readonly>
                     </p>
 
                     <div class="control-table">
