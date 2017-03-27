@@ -74,11 +74,15 @@ copy: {
 },
 
     watch : {
+      options: {
+          livereload: true
+          },
       dist : {
         files : [
-          'assets/_js/**/*',
-          'assets/_css/**/*',
-          'assets/_font/**/*'
+          'local_components/js/**/*',
+          'local_components/css/**/*',
+          'bower_components/roboto-fontface/fonts/Roboto/**/*',
+          'local_components/img/**/*'
         ],
 
         tasks : [ 'uglify', 'cssmin', 'imagemin', 'copy' ]

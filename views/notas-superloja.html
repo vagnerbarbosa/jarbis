@@ -9,7 +9,7 @@
 
         <title>{{systemName}}</title>
 
-        <link href="./assets/css/main.min.css" rel="stylesheet">
+        <link href="/assets/css/main.min.css" rel="stylesheet">
         <style rel="stylesheet">
             /* TEMPLATE STYLES */
 
@@ -86,33 +86,34 @@
         <img style="float: top; width: 100%; padding-bottom: 0.1%; opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */" src="assets/img/oldbg.jpg" alt="Notas Fiscais"/>
         <main>
             <!--Main layout-->
-            <div class="container-fluid">
-
-                <table class="table table-sm table-responsive" style="width: 100%; font-size: 87%; margin-left:auto; margin-right:auto;" >
+            <div style="padding-bottom: 3.4%;">
+              <div class="container-fluid">
+                <table class="table-condensed table-bordered table-responsive" style="width: 100%; font-size: 90%;" >
                     <thead>
                         <tr>
-                            <th class="text-lg-center visible-lg" data-field="fl">Cód. Compra</th>
+                            <th class="text-lg-center" data-field="fl">Cód. Compra</th>
                             <th class="text-lg-center" data-field="flname">Data Entrada</th>
                             <th class="text-lg-center" data-field="brutepriceprod">Chave NF</th>
-                            <th class="text-lg-center visible-lg" data-field="totalreturnedprod">Nº NF</th>
+                            <th class="text-lg-center" data-field="totalreturnedprod">Nº NF</th>
                             <th class="text-lg-center" data-field="brutepriceserv">Cód. Produto</th>
-                            <th class="text-lg-center visible-lg" data-field="canceledserv">Desc. Produto</th>
+                            <th class="text-lg-center" data-field="canceledserv">Desc. Produto</th>
                             <th class="text-lg-center" data-field="tickettotal">Fornecedor</th>
                         </tr>
                     </thead>
 
-                    <tbody ng-repeat="s in olds">
+                    <tbody ng-repeat="s in olds" >
                         <tr>
-                            <td class="text-lg-center visible-lg" style="color: #0059bc; font-weight: bold;">{{s.codigoCompra}}</td>
+                            <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.codigoCompra}}</td>
                             <td class="text-lg-center" style="color: red; font-weight: bold;">{{s.dataEntrada | date:"dd/MM/yyyy"}}</td>
                             <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.chaveNotaFiscal}}</td>
-                            <td class="text-lg-center visible-lg" style="color: red; font-weight: bold;">{{s.numeroNotaFiscal}}</td>
+                            <td class="text-lg-center" style="color: red; font-weight: bold;">{{s.numeroNotaFiscal}}</td>
                             <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.codigoProduto}}</td>
-                            <td class="text-lg-center visible-lg" style="color: red; font-weight: bold;">{{s.descricaoProduto}}</td>
+                            <td class="text-lg-center" style="color: red; font-weight: bold;">{{s.descricaoProduto}}</td>
                             <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.nomeFornecedor}}</td>
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </div>
             <!--/.Main layout-->
         </main>
@@ -204,7 +205,7 @@
         </footer>
         <!--/.Footer-->
 
-        <script type="text/javascript" src="./assets/js/main.min.js"></script>
+        <script type="text/javascript" src="/assets/js/main.min.js"></script>
 
         <!-- Modal Fornecedores -->
         <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
