@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  angular.module('jarbis', ['ngRoute']);
+  angular.module('jarbis', ['ngRoute','ui.bootstrap']);
 
   angular.module('jarbis')
     .run(function($rootScope, $route, $routeParams, $location) {

@@ -18,13 +18,13 @@ module.exports = function( grunt ) {
                                   'local_components/js/fornecedor.controller.js',
                                   'local_components/js/notas.controller.js',
                                   'local_components/js/notas.super.loja.controller.js',
-                                  'local_components/js/ui-bootstrap-tpls-0.6.0.js',
                                   'local_components/js/jquery-2.2.3.min.js',
                                   'local_components/js/jquery.mask.min.js',
                                   'local_components/js/tether.min.js',
                                   'local_components/js/bootstrap.min.js',
                                   'local_components/js/mdb.min.js',
-                                  'local_components/js/custom.js']
+                                  'local_components/js/custom.js',
+                                  'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js']
         }
       }
     }, // uglify
@@ -40,7 +40,8 @@ module.exports = function( grunt ) {
               'local_components/css/bootstrap.min.css',
               'local_components/css/mdb.min.css',
               'bower_components/font-awesome/css/font-awesome.min.css',
-              'bower_components/PACE/themes/white/pace-theme-flash.css']
+              'bower_components/PACE/themes/white/pace-theme-flash.css',
+              'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css']
         }
       }
     },

@@ -23,9 +23,11 @@
             }).then(function successCallback(response) {
               $scope.fornecedor = response.data;
               console.log("#[fornecedor_recuperado!]");
+              $scope.alerts.push({type: 'success', msg: 'Fornecedor encontrado!', show: true});
             }, function errorCallback(response) {
               $scope.fornecedor = response.data;
               console.log("#[fornecedor_não_recuperado!]");
+              $scope.alerts.push({type: 'danger', msg: 'Ops! Ocorreu um problema!', show: true});
             });
 
           };
