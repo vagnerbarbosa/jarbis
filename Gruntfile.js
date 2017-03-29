@@ -20,7 +20,7 @@ module.exports = function( grunt ) {
                                   'local_components/js/notas.super.loja.controller.js',
                                   'local_components/js/jquery-2.2.3.min.js',
                                   'local_components/js/jquery.mask.min.js',
-                                  'local_components/js/tether.min.js',
+                                  'bower_components/tether/dist/js/tether.min.js',
                                   'local_components/js/bootstrap.min.js',
                                   'local_components/js/mdb.min.js',
                                   'local_components/js/custom.js',

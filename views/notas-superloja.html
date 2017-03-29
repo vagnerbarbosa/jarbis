@@ -66,8 +66,7 @@
                             </li>
                         </ul>
                      <form class="form-inline">
-                        <input class="form-control" type="text" ng-model="code" size="30" placeholder="Busca por código do produto" >
-                        <button type="button" ng-click="getNotaPorCodigo(code)" class="btn btn-primary btn-rounded btn-sm" >Buscar</button>
+                        <input class="form-control" type="text" ng-model="code" ng-change="getNotaPorCodigo(code)" size="30" placeholder="Busca por código do produto" >
                     </form>
 
                     </div>
@@ -80,7 +79,7 @@
         </header>
 
         <div style="float: top; position: relative; width: 100%; z-index: 10;">
-        <alert class="alert" style="left: 50%; position: absolute; transform: translateX(-50%);" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"  close="closeAlert()" ><strong>{{alert.msg}}</strong></alert>
+        <alert class="alert" style="left: 50%; position: absolute; transform: translateX(-50%); opacity: 0.9; filter: alpha(opacity=90);" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"  close="closeAlert()" ><strong>{{alert.msg}}</strong></alert>
         </div>
 
         <img style="float: top; width: 100%; padding-bottom: 0.1%; opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */" src="assets/img/oldbg.jpg" alt="Notas Fiscais"/>

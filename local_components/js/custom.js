@@ -7,7 +7,7 @@ $("#cnpj").keydown(function(){
     	$("#cnpj").unmask();
     } catch (e) {}
 
-    var tamanho = $("#cpfcnpj").val().length;
+    var tamanho = $("#cnpj").val().length;
 
     if(tamanho < 11){
         $("#cnpj").mask("999.999.999-99");

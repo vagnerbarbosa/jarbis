@@ -27,7 +27,6 @@
                     text-align: center;
                 }
             }
-
         </style>
 
     </head>
@@ -67,8 +66,8 @@
                             </li>
                         </ul>
                         <form class="form-inline">
-                            <input class="imei form-control" type="text" ng-model="imei" size="30" placeholder="Busca por registros ou IMEI(s)">
-                            <button type="button" ng-click="getNotaPorImei(imei)" class="btn btn-primary btn-rounded btn-sm" >Buscar</button>
+                            <input class="imei form-control" type="text" ng-model="imei" ng-change="getNotaPorImei(imei)" size="30" placeholder="Busca por registros ou IMEI(s)">
+                            <button type="button" ng-click="addNew()" class="btn btn-primary btn-rounded btn-sm" >Incluir NF-e</button>
                         </form>
 
                     </div>
@@ -119,9 +118,8 @@
                     <div class="control-table">
 
                         <div class="fornecedor-controle">
-                            <button ng-click="addNew()" class="btn btn-primary" style="width: 32%; display: inline; margin-right: 0.0%">Incluir</button>
-                            <button type="button" ng-click="saveNota(nota)" class="btn btn-success {{off}}" style="width: 32%; display: inline; margin-right: 0.0%" ng-disabled="isSaveDisabled">Salvar</button>
-                            <button type="button" ng-click="deleteNota(nota.id)" class="btn btn-danger {{off}}" style="width: 32%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled">Excluir</button>
+                            <button type="button" ng-click="saveNota(nota)" class="btn btn-success {{off}}" style="width: 48%; display: inline; margin-right: 0.0%" ng-disabled="isSaveDisabled">Salvar</button>
+                            <button type="button" ng-click="deleteNota(nota.id)" class="btn btn-danger {{off}}" style="width: 48%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled">Excluir</button>
                         </div>
 
                     </div>

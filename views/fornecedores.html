@@ -67,8 +67,7 @@
                             </li>
                         </ul>
                      <form class="form-inline">
-                        <input class="cnpj form-control" type="text" ng-model="cnpj" ngChange="/[^0-9]/" size="30" placeholder="Busca por CNPJ">
-                        <button type="button" ng-click="getFornecedorPorCnpj(cnpj)" class="btn btn-primary btn-rounded btn-sm" >Buscar</button>
+                        <input class="cnpj form-control" type="text" ng-model="cnpj" ng-change="getFornecedorPorCnpj(cnpj)" ngChange="/[^0-9]/" size="30" placeholder="Busca por CNPJ"/>
                     </form>
 
                     </div>
@@ -81,7 +80,7 @@
         </header>
 
         <div style="float: top; position: relative; width: 100%; z-index: 10;">
-        <alert class="alert" style="left: 50%; position: absolute; transform: translateX(-50%);" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"  close="closeAlert()" ><strong>{{alert.msg}}</strong></alert>
+        <alert class="alert" style="left: 50%; position: absolute; transform: translateX(-50%); opacity: 0.9; filter: alpha(opacity=90);" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"  close="closeAlert()" ><strong>{{alert.msg}}</strong></alert>
         </div>
 
         <img style="float: top; width: 100%; padding-bottom: 0.5%; opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */" src="assets/img/forn.jpg" alt="Fornecedores"/>
@@ -94,35 +93,35 @@
 
                     <p style="float: left; width: 50%; padding-right: 1%;">
                         <span class="display_bold"><label for="cnpj">CNPJ</label></span>
-                        <input id="cnpj" type="text" ng-model="fornecedor.cnpj" ngChange="/[^0-9]/" class="cnpj" required="true" maxlength="30" readonly>
+                        <input id="cnpj" type="text" ng-model="fornecedor.cnpj" ngChange="/[^0-9]/" class="cnpj" required="true" maxlength="30" readonly/>
                     </p>
                     <p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Nome Fantasia</label></span>
-                        <input type="text" ng-model="fornecedor.companyName" size="30" readonly>
+                        <input type="text" ng-model="fornecedor.companyName" size="30" readonly/>
                     </p>
                     <p style="float: left; width: 50%; padding-right: 1%;">
                         <span class="display_bold"><label for="cnpj">UF</label></span>
-                        <input type="text" ng-model="fornecedor.FU" maxlength="2" value="{{ fornecedor.fu | uppercase}}" size="2" readonly>
+                        <input type="text" ng-model="fornecedor.FU" maxlength="2" value="{{ fornecedor.fu | uppercase}}" size="2" readonly/>
                     </p>
                     <p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Cidade</label></span>
-                        <input type="text" ng-model="fornecedor.city" size="20" readonly>
+                        <input type="text" ng-model="fornecedor.city" size="20" readonly/>
                     </p>
                     <p style="float: left; width: 50%; padding-right: 1%;">
                         <span class="display_bold"><label for="cnpj">Bairro</label></span>
-                        <input type="text" ng-model="fornecedor.neighborhood" size="30" readonly>
+                        <input type="text" ng-model="fornecedor.neighborhood" size="30" readonly/>
                     </p>
                     <p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Rua</label></span>
-                        <input type="text" ng-model="fornecedor.address" size="30" readonly>
+                        <input type="text" ng-model="fornecedor.address" size="30" readonly/>
                     </p>
                     <p style="float: left; width: 50%; padding-right: 1%;">
                         <span class="display_bold"><label for="cnpj">Número</label></span>
-                        <input type="text" ng-model="fornecedor.number" readonly>
+                        <input type="text" ng-model="fornecedor.number" readonly/>
                     </p>
                     <p><p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Inscrição Estadual</label></span>
-                        <input type="text" ng-model="fornecedor.IE" readonly>
+                        <input type="text" ng-model="fornecedor.IE" readonly/>
                     </p>
                 </form>
 
