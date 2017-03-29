@@ -10,8 +10,9 @@ module.exports = function( grunt ) {
       my_target : {
         files : {
           'assets/js/main.min.js' : [ 'bower_components/angular/angular.min.js',
-                                  'bower_components/angular-route/angular-route.min.js',
                                   'bower_components/PACE/pace.js',
+                                  'bower_components/tether/dist/js/tether.min.js',
+                                  'bower_components/angular-route/angular-route.min.js',                                  
                                   'local_components/js/app.js',
                                   'local_components/js/config.js',
                                   'local_components/js/home.controller.js',
@@ -20,7 +21,6 @@ module.exports = function( grunt ) {
                                   'local_components/js/notas.super.loja.controller.js',
                                   'local_components/js/jquery-2.2.3.min.js',
                                   'local_components/js/jquery.mask.min.js',
-                                  'bower_components/tether/dist/js/tether.min.js',
                                   'local_components/js/bootstrap.min.js',
                                   'local_components/js/mdb.min.js',
                                   'local_components/js/custom.js',
