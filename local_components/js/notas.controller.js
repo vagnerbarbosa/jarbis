@@ -11,12 +11,12 @@
       $scope.alerts = [];
       $scope.isSaveDisabled = true;
       $scope.isDeleteDisabled = true;
+      $scope.isSearchDisabled = true;
       $scope.isNew = false;
       var hostAddress = 'localhost:8080';
 
 
       $scope.getBuscaNota = function (imei) {
-
         $http({
             method: 'GET',
             url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/' + imei
@@ -24,6 +24,7 @@
             $scope.nota = response.data;
             $scope.isSaveDisabled = false;
             $scope.isDeleteDisabled = false;
+            $scope.isSearchDisabled = false;
             $scope.offNota = '';
             console.log("#[nota_recuperada!]");
             $scope.alerts.push({type: 'success', msg: 'NF-e encontrada com sucesso!', show: true});
@@ -53,14 +54,14 @@
               method: 'GET',
               url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/fornecedor/' + unformattedCnpj
             }).then(function successCallback(response) {
-              $scope.fornecedor = response.data;
+              $scope.nota.cnpjFornecedor = response.data;
               console.log("#[fornecedor_recuperado!]");
               $scope.alerts.push({type: 'success', msg: 'Fornecedor encontrado!', show: true});
               $timeout(function () {
                   $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
               }, 2000);
             }, function errorCallback(response) {
-              $scope.fornecedor = response.data;
+              $scope.nota.cnpjFornecedor = response.data;
               console.log("#[fornecedor_não_recuperado!]");
               $scope.alerts.push({type: 'danger', msg: 'Ops! Fornecedor não encontrado!', show: true});
               $timeout(function () {
@@ -85,6 +86,7 @@
               $scope.clearForm();
               $scope.isSaveDisabled = false;
               $scope.isDeleteDisabled = true;
+              $scope.isSearchDisabled = false;
               $scope.offNota = '';
               $scope.isNew = true;
           };

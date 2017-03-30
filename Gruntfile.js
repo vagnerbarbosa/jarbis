@@ -64,7 +64,7 @@ imagemin: {
     },
 
 copy: {
-  main: {
+  roboto: {
     files: [
       // includes files within path
       {
@@ -72,6 +72,20 @@ copy: {
         cwd: 'bower_components/roboto-fontface/fonts/Roboto/',
         src: ['**'],
         dest: 'assets/fonts/roboto/',
+        flatten: true,
+        filter: 'isFile'
+      },
+
+    ],
+  },
+  awesome: {
+    files: [
+      // includes files within path
+      {
+        expand: true,
+        cwd: 'bower_components/font-awesome/fonts/',
+        src: ['**'],
+        dest: 'assets/fonts/',
         flatten: true,
         filter: 'isFile'
       },

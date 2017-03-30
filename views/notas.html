@@ -96,7 +96,7 @@
                     </p>
                     <p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Fornecedor</label></span>
-                        <input type="text" ng-model="nota.cnpjFornecedor.cnpj" list="fornecedores" name="fornecedor" ng-disabled="isSaveDisabled" class="input-field col s12">
+                        <span style="display: inline;"><input type="text" ng-model="nota.cnpjFornecedor.companyName" name="fornecedor" ng-disabled="isSaveDisabled" class="input-field col s12"><button ng-disabled="isSearchDisabled" style="float: right;" type="button" data-target="#myModal1" data-toggle="modal" ng-click="myModal1" class="btn btn-info btn-rounded  btn-sm" ><i class="fa fa-search" aria-hidden="true"></i></button></span>
                     </p>
                     <p style="float: left; width: 50%; padding-right: 1%;">
                         <span class="display_bold"><label for="cnpj">Data de Emissão</label></span>
@@ -226,15 +226,14 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">Fornecedores Cadastrados</h4>
+                        <h4 class="modal-title" id="myModalLabel">Busca de Fornecedores</h4>
                     </div>
                     <div class="modal-body">
-                        <ul class="list-group">
-                            <li class="list-group-item" ng-repeat="f in fornecedores| orderBy: '-companyName' : 'true' ">
-                                <span class="tag tag-default tag-pill float-xs-right">{{f.cnpj}}</span>
-                                {{f.companyName}}
-                            </li>
-                        </ul>
+                      <div style="float: top; position: relative; width: 100%; z-index: 10;">
+                          <alert class="alert" style="left: 50%; position: absolute; transform: translateX(-50%); opacity: 0.9; filter: alpha(opacity=90);" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"  close="closeAlert()" ><strong>{{alert.msg}}</strong></alert>
+                      </div>
+
+                        <input class="cnpj form-control" type="text" ng-model="cnpj" ng-change="getFornecedorPorCnpj(cnpj)" ngChange="/[^0-9]/" size="30" placeholder="Busca por CNPJ"/>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn light-blue" data-dismiss="modal">Fechar</button>
