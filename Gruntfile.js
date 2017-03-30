@@ -34,7 +34,8 @@ module.exports = function( grunt ) {
     cssmin: {
       options: {
         mergeIntoShorthands: false,
-        roundingPrecision: -1
+        roundingPrecision: -1,
+        report: 'gzip'
       },
       target: {
         files: {
@@ -48,7 +49,10 @@ module.exports = function( grunt ) {
       }
     },
 
-imagemin: {                          // Task
+imagemin: {
+  options: {                       // Target options
+        optimizationLevel: 7
+      },                          // Task
   dynamic: {                         // Another target
     files: [{
       expand: true,                  // Enable dynamic expansion

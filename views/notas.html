@@ -80,7 +80,7 @@
         </header>
 
         <div style="float: top; position: relative; width: 100%; z-index: 10;">
-            <alert class="alert" style="left: 50%; position: absolute; transform: translateX(-50%);" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"  close="closeAlert()" ><strong>{{alert.msg}}</strong></alert>
+            <alert class="alert" style="left: 50%; position: absolute; transform: translateX(-50%); opacity: 0.9; filter: alpha(opacity=90);" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"  close="closeAlert()" ><strong>{{alert.msg}}</strong></alert>
         </div>
 
         <img style="float: top; width: 100%; padding-bottom: 0.5%; opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */" src="assets/img/nfnf.jpg" alt="Fornecedores"/>
@@ -97,9 +97,6 @@
                     <p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Fornecedor</label></span>
                         <input type="text" ng-model="nota.cnpjFornecedor.cnpj" list="fornecedores" name="fornecedor" ng-disabled="isSaveDisabled" class="input-field col s12">
-                        <datalist id="fornecedores">
-                            <option ng-repeat="fornecedor in fornecedores" value="{{fornecedor.id}}" >{{fornecedor.cnpj}} {{fornecedor.companyName}}</option>
-                        </datalist>
                     </p>
                     <p style="float: left; width: 50%; padding-right: 1%;">
                         <span class="display_bold"><label for="cnpj">Data de Emissão</label></span>
