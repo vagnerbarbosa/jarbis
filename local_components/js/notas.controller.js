@@ -63,7 +63,7 @@
             }, function errorCallback(response) {
               $scope.nota.cnpjFornecedor = response.data;
               console.log("#[fornecedor_não_recuperado!]");
-              $scope.alerts.push({type: 'danger', msg: 'Ops! Fornecedor não encontrado!', show: true});
+              $scope.alerts.push({type: 'danger', msg: 'Ops! Fornecedor não cadastrado no Sabium!', show: true});
               $timeout(function () {
                   $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
               }, 2000);

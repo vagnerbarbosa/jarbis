@@ -220,19 +220,15 @@
 
         <!-- Modal Fornecedores -->
         <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-dialog modal-sm" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">Busca de Fornecedores</h4>
+                        <h4 class="modal-title" id="myModalLabel">Busca de Fornecedor</h4>
                     </div>
                     <div class="modal-body">
-                      <div style="float: top; position: relative; width: 100%; z-index: 10;">
-                          <alert class="alert" style="left: 50%; position: absolute; transform: translateX(-50%); opacity: 0.9; filter: alpha(opacity=90);" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"  close="closeAlert()" ><strong>{{alert.msg}}</strong></alert>
-                      </div>
-
                         <input class="cnpj form-control" type="text" ng-model="cnpj" ng-change="getFornecedorPorCnpj(cnpj)" ngChange="/[^0-9]/" size="30" placeholder="Busca por CNPJ"/>
                     </div>
                     <div class="modal-footer">
