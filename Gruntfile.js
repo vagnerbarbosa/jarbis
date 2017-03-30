@@ -78,7 +78,7 @@ copy: {
 
     ],
   },
-  awesome: {
+  font_awesome: {
     files: [
       // includes files within path
       {
