@@ -4,7 +4,8 @@ module.exports = function( grunt ) {
 
     uglify : {
       options : {
-        mangle : false
+        mangle : false,
+        report: 'gzip'
       },
 
       my_target : {
@@ -12,7 +13,8 @@ module.exports = function( grunt ) {
           'assets/js/main.min.js' : [ 'bower_components/angular/angular.min.js',
                                   'bower_components/PACE/pace.js',
                                   'bower_components/tether/dist/js/tether.min.js',
-                                  'bower_components/angular-route/angular-route.min.js',                                  
+                                  'bower_components/angular-route/angular-route.min.js',
+                                  'bower_components/ng-focus-if/focusIf.min.js',
                                   'local_components/js/app.js',
                                   'local_components/js/config.js',
                                   'local_components/js/home.controller.js',

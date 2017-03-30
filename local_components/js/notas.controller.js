@@ -4,13 +4,14 @@
     angular.module('jarbis')
             .controller('NotasController', NotasController);
 
-    NotasController.$inject = ['$scope', '$http', '$timeout'];
+    NotasController.$inject = ['$scope', '$http', '$timeout', '$window'];
 
-    function NotasController ($scope, $http, $timeout) {
+    function NotasController ($scope, $http, $timeout, $window) {
 
       $scope.alerts = [];
       $scope.isSaveDisabled = true;
       $scope.isDeleteDisabled = true;
+      $scope.isNew = false;
       var hostAddress = 'localhost:8080';
 
       $scope.getBuscaNota = function (imei) {
@@ -68,11 +69,23 @@
 
           };
 
-          $scope.addNew = function (element) {
+          $scope.clearForm = function () {
+              $scope.nota = {
+                  number: '',
+                  issuanceDate: '',
+                  issuanceDate: '',
+                  cellPhone: '',
+                  cnpjFornecedor: ''
+              };
+          };
+
+          $scope.addNew = function () {
               $scope.operation = "create";
+              $scope.clearForm();
               $scope.isSaveDisabled = false;
               $scope.isDeleteDisabled = true;
               $scope.offNota = '';
+              $scope.isNew = true;
           };
     };
 })();
