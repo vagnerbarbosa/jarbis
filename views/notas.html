@@ -56,7 +56,7 @@
                               <a class="nav-link" href="fornecedores">Fornecedores</a>
                           </li>
                           <li class="nav-item active">
-                              <a class="nav-link" href="notas">Notas Fiscais<span class="sr-only">(current)</span></a>
+                              <a class="nav-link" data-toggle="modal" data-target="#myModal2" href="#myModal2">Notas Fiscais<span class="sr-only">(current)</span></a>
                           </li>
                           <li class="nav-item">
                               <a class="nav-link" href="notas-superloja">Últimas Entradas</a>
@@ -106,14 +106,21 @@
                         <span class="display_bold"><label for="cnpj">Data de Entrada</label></span>
                         <input type="date" ng-model="nota.issuanceDate" value="{{nota.dateEntry}}" name="nota.dataEntrada" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy">
                     </p>
-                    <p style="float: none; width: 100%; height: 200%; padding-right: 1%;">
-                        <span class="display_bold"><label for="cnpj">IMEIs</label></span>
-                        <textarea rows="8" ng-model="nota.cellPhone.imei" name="nota.cellPhone.imei" ng-list="&#10;" ng-trim="false" required="true" ng-disabled="isSaveDisabled" style="height: 200%;"></textarea>
+                    <p>
+                        <span class="display_bold"><label for="cnpj">Celulares</label></span>
+                        <ul>
+                          <li ng-repeat="c in nota.cellPhone">
+                            <p style="float: left; width: 16.5%;"><input type="number" ng-model="c.id" value="{{c.id}}" name="c.id" required="true" ng-disabled="isSaveDisabled" placeholder="Código"></p>
+                            <p style="float: left; width: 16.5%; padding-left: 1%;"><input type="number" ng-model="c.color" value="{{c.color}}" name="c.id" required="true" ng-disabled="isSaveDisabled" placeholder="Cor"></p>
+                            <p style="float: left; width: 16.5%; padding-left: 1%;"><input type="number" ng-model="c.volts" value="{{c.volts}}" name="c.id" required="true" ng-disabled="isSaveDisabled" placeholder="Volts"></p>
+                            <p style="float: left; width: 50.5%; padding-left: 2%;"><input padding-left: 1%;" type="text" ng-model="c.description" value="{{c.description}}" name="c.description" required="true" ng-disabled="isSaveDisabled" placeholder="Descrição"></p>
+                              <textarea rows="8" ng-model="c.imei" name="c.imei" ng-list="&#10;" ng-trim="false" required="true" ng-disabled="isSaveDisabled" style="height: 200%;"></textarea>
+                          </li>
+                        </ul>
                     </p>
 
 
                     <div class="control-table">
-
                         <div class="fornecedor-controle">
                             <button type="button" ng-click="saveNota(nota)" class="btn btn-success {{off}}" style="width: 48%; display: inline; margin-right: 0.0%" ng-disabled="isSaveDisabled">Salvar</button>
                             <button type="button" ng-click="deleteNota(nota.id)" class="btn btn-danger {{off}}" style="width: 48%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled">Excluir</button>
@@ -262,6 +269,7 @@
                 </div>
             </div>
         </div>
+
 
         <!-- Modal Sobre -->
         <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

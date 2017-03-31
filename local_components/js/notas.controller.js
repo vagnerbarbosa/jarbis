@@ -22,6 +22,7 @@
             url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/' + imei
           }).then(function successCallback(response) {
             $scope.nota = response.data;
+            $scope.operation = "update";
             $scope.isSaveDisabled = false;
             $scope.isDeleteDisabled = false;
             $scope.isSearchDisabled = false;
@@ -90,5 +91,52 @@
               $scope.offNota = '';
               $scope.isNew = true;
           };
+
+
+          $scope.saveNota = function (numero) {
+              $scope.jsonObj = angular.toJson($scope.nota, false);
+              console.log("[update] data: " + $scope.jsonObj);
+
+              if ($scope.operation === "update") {
+                $http({
+                    method: 'PUT',
+                    url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/' + numero, $scope.jsonObj,
+                    headers: {
+                      Content-Type: 'application/xml',
+                      Accept: 'application/x-www-form-urlencoded'
+                    },
+                  }).then(function successCallback(response) {
+                    console.log("#[nota_persistida!]");
+                    $scope.alerts.push({type: 'success', msg: 'NF-e salva com sucesso!', show: true});
+                    $timeout(function () {
+                        $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                    }, 2000);
+
+                  }, function errorCallback(response) {
+                    $scope.nota = response.data;
+                    console.log("#[nota_não_persistida!]");
+                    $scope.alerts.push({type: 'danger', msg: 'Ops! Operação não realizada!', show: true});
+                    $timeout(function () {
+                        $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                    }, 2000);
+                  });
+
+
+              }
+
+
+            };
+
+          $http({
+              method: 'GET',
+              url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/'
+            }).then(function successCallback(response) {
+              $scope.notas = response.data;
+              console.log("#[notas_recuperada!]");
+            }, function errorCallback(response) {
+              $scope.notas = response.data;
+              console.log("#[notas_não_encontradas!]");
+            });
+
     };
 })();

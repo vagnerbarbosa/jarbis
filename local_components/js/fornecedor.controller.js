@@ -38,5 +38,17 @@
             });
 
           };
+
+          $http({
+              method: 'GET',
+              url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/fornecedor/'
+            }).then(function successCallback(response) {
+              $scope.fornecedores = response.data;
+              console.log("#[fornecedores_recuperados!]");
+            }, function errorCallback(response) {
+              $scope.fornecedores = response.data;
+              console.log("#[fornecedores_não_encontrados!]");
+            });
+
     };
 })();
