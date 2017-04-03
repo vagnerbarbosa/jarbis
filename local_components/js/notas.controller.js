@@ -17,6 +17,7 @@
 
 
       $scope.getBuscaNota = function (imei) {
+        $scope.clearForm();
         $http({
             method: 'GET',
             url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/' + imei
@@ -100,11 +101,9 @@
               if ($scope.operation === "update") {
                 $http({
                     method: 'PUT',
-                    url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/' + numero, $scope.jsonObj,
-                    headers: {
-                      Content-Type: 'application/xml',
-                      Accept: 'application/x-www-form-urlencoded'
-                    },
+                    url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/' + numero,
+                    headers: {"Content-Type": "application/json;charset=UTF-8"},
+                    data: $scope.jsonObj
                   }).then(function successCallback(response) {
                     console.log("#[nota_persistida!]");
                     $scope.alerts.push({type: 'success', msg: 'NF-e salva com sucesso!', show: true});
