@@ -92,38 +92,37 @@
 
                     <p style="float: left; width: 50%; padding-right: 1%;">
                         <span class="display_bold"><label for="numero">Número da Nota</label></span>
-                        <input id="numero" type="text" focus-if="isNew" ng-model="nota.number" ng-disabled="isSaveDisabled" name="nota.numero" size="4" required="true">
+                        <input id="numero" type="text" focus-if="isNew" ng-model="nota.numero" ng-disabled="isSaveDisabled" name="nota.numero" size="4" required="true">
                     </p>
                     <p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Fornecedor</label></span>
-                        <span style="display: inline;"><input type="text" ng-model="nota.cnpjFornecedor.companyName" name="fornecedor" ng-disabled="isSaveDisabled" class="input-field col s12"><button ng-disabled="isSearchDisabled" style="float: right;" type="button" data-target="#myModal1" data-toggle="modal" ng-click="myModal1" class="btn btn-info btn-rounded  btn-sm" ><i class="fa fa-search" aria-hidden="true"></i> Buscar Fornecedor</button></span>
+                        <span style="display: inline;"><input type="text" ng-model="nota.cnpjFornecedor.cnpj" name="fornecedor" ng-disabled="isSaveDisabled" class="input-field col s12"><button ng-disabled="isSearchDisabled" style="float: right;" type="button" data-target="#myModal1" data-toggle="modal" ng-click="myModal1" class="btn btn-info btn-rounded  btn-sm" ><i class="fa fa-search" aria-hidden="true"></i> Buscar Fornecedor</button></span>
                     </p>
                     <p style="float: left; width: 50%; padding-right: 1%;">
                         <span class="display_bold"><label for="cnpj">Data de Emissão</label></span>
-                        <input type="date" ng-model="nota.issuanceDate" value="{{nota.issuanceDate}}" name="nota.dataEmissao" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy">
+                        <input type="date" ng-model="nota.dataEmissao" value="{{nota.dataEmissao}}" name="nota.dataEmissao" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy">
                     </p>
                     <p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Data de Entrada</label></span>
-                        <input type="date" ng-model="nota.issuanceDate" value="{{nota.dateEntry}}" name="nota.dataEntrada" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy">
+                        <input type="date" ng-model="nota.dataEntrada" value="{{nota.dataEntrada}}" name="nota.dataEntrada" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy">
                     </p>
-                    <p>
                         <span class="display_bold"><label for="cnpj">Celulares</label></span>
                         <ul>
-                          <li ng-repeat="c in nota.cellPhone">
-                            <p style="float: left; width: 16.5%;"><input type="number" ng-model="c.id" value="{{c.id}}" name="c.id" required="true" ng-disabled="isSaveDisabled" placeholder="Código"></p>
-                            <p style="float: left; width: 16.5%; padding-left: 1%;"><input type="number" ng-model="c.color" value="{{c.color}}" name="c.id" required="true" ng-disabled="isSaveDisabled" placeholder="Cor"></p>
-                            <p style="float: left; width: 16.5%; padding-left: 1%;"><input type="number" ng-model="c.volts" value="{{c.volts}}" name="c.id" required="true" ng-disabled="isSaveDisabled" placeholder="Volts"></p>
-                            <p style="float: left; width: 50.5%; padding-left: 2%;"><input padding-left: 1%;" type="text" ng-model="c.description" value="{{c.description}}" name="c.description" required="true" ng-disabled="isSaveDisabled" placeholder="Descrição"></p>
-                              <textarea rows="8" ng-model="c.imei" name="c.imei" ng-list="&#10;" ng-trim="false" required="true" ng-disabled="isSaveDisabled" style="height: 200%;"></textarea>
+                          <li ng-repeat="celular in nota.celular">
+                            <p style="float: left; width: 16.5%;"><input type="text" ng-model="celular.idProduto" value="{{celular.idProduto}}" name="celular.idProduto" required="true" ng-disabled="isSaveDisabled" placeholder="Código"></p>
+                            <p style="float: left; width: 16.5%; padding-left: 1%;"><input type="text" ng-model="celular.cor" value="{{celular.cor}}" name="celular.cor" required="true" ng-disabled="isSaveDisabled" placeholder="Cor"></p>
+                            <p style="float: left; width: 16.5%; padding-left: 1%;"><input type="text" ng-model="celular.voltagem" value="{{celular.voltagem}}" name="celular.voltagem" required="true" ng-disabled="isSaveDisabled" placeholder="Volts"></p>
+                            <p style="float: left; width: 50.5%; padding-left: 2%;"><input padding-left: 1%;" type="text" ng-model="celular.descricao" value="{{celular.descricao}}" name="celular.descricao" required="true" ng-disabled="isSaveDisabled" placeholder="Descrição"></p>
+                              <textarea rows="8" ng-model="celular.imeis" name="c.imei" ng-list="&#10;" ng-trim="false" required="true" ng-disabled="isSaveDisabled" style="height: 200%;"></textarea>
                           </li>
                         </ul>
-                    </p>
+
 
 
                     <div class="control-table">
                         <div class="fornecedor-controle">
                             <button type="button" ng-click="saveNota(nota)" class="btn btn-success {{off}}" style="width: 48%; display: inline; margin-right: 0.0%" ng-disabled="isSaveDisabled">Salvar</button>
-                            <button type="button" ng-click="deleteNota(nota.id)" class="btn btn-danger {{off}}" style="width: 48%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled">Excluir</button>
+                            <button type="button" ng-click="deleteNota(nota.idNota)" class="btn btn-danger {{off}}" style="width: 48%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled">Excluir</button>
                         </div>
 
                     </div>

@@ -122,9 +122,32 @@
 
 
               }
-
-
             };
+
+            $scope.deleteNota = function (numero) {
+                $scope.jsonObj = angular.toJson($scope.nota, false);
+                console.log("[update] data: " + $scope.jsonObj);
+
+                  $http({
+                      method: 'DELETE',
+                      url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/' + numero,
+                      headers: {"Content-Type": "application/json;charset=UTF-8"}
+                    }).then(function successCallback(response) {
+                      console.log("#[nota_persistida!]");
+                      $scope.alerts.push({type: 'success', msg: 'NF-e salva com sucesso!', show: true});
+                      $timeout(function () {
+                          $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                      }, 2000);
+
+                    }, function errorCallback(response) {
+                      $scope.nota = response.data;
+                      console.log("#[nota_não_persistida!]");
+                      $scope.alerts.push({type: 'danger', msg: 'Ops! Operação não realizada!', show: true});
+                      $timeout(function () {
+                          $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+                      }, 2000);
+                    });
+              };
 
           $http({
               method: 'GET',
