@@ -4,7 +4,7 @@
   "authors": [
     "Vagner Barbosa <contato@vagnerbarbosa.com>"
   ],
-  "description": "",
+  "description": "Supplier / Invoice / IMEI control system.",
   "main": "Server.js",
   "license": "THE BEER-WARE LICENSE (Revision 42)",
   "private": true,
