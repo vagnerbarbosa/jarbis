@@ -6,3 +6,15 @@ html {
 body {
     min-height: 100%;
 }
+
+#message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    left: 40%;
+}
+#inner-message {
+    margin: 0 auto;
+
+}

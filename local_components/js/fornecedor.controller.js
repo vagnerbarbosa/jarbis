@@ -23,14 +23,14 @@
               url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/fornecedor/' + unformattedCnpj
             }).then(function successCallback(response) {
               $scope.fornecedor = response.data;
-              console.log("#[fornecedor_recuperado!]");
+              console.log("#[jarbis says]: fornecedor_recuperado!]");
               $scope.alerts.push({type: 'success', msg: 'Fornecedor encontrado!', show: true});
               $timeout(function () {
                   $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
               }, 2000);
             }, function errorCallback(response) {
               $scope.fornecedor = response.data;
-              console.log("#[fornecedor_não_recuperado!]");
+              console.log("#[jarbis says]: fornecedor_não_recuperado!");
               $scope.alerts.push({type: 'danger', msg: 'Ops! Fornecedor não encontrado!', show: true});
               $timeout(function () {
                   $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
@@ -44,10 +44,10 @@
               url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/fornecedor/'
             }).then(function successCallback(response) {
               $scope.fornecedores = response.data;
-              console.log("#[fornecedores_recuperados!]");
+              console.log("#[jarbis says]: fornecedores_recuperados!");
             }, function errorCallback(response) {
               $scope.fornecedores = response.data;
-              console.log("#[fornecedores_não_encontrados!]");
+              console.log("#[jarbis says]: fornecedores_não_encontrados!");
             });
 
     };

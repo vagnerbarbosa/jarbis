@@ -75,8 +75,8 @@
             <!--/.Navbar-->
         </header>
 
-        <div style="float: top; position: relative; width: 100%; z-index: 10;">
-        <alert class="alert" style="left: 50%; position: absolute; transform: translateX(-50%);" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"  close="closeAlert()" ><strong>{{alert.msg}}</strong></alert>
+        <div id="message">
+            <alert class="alert" id="inner-message" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"  close="closeAlert()" ><strong>{{alert.msg}}</strong></alert>
         </div>
 
         <main>

@@ -18,7 +18,7 @@
               url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota-entrada/' + code
             }).then(function successCallback(response) {
               $scope.olds = response.data;
-              console.log("#[nota_do_superloja_recuperada!]");
+              console.log("#[jarbis says]: nota_do_superloja_recuperada!");
               $scope.alerts.push({type: 'success', msg: 'Registros encontrados!', show: true});
               $timeout(function () {
                   $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
@@ -26,7 +26,7 @@
 
             }, function errorCallback(response) {
               $scope.olds = response.data;
-              console.log("#[nota_do_superloja_não_encontrada!]");
+              console.log("#[jarbis says]: nota_do_superloja_não_encontrada!");
               $scope.alerts.push({type: 'danger', msg: 'Ops! Registros não encontrados!', show: true});
               $timeout(function () {
                   $scope.alerts.splice($scope.alerts.indexOf(alert), 1);

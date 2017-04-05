@@ -28,7 +28,7 @@
             $scope.isDeleteDisabled = false;
             $scope.isSearchDisabled = false;
             $scope.offNota = '';
-            console.log("#[nota_recuperada!]");
+            console.log("#[jarbis says]: nota_recuperada!");
             $scope.alerts.push({type: 'success', msg: 'NF-e encontrada com sucesso!', show: true});
             $timeout(function () {
                 $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
@@ -36,7 +36,7 @@
 
           }, function errorCallback(response) {
             $scope.nota = response.data;
-            console.log("#[nota_não_encontrada!]");
+            console.log("#[jarbis says]: nota_não_encontrada!");
             $scope.alerts.push({type: 'danger', msg: 'Ops! NF-e não encontrada!', show: true});
             $timeout(function () {
                 $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
@@ -57,14 +57,14 @@
               url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/fornecedor/' + unformattedCnpj
             }).then(function successCallback(response) {
               $scope.nota.cnpjFornecedor = response.data;
-              console.log("#[fornecedor_recuperado!]");
+              console.log("#[jarbis says]: fornecedor_recuperado!");
               $scope.alerts.push({type: 'success', msg: 'Fornecedor encontrado!', show: true});
               $timeout(function () {
                   $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
               }, 2000);
             }, function errorCallback(response) {
               $scope.nota.cnpjFornecedor = response.data;
-              console.log("#[fornecedor_não_recuperado!]");
+              console.log("#[jarbis says]: fornecedor_não_recuperado!");
               $scope.alerts.push({type: 'danger', msg: 'Ops! Fornecedor não cadastrado no Sabium!', show: true});
               $timeout(function () {
                   $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
@@ -96,7 +96,7 @@
 
           $scope.saveNota = function (numero) {
               $scope.jsonObj = angular.toJson($scope.nota, false);
-              console.log("[update] data: " + $scope.jsonObj);
+              console.log("#[jarbis says]: data atualizada --- " + $scope.jsonObj);
 
               if ($scope.operation === "update") {
                 $http({
@@ -105,7 +105,7 @@
                     headers: {"Content-Type": "application/json;charset=UTF-8"},
                     data: $scope.jsonObj
                   }).then(function successCallback(response) {
-                    console.log("#[nota_persistida!]");
+                    console.log("#[jarbis says]: nota_persistida!");
                     $scope.alerts.push({type: 'success', msg: 'NF-e salva com sucesso!', show: true});
                     $timeout(function () {
                         $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
@@ -113,7 +113,7 @@
 
                   }, function errorCallback(response) {
                     $scope.nota = response.data;
-                    console.log("#[nota_não_persistida!]");
+                    console.log("#[jarbis says]: nota_não_persistida!");
                     $scope.alerts.push({type: 'danger', msg: 'Ops! Operação não realizada!', show: true});
                     $timeout(function () {
                         $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
@@ -126,22 +126,22 @@
 
             $scope.deleteNota = function (numero) {
                 $scope.jsonObj = angular.toJson($scope.nota, false);
-                console.log("[update] data: " + $scope.jsonObj);
+                console.log("#[jarbis says]: data excluida --- " + $scope.jsonObj);
 
                   $http({
                       method: 'DELETE',
                       url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/' + numero,
                       headers: {"Content-Type": "application/json;charset=UTF-8"}
                     }).then(function successCallback(response) {
-                      console.log("#[nota_persistida!]");
-                      $scope.alerts.push({type: 'success', msg: 'NF-e salva com sucesso!', show: true});
+                      console.log("#[jarbis says]: nota_deletada!");
+                      $scope.alerts.push({type: 'success', msg: 'NF-e deletada com sucesso!', show: true});
                       $timeout(function () {
                           $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
                       }, 2000);
 
                     }, function errorCallback(response) {
                       $scope.nota = response.data;
-                      console.log("#[nota_não_persistida!]");
+                      console.log("#[jarbis says]: nota_não_deletada!");
                       $scope.alerts.push({type: 'danger', msg: 'Ops! Operação não realizada!', show: true});
                       $timeout(function () {
                           $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
@@ -154,10 +154,10 @@
               url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/'
             }).then(function successCallback(response) {
               $scope.notas = response.data;
-              console.log("#[notas_recuperada!]");
+              console.log("#[jarbis says]: notas_recuperadas!");
             }, function errorCallback(response) {
               $scope.notas = response.data;
-              console.log("#[notas_não_encontradas!]");
+              console.log("#[jarbis says]: notas_não_encontradas!");
             });
 
     };

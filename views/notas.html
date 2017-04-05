@@ -79,8 +79,8 @@
             <!--/.Navbar-->
         </header>
 
-        <div style="float: top; position: relative; width: 100%; z-index: 10;">
-            <alert class="alert" style="left: 50%; position: absolute; transform: translateX(-50%); opacity: 0.9; filter: alpha(opacity=90);" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"  close="closeAlert()" ><strong>{{alert.msg}}</strong></alert>
+        <div id="message">
+            <alert class="alert" id="inner-message" ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"  close="closeAlert()" ><strong>{{alert.msg}}</strong></alert>
         </div>
 
         <img style="float: top; width: 100%; padding-bottom: 0.5%; opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */" src="assets/img/nfnf.jpg" alt="Fornecedores"/>
@@ -96,15 +96,23 @@
                     </p>
                     <p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Fornecedor</label></span>
-                        <span style="display: inline;"><input type="text" ng-model="nota.cnpjFornecedor.cnpj" name="fornecedor" ng-disabled="isSaveDisabled" class="input-field col s12"><button ng-disabled="isSearchDisabled" style="float: right;" type="button" data-target="#myModal1" data-toggle="modal" ng-click="myModal1" class="btn btn-info btn-rounded  btn-sm" ><i class="fa fa-search" aria-hidden="true"></i> Buscar Fornecedor</button></span>
+                        <span style="display: inline;">
+                          <a data-target="#myModal1" data-toggle="modal" ng-click="myModal1">
+                            <input type="text" ng-model="nota.cnpjFornecedor.nomeFornecedor" name="fornecedor" ng-disabled="isSaveDisabled" class="input-field col s12" readonly/>
+                          </a>
+                            <button ng-disabled="isSearchDisabled" style="float: right;" type="button" data-target="#myModal1" data-toggle="modal" ng-click="myModal1" class="btn btn-info btn-rounded  btn-sm" >
+                              <i class="fa fa-search"></i>
+                              <strong> Buscar Fornecedor</strong>
+                            </button>
+                        </span>
                     </p>
                     <p style="float: left; width: 50%; padding-right: 1%;">
                         <span class="display_bold"><label for="cnpj">Data de Emissão</label></span>
-                        <input type="date" ng-model="nota.dataEmissao" value="{{nota.dataEmissao}}" name="nota.dataEmissao" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy">
+                        <input type="date" ng-model="nota.dataEmissao" value="{{nota.dataEmissao}}" name="nota.dataEmissao" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy" format-date/>
                     </p>
                     <p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Data de Entrada</label></span>
-                        <input type="date" ng-model="nota.dataEntrada" value="{{nota.dataEntrada}}" name="nota.dataEntrada" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy">
+                        <input type="date" ng-model="nota.dataEntrada" value="{{nota.dataEntrada}}" name="nota.dataEntrada" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy" format-date/>
                     </p>
                         <span class="display_bold"><label for="cnpj">Celulares</label></span>
                         <ul>
@@ -112,7 +120,7 @@
                             <p style="float: left; width: 16.5%;"><input type="text" ng-model="celular.idProduto" value="{{celular.idProduto}}" name="celular.idProduto" required="true" ng-disabled="isSaveDisabled" placeholder="Código"></p>
                             <p style="float: left; width: 16.5%; padding-left: 1%;"><input type="text" ng-model="celular.cor" value="{{celular.cor}}" name="celular.cor" required="true" ng-disabled="isSaveDisabled" placeholder="Cor"></p>
                             <p style="float: left; width: 16.5%; padding-left: 1%;"><input type="text" ng-model="celular.voltagem" value="{{celular.voltagem}}" name="celular.voltagem" required="true" ng-disabled="isSaveDisabled" placeholder="Volts"></p>
-                            <p style="float: left; width: 50.5%; padding-left: 2%;"><input type="text" ng-model="celular.descricao" value="{{celular.descricao}}" name="celular.descricao" required="true" ng-disabled="isSaveDisabled" placeholder="Descrição"></p>
+                            <p style="float: left; width: 50.5%; padding-left: 2%;" ><input type="text" ng-model="celular.descricao" value="{{celular.descricao}}" name="celular.descricao" required="true" ng-disabled="isSaveDisabled" placeholder="Descrição" readonly></p>
                               <textarea rows="8" ng-model="celular.imeis" name="c.imei" ng-list="&#10;" ng-trim="false" required="true" ng-disabled="isSaveDisabled" style="height: 200%;"></textarea>
                           </li>
                         </ul>
@@ -256,9 +264,9 @@
                     </div>
                     <div class="modal-body">
                         <ul class="list-group">
-                            <li class="list-group-item" ng-repeat="n in notas| orderBy: '-id'">
-                                <span class="tag tag-default tag-pill float-xs-right">Registro {{n.id}}</span>
-                                Número: {{n.number}}
+                            <li class="list-group-item" ng-repeat="n in notas | orderBy: '-id'">
+                                <span class="tag tag-default tag-pill float-xs-right">Registro {{n.idNota}}</span>
+                                Número: {{n.numero}}
                             </li>
                         </ul>
                     </div>
@@ -290,6 +298,27 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Modal Sobre -->
+            <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel"><strong>SOBRE O {{systemName}}</strong></h4>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>CUIDADO! O {{systemName}} precisa de sua atenção:</strong></p>
+                            <p>Desenvolvido pela {{companyName}}, para uso interno, no auxílio da localizaçâo das notas ficais correspondentes aos IMEI's buscados.</p>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn light-blue" data-dismiss="modal">Certo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             <script type="text/javascript">
                                             $(function () {
