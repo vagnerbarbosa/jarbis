@@ -51,15 +51,15 @@ module.exports = function( grunt ) {
     },
 
 imagemin: {
-  options: {                       // Target options
+  options: {
         optimizationLevel: 7
-      },                          // Task
-  dynamic: {                         // Another target
+      },
+  dynamic: {
     files: [{
-      expand: true,                  // Enable dynamic expansion
-      cwd: 'local_components/img/',                   // Src matches are relative to this path
-      src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
-      dest: 'assets/img/'                  // Destination path prefix
+      expand: true,
+      cwd: 'local_components/img/',
+      src: ['**/*.{png,jpg,gif}'],
+      dest: 'assets/img/'                  
     }]
       }
     },
