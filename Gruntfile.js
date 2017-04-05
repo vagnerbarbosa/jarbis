@@ -59,7 +59,7 @@ imagemin: {
       expand: true,
       cwd: 'local_components/img/',
       src: ['**/*.{png,jpg,gif}'],
-      dest: 'assets/img/'                  
+      dest: 'assets/img/'
     }]
       }
     },
