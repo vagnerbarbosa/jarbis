@@ -56,7 +56,7 @@
                               <a class="nav-link" href="fornecedores">Fornecedores</a>
                           </li>
                           <li class="nav-item active">
-                              <a class="nav-link" data-toggle="modal" data-target="#myModal2" href="#myModal2">Notas Fiscais<span class="sr-only">(current)</span></a>
+                              <a class="nav-link" data-toggle="modal" data-target="#myModal2" href="#myModal2" ng-click="refreshNota()">Notas Fiscais<span class="sr-only">(current)</span></a>
                           </li>
                           <li class="nav-item">
                               <a class="nav-link" href="notas-superloja">Últimas Entradas</a>
@@ -98,7 +98,7 @@
                         <span class="display_bold"><label for="cnpj">Fornecedor</label></span>
                         <span style="display: inline;">
                           <a data-target="#myModal1" data-toggle="modal" ng-click="myModal1">
-                            <input type="text" ng-model="nota.cnpjFornecedor.nomeFornecedor" name="fornecedor" ng-disabled="isSaveDisabled" class="input-field col s12" readonly/>
+                            <input type="text" ng-model="nota.cnpjFornecedor.nomeFornecedor" name="fornecedor" ng-disabled="isSaveDisabled" class="input-field col s12" readonly></input>
                           </a>
                             <button ng-disabled="isSearchDisabled" style="float: right;" type="button" data-target="#myModal1" data-toggle="modal" ng-click="myModal1" class="btn btn-info btn-rounded  btn-sm" >
                               <i class="fa fa-search"></i>
@@ -299,7 +299,7 @@
                 </div>
             </div>
 
-            <!-- Modal Sobre -->
+            <!-- Modal Exclusão -->
             <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">

@@ -23,7 +23,7 @@
             url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/' + imei
           }).then(function successCallback(response) {
             $scope.nota = response.data;
-            $scope.operation = "update";
+            $scope.operation = "PUT";
             $scope.isSaveDisabled = false;
             $scope.isDeleteDisabled = false;
             $scope.isSearchDisabled = false;
@@ -84,7 +84,7 @@
           };
 
           $scope.addNew = function () {
-              $scope.operation = "create";
+              $scope.operation = "POST";
               $scope.clearForm();
               $scope.isSaveDisabled = false;
               $scope.isDeleteDisabled = true;
@@ -98,9 +98,8 @@
               $scope.jsonObj = angular.toJson($scope.nota, false);
               console.log("#[jarbis says]: data atualizada --- " + $scope.jsonObj);
 
-              if ($scope.operation === "update") {
                 $http({
-                    method: 'PUT',
+                    method: $scope.operation,
                     url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/' + numero,
                     headers: {"Content-Type": "application/json;charset=UTF-8"},
                     data: $scope.jsonObj
@@ -121,7 +120,7 @@
                   });
 
 
-              }
+
             };
 
             $scope.deleteNota = function (numero) {
@@ -149,7 +148,8 @@
                     });
               };
 
-          $http({
+              $scope.refreshNota = function () {
+                $http({
               method: 'GET',
               url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/'
             }).then(function successCallback(response) {
@@ -159,6 +159,7 @@
               $scope.notas = response.data;
               console.log("#[jarbis says]: notas_não_encontradas!");
             });
+          }
 
     };
 })();

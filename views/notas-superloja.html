@@ -85,9 +85,8 @@
         <img style="float: top; width: 100%; padding-bottom: 0.1%; opacity: 0.8; filter: alpha(opacity=80); /* For IE8 and earlier */" src="assets/img/oldbg.jpg" alt="Notas Fiscais"/>
         <main>
             <!--Main layout-->
-            <div style="padding-bottom: 3.8%;">
-              <div class="container-fluid">
-                <table class="table-condensed table-responsive" style=" font-size: 80%;" >
+              <div class="container" style="padding-bottom: 0.7%">
+                <table class="table table-hover table-condensed table-responsive" style="font-size: 80%;">
                     <thead>
                         <tr>
                             <th class="text-lg-center" data-field="fl">Cód. Compra</th>
@@ -105,17 +104,17 @@
                         <tr>
                             <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.codigoCompra}}</td>
                             <td class="text-lg-center" style="color: red; font-weight: bold;">{{s.dataEmissao | date:"dd/MM/yyyy"}}</td>
-                            <td class="text-lg-center" style="color: red; font-weight: bold;">{{s.dataEntrada | date:"dd/MM/yyyy"}}</td>
-                            <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.chaveNotaFiscal}}</td>
-                            <td class="text-lg-center" style="color: red; font-weight: bold;">{{s.numeroNotaFiscal}}</td>
-                            <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.codigoProduto}}</td>
-                            <td class="text-lg-center" style="color: red; font-weight: bold;">{{s.descricaoProduto}}</td>
-                            <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.nomeFornecedor}}</td>
+                            <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.dataEntrada | date:"dd/MM/yyyy"}}</td>
+                            <td class="text-lg-center" style="color: red; font-weight: bold;">{{s.chaveNotaFiscal}}</td>
+                            <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.numeroNotaFiscal}}</td>
+                            <td class="text-lg-center" style="color: red; font-weight: bold;">{{s.codigoProduto}}</td>
+                            <td class="text-lg-center" style="color: #0059bc; font-weight: bold;">{{s.descricaoProduto}}</td>
+                            <td class="text-lg-center" style="color: red; font-weight: bold;">{{s.nomeFornecedor}}</td>
                         </tr>
                     </tbody>
                 </table>
-                </div>
-            </div>
+</div>
+
             <!--/.Main layout-->
         </main>
 

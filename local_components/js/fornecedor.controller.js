@@ -23,7 +23,7 @@
               url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/fornecedor/' + unformattedCnpj
             }).then(function successCallback(response) {
               $scope.fornecedor = response.data;
-              console.log("#[jarbis says]: fornecedor_recuperado!]");
+              console.log("#[jarbis says]: fornecedor_recuperado!");
               $scope.alerts.push({type: 'success', msg: 'Fornecedor encontrado!', show: true});
               $timeout(function () {
                   $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
