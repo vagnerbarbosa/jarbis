@@ -9,6 +9,7 @@
     function NotasController ($scope, $http, $timeout, $window) {
 
       $scope.alerts = [];
+
       $scope.isSaveDisabled = true;
       $scope.isDeleteDisabled = true;
       $scope.isSearchDisabled = true;
@@ -44,6 +45,31 @@
           });
 
         };
+
+        $scope.getCelularPorCodigo = function (codigo, cor, voltagem) {
+          console.log("#[jarbis says]: BRRRR!" + codigo);
+          console.log("#[jarbis says]: BRRRR!!" + cor);
+          console.log("#[jarbis says]: BRRRR!!!" + voltagem);
+          $http({
+              method: 'GET',
+              url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/celular/' + codigo + '/' + cor + '/' + voltagem
+            }).then(function successCallback(response) {
+              $scope.c = response.data;
+              console.log("#[jarbis says]: celular_recuperado!");
+              $scope.alerts.push({type: 'success', msg: 'Celular encontrado!', show: true});
+              $timeout(function () {
+                  $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+              }, 2000);
+            }, function errorCallback(response) {
+              $scope.c = response.data;
+              console.log("#[jarbis says]: celular_não_recuperado!");
+              $scope.alerts.push({type: 'danger', msg: 'Ops! Celular não cadastrado no Sabium!', show: true});
+              $timeout(function () {
+                  $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
+              }, 2000);
+            });
+
+          };
 
         $scope.getFornecedorPorCnpj = function (cnpj) {
 
@@ -91,6 +117,7 @@
               $scope.isSearchDisabled = false;
               $scope.offNota = '';
               $scope.isNew = true;
+              $scope.celular = [{}];//[{"idProduto":0,"cor":0,"voltagem":0,"descricao":"teste","imeis":[],"idcelular":0}];
           };
 
 
@@ -159,7 +186,17 @@
               $scope.notas = response.data;
               console.log("#[jarbis says]: notas_não_encontradas!");
             });
-          }
+          };
+
+          $scope.addNewPhone = function() {
+            var newItemNo = $scope.celular.length+1;
+            $scope.nota.celular.push([{}]);
+          };
+
+          $scope.removePhone = function() {
+            var lastItem = $scope.celular.length-1;
+            $scope.nota.celular.splice(lastItem);
+          };
 
     };
 })();

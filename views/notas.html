@@ -114,17 +114,24 @@
                         <span class="display_bold"><label for="cnpj">Data de Entrada</label></span>
                         <input type="date" ng-model="nota.dataEntrada" value="{{nota.dataEntrada}}" name="nota.dataEntrada" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy" format-date/>
                     </p>
-                        <span class="display_bold"><label for="cnpj">Celulares</label></span>
+                        <span class="display_bold"><label for="cnpj">Celulares</label></span> <button class="addfields" ng-click="addNewPhone()">Add fields</button>
                         <ul>
-                          <li ng-repeat="celular in nota.celular">
-                            <p style="float: left; width: 16.5%;"><input type="text" ng-model="celular.idProduto" value="{{celular.idProduto}}" name="celular.idProduto" required="true" ng-disabled="isSaveDisabled" placeholder="Código"></p>
-                            <p style="float: left; width: 16.5%; padding-left: 1%;"><input type="text" ng-model="celular.cor" value="{{celular.cor}}" name="celular.cor" required="true" ng-disabled="isSaveDisabled" placeholder="Cor"></p>
-                            <p style="float: left; width: 16.5%; padding-left: 1%;"><input type="text" ng-model="celular.voltagem" value="{{celular.voltagem}}" name="celular.voltagem" required="true" ng-disabled="isSaveDisabled" placeholder="Volts"></p>
-                            <p style="float: left; width: 50.5%; padding-left: 2%;" ><input type="text" ng-model="celular.descricao" value="{{celular.descricao}}" name="celular.descricao" required="true" ng-disabled="isSaveDisabled" placeholder="Descrição" readonly></p>
-                              <textarea rows="8" ng-model="celular.imeis" name="c.imei" ng-list="&#10;" ng-trim="false" required="true" ng-disabled="isSaveDisabled" style="height: 200%;"></textarea>
+                          <li data-ng-repeat="celular in celular">
+                            <p style="float: left; width: 16.5%;"><input type="text" ng-model="celular.idProduto" name="" required="true" ng-disabled="isSaveDisabled" placeholder="Código"></p>
+                            <p style="float: left; width: 16.5%; padding-left: 1%;"><input type="text" ng-model="celular.cor" name="c.cor" required="true" ng-disabled="isSaveDisabled" placeholder="Cor"></p>
+                            <p style="float: left; width: 16.5%; padding-left: 1%;"><input type="text" ng-model="celular.voltagem" name="c.voltagem" required="true" ng-disabled="isSaveDisabled" placeholder="Volts" ng-change="getCelularPorCodigo(c.idProduto, c.cor, c.voltagem)"></p>
+                            <p style="float: left; width: 50.5%; padding-left: 2%;" ><input type="text" ng-model="celular.descricao" name="c.descricao" required="true" ng-disabled="isSaveDisabled" placeholder="Descrição" readonly></p>
+                            <button class="remove" ng-show="$last" ng-click="removePhone()">-</button>
+                            <button ng-disabled="isSearchDisabled" style="float: right;" type="button" data-target="#myModal5" data-toggle="modal" ng-click="myModal5" class="btn btn-info btn-rounded  btn-sm" >
+                              <i class="fa fa-search"></i>
+                              <strong> Buscar Celular</strong>
+                            </button>
+                              <textarea rows="8" ng-model="c.imeis" name="c.imei" ng-list="&#10;" ng-trim="false" required="true" ng-disabled="isSaveDisabled" style="height: 200%;"></textarea>
                           </li>
                         </ul>
-
+                        <div id="choicesDisplay">
+         {{ celular }}
+      </div>
 
 
                     <div class="control-table">
@@ -231,6 +238,28 @@
 
         <script type="text/javascript" src="/assets/js/main.min.js"></script>
 
+
+        <!-- Modal Celular -->
+        <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Busca de Celulares</h4>
+                    </div>
+                    <div class="modal-body">
+                      <input type="text" ng-model="celular.idProduto" value="{{celular.idProduto}}" name="celular.idProduto" required="true" ng-disabled="isSaveDisabled" placeholder="Código"></p>
+                      <input type="text" ng-model="celular.cor" value="{{celular.cor}}" name="celular.cor" required="true" ng-disabled="isSaveDisabled" placeholder="Cor"></p>
+                      <input type="text" ng-model="celular.voltagem" value="{{celular.voltagem}}" name="celular.voltagem" required="true" ng-disabled="isSaveDisabled" ng-change="getCelularPorCodigo(celular.idProduto, celular.cor, celular.voltagem)" placeholder="Volts"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn light-blue" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Modal Fornecedores -->
         <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
