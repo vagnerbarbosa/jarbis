@@ -10,6 +10,7 @@
       $rootScope.$routeParams = $routeParams;
       $rootScope.systemName = 'J.A.R.B.I.S.';
       $rootScope.systemVersion = '2.1.beta';
+      $rootScope.systemYear = '2017';
       $rootScope.easterEgg = 'Just Another Reality Booster Interoperable System';
       $rootScope.companyName = 'T.I. Lojão Rio do Peixe';
 

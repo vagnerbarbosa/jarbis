@@ -54,14 +54,14 @@
               method: 'GET',
               url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/celular/' + codigo + '/' + cor + '/' + voltagem
             }).then(function successCallback(response) {
-              $scope.c = response.data;
-              console.log("#[jarbis says]: celular_recuperado!");
+              $scope.celular = response.data;
+              console.log("#[jarbis says]: celular_recuperado! " + $scope.celular.descricao);
               $scope.alerts.push({type: 'success', msg: 'Celular encontrado!', show: true});
               $timeout(function () {
                   $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
               }, 2000);
             }, function errorCallback(response) {
-              $scope.c = response.data;
+              $scope.celular = response.data;
               console.log("#[jarbis says]: celular_não_recuperado!");
               $scope.alerts.push({type: 'danger', msg: 'Ops! Celular não cadastrado no Sabium!', show: true});
               $timeout(function () {
@@ -117,7 +117,8 @@
               $scope.isSearchDisabled = false;
               $scope.offNota = '';
               $scope.isNew = true;
-              $scope.celular = [{}];//[{"idProduto":0,"cor":0,"voltagem":0,"descricao":"teste","imeis":[],"idcelular":0}];
+              $scope.nota.celular = [{}];//[{"idProduto":0,"cor":0,"voltagem":0,"descricao":"teste","imeis":[],"idcelular":0}];
+              $scope.celular.length = 1;
           };
 
 
@@ -152,7 +153,7 @@
 
             $scope.deleteNota = function (numero) {
                 $scope.jsonObj = angular.toJson($scope.nota, false);
-                console.log("#[jarbis says]: data excluida --- " + $scope.jsonObj);
+                console.log("#[jarbis says]: data excluida - " + $scope.jsonObj);
 
                   $http({
                       method: 'DELETE',
@@ -190,12 +191,12 @@
 
           $scope.addNewPhone = function() {
             var newItemNo = $scope.celular.length+1;
-            $scope.nota.celular.push([{}]);
+            $scope.celular.push([{}]);
           };
 
           $scope.removePhone = function() {
             var lastItem = $scope.celular.length-1;
-            $scope.nota.celular.splice(lastItem);
+            $scope.celular.splice(lastItem);
           };
 
     };
