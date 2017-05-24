@@ -115,12 +115,11 @@
                         <input type="date" ng-model="nota.dataEntrada" value="{{nota.dataEntrada}}" name="nota.dataEntrada" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy" format-date/>
                     </p>
                         <span class="display_bold" ><label for="cnpj">Celulares</label>
-                          <button ng-disabled="isSearchDisabled" style="float: right;" type="button" data-target="#myModal5" data-toggle="modal" ng-click="myModal5" class="btn btn-info btn-rounded  btn-sm" >
+                          <button ng-disabled="isSearchDisabled" style="float: right;" type="button" ng-click="addNewPhone()" class="btn btn-info btn-rounded  btn-sm addfields" >
                             <i class="fa fa-plus-circle"></i>
                             <strong> Adicionar Celular</strong>
                           </button>
                         </span>
-
 
 
                         <!-- <button class="addfields" ng-click="addNewPhone()">Add fields</button> -->
@@ -131,7 +130,7 @@
                             <p style="float: left; width: 16.5%;"><input type="text" ng-model="celular.idProduto" name="celular.idProduto" required="true" ng-disabled="isSaveDisabled" placeholder="Código"></p>
                             <p style="float: left; width: 16.5%; padding-left: 1%;"><input type="text" ng-model="celular.cor" name="celular.cor" required="true" ng-disabled="isSaveDisabled" placeholder="Cor"></p>
                             <p style="float: left; width: 16.5%; padding-left: 1%;"><input type="text" ng-model="celular.voltagem" name="celular.voltagem" required="true" ng-disabled="isSaveDisabled" placeholder="Volts" ng-change="getCelularPorCodigo(celular.idProduto, celular.cor, celular.voltagem)"></p>
-                            <p style="float: left; width: 50.5%; padding-left: 2%;" ><input type="text" ng-model="celular.descricao" name="celular.descricao" required="true" ng-disabled="isSaveDisabled" placeholder="Descrição" readonly></p>
+                            <p style="float: left; width: 50.5%; padding-left: 2%;" ><input type="text" ng-model="celular.descricao" name="celular.descricao" required="true" ng-disabled="isSaveDisabled" placeholder="Descrição" ></p>
                             <!-- <button class="remove" ng-show="$last" ng-click="removePhone()">-</button> -->
                               <textarea rows="8" ng-model="celular.imeis" name="celular.imei" ng-list="&#10;" ng-trim="false" required="true" ng-disabled="isSaveDisabled" style="height: 200%;"></textarea>
                           </li>
@@ -149,7 +148,7 @@
                     <div class="control-table">
                         <div class="fornecedor-controle">
                             <button type="button" ng-click="saveNota(nota)" class="btn btn-success {{off}}" style="width: 47%; display: inline; margin-right: 0.0%" ng-disabled="isSaveDisabled">Salvar</button>
-                            <button type="button" ng-click="deleteNota(nota.idNota)" class="btn btn-danger {{off}}" style="width: 47%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled">Excluir</button>
+                            <button type="button"  data-toggle="modal" data-target="#myModal5" href="#myModal5" class="btn btn-danger {{off}}" style="width: 47%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled">Excluir</button>
                         </div>
 
                     </div>
@@ -253,21 +252,21 @@
 
         <!-- Modal Celular -->
         <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">Busca de Celulares</h4>
+                        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> O {{systemName}} precisa de sua atenção!</h4>
                     </div>
                     <div class="modal-body">
-                      <input type="text" ng-model="celular.idProduto" value="{{celular.idProduto}}" name="celular.idProduto" required="true" ng-disabled="isSaveDisabled" placeholder="Código"></p>
-                      <input type="text" ng-model="celular.cor" value="{{celular.cor}}" name="celular.cor" required="true" ng-disabled="isSaveDisabled" placeholder="Cor"></p>
-                      <input type="text" ng-model="celular.voltagem" value="{{celular.voltagem}}" name="celular.voltagem" required="true" ng-disabled="isSaveDisabled" ng-change="getCelularPorCodigo(celular.idProduto, celular.cor, celular.voltagem)" placeholder="Volts"></p>
+                      <p class="text-lg-center">Ao confirmar essa operação você irá apagar <strong>definitivamente</strong> os dados da NF-e!</p>
+                         <strong class="text-lg-center"><p>Tem certeza que deseja excluir esse dados?</p></strong>
+                      <button type="button" ng-click="deleteNota(nota.idNota)" class="btn btn-danger {{off}}" style="width: 48%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled" data-dismiss="modal">Sim</button>
+                      <button type="button" style="width: 48%; display: inline; margin-right: 0.0%" class="btn light-blue" data-dismiss="modal">Não</button>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn light-blue" data-dismiss="modal">Fechar</button>
                     </div>
                 </div>
             </div>

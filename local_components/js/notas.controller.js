@@ -54,14 +54,14 @@
               method: 'GET',
               url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/celular/' + codigo + '/' + cor + '/' + voltagem
             }).then(function successCallback(response) {
-              $scope.celular = response.data;
-              console.log("#[jarbis says]: celular_recuperado! " + $scope.celular.descricao);
+              $scope.nota.celular[$scope.nota.celular.length-1] = response.data;
+              console.log("#[jarbis says]: celular_recuperado! " + $scope.nota.celular.descricao);
               $scope.alerts.push({type: 'success', msg: 'Celular encontrado!', show: true});
               $timeout(function () {
                   $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
               }, 2000);
             }, function errorCallback(response) {
-              $scope.celular = response.data;
+              $scope.nota.celular[$scope.nota.celular.length-1] = {};
               console.log("#[jarbis says]: celular_não_recuperado!");
               $scope.alerts.push({type: 'danger', msg: 'Ops! Celular não cadastrado no Sabium!', show: true});
               $timeout(function () {
@@ -118,7 +118,7 @@
               $scope.offNota = '';
               $scope.isNew = true;
               $scope.nota.celular = [{}];//[{"idProduto":0,"cor":0,"voltagem":0,"descricao":"teste","imeis":[],"idcelular":0}];
-              $scope.celular.length = 1;
+              $scope.nota.celular.length = 0;
           };
 
 
@@ -190,13 +190,13 @@
           };
 
           $scope.addNewPhone = function() {
-            var newItemNo = $scope.celular.length+1;
-            $scope.celular.push([{}]);
+            var newItemNo = $scope.nota.celular.length+1;
+            $scope.nota.celular.push({});
           };
 
           $scope.removePhone = function() {
             var lastItem = $scope.celular.length-1;
-            $scope.celular.splice(lastItem);
+            $scope.nota.celular.splice(lastItem);
           };
 
     };
