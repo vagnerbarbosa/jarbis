@@ -38,7 +38,7 @@
           }, function errorCallback(response) {
             $scope.nota = response.data;
             console.log("#[jarbis says]: nota_não_encontrada!");
-            $scope.alerts.push({type: 'danger', msg: 'Ops! NF-e não encontrada!', show: true});
+            //$scope.alerts.push({type: 'danger', msg: 'Ops! NF-e não encontrada!', show: true});
             $timeout(function () {
                 $scope.alerts.splice($scope.alerts.indexOf(alert), 1);
             }, 2000);
@@ -47,9 +47,6 @@
         };
 
         $scope.getCelularPorCodigo = function (codigo, cor, voltagem) {
-          console.log("#[jarbis says]: BRRRR!" + codigo);
-          console.log("#[jarbis says]: BRRRR!!" + cor);
-          console.log("#[jarbis says]: BRRRR!!!" + voltagem);
           $http({
               method: 'GET',
               url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/celular/' + codigo + '/' + cor + '/' + voltagem

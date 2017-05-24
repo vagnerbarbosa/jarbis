@@ -115,7 +115,7 @@
                         <input type="date" ng-model="nota.dataEntrada" value="{{nota.dataEntrada}}" name="nota.dataEntrada" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy" format-date/>
                     </p>
                         <span class="display_bold" ><label for="cnpj">Celulares</label>
-                          <button ng-disabled="isSearchDisabled" style="float: right;" type="button" ng-click="addNewPhone()" class="btn btn-info btn-rounded  btn-sm addfields" >
+                          <button ng-disabled="isSearchDisabled" style="float: right; margin-bottom: -0.5%; margin-top: -1%" type="button" ng-click="addNewPhone()" class="btn btn-info btn-rounded  btn-sm addfields" >
                             <i class="fa fa-plus-circle"></i>
                             <strong> Adicionar Celular</strong>
                           </button>
@@ -258,13 +258,13 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> O {{systemName}} precisa de sua atenção!</h4>
+                        <h4 class="modal-title text-lg-center" id="myModalLabel"><i class="fa fa-exclamation-triangle" style="color: red;" aria-hidden="true"></i> O {{systemName}} precisa da sua atenção! <i class="fa fa-exclamation-triangle" style="color: red;" aria-hidden="true"></i></h4>
                     </div>
                     <div class="modal-body">
                       <p class="text-lg-center">Ao confirmar essa operação você irá apagar <strong>definitivamente</strong> os dados da NF-e!</p>
-                         <strong class="text-lg-center"><p>Tem certeza que deseja excluir esse dados?</p></strong>
-                      <button type="button" ng-click="deleteNota(nota.idNota)" class="btn btn-danger {{off}}" style="width: 48%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled" data-dismiss="modal">Sim</button>
-                      <button type="button" style="width: 48%; display: inline; margin-right: 0.0%" class="btn light-blue" data-dismiss="modal">Não</button>
+                         <strong class="text-lg-center"><p>Tem certeza que deseja excluir esses dados?</p></strong>
+                      <button type="button" ng-click="deleteNota(nota.idNota)" class="btn btn-danger {{off}}" style="width: 48%; display: inline; margin-right: 0.0%" ng-disabled="isDeleteDisabled" data-dismiss="modal">Sim, quero excluir!</button>
+                      <button type="button" style="width: 48%; display: inline; margin-right: 0.0%" class="btn light-blue" data-dismiss="modal">Não, mudei de ideia.</button>
                     </div>
                     <div class="modal-footer">
                     </div>
@@ -338,27 +338,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Modal Exclusão -->
-            <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4 class="modal-title" id="myModalLabel"><strong>SOBRE O {{systemName}}</strong></h4>
-                        </div>
-                        <div class="modal-body">
-                            <p><strong>CUIDADO! O {{systemName}} precisa de sua atenção:</strong></p>
-                            <p>Desenvolvido pela {{companyName}}, para uso interno, no auxílio da localizaçâo das notas ficais correspondentes aos IMEI's buscados.</p>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn light-blue" data-dismiss="modal">Certo</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
             <script type="text/javascript">
                                             $(function () {
