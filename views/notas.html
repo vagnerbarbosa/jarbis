@@ -136,6 +136,7 @@
                           </li>
                         </ul>
                         <div id="choicesDisplay">
+                          <h6>DEBUG:</h6>
                           <input type="hidden" value="{{celular.idProduto}}" ng-model="nota.celular.idProduto">
                           <input type="hidden" value="{{celular.cor}}" ng-model="nota.celular.cor">
                           <input type="hidden" value="{{celular.voltagem}}" ng-model="nota.celular.voltagem">
@@ -238,7 +239,7 @@
             <!--Copyright-->
             <div class="footer-copyright">
                 <div class="containter-fluid">
-                    © {{systemYear}} Copyright: <a href="http://www.lojaoriodopeixe.com.br/"> {{companyName}}</a>
+                    © {{systemYear | date:'yyyy'}} Copyright: <a href="http://www.lojaoriodopeixe.com.br/"> {{companyName}}</a>
                 </div>
             </div>
             <!--/.Copyright-->
@@ -304,7 +305,7 @@
                     </div>
                     <div class="modal-body">
                         <ul class="list-group">
-                            <li class="list-group-item" ng-repeat="n in notas | orderBy: '-id'">
+                            <li class="list-group-item" ng-repeat="n in nf | orderBy: '-id'">
                                 <span class="tag tag-default tag-pill float-xs-right">Registro {{n.idNota}}</span>
                                 Número: {{n.numero}}
                             </li>

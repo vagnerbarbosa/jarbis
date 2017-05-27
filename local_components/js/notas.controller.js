@@ -176,12 +176,18 @@
               $scope.refreshNota = function () {
                 $http({
               method: 'GET',
+              cache: false,
+               headers: {
+                 'Cache-Control': 'no-cache',
+                 'Pragma': 'no-cache',
+                 'If-Modified-Since': 'Mon, 26 Jul 1997 05:00:00 GMT'
+               },
               url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/'
             }).then(function successCallback(response) {
-              $scope.notas = response.data;
+              $scope.nf = response.data;
               console.log("#[jarbis says]: notas_recuperadas!");
             }, function errorCallback(response) {
-              $scope.notas = response.data;
+              $scope.nf= response.data;
               console.log("#[jarbis says]: notas_não_encontradas!");
             });
           };
