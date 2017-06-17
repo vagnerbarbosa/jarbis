@@ -108,11 +108,11 @@
                     </p>
                     <p style="float: left; width: 50%; padding-right: 1%;">
                         <span class="display_bold"><label for="cnpj">Data de Emissão</label></span>
-                        <input type="date" ng-model="nota.dataEmissao" value="{{nota.dataEmissao}}" name="nota.dataEmissao" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy" format-date/>
+                        <input type="date" ng-model="nota.dataEmissao" value="{{nota.dataEmissao}}" name="nota.dataEmissao" required="true" ng-disabled="isSaveDisabled" ng-model-options="{timezone:'UTC'}" placeholder="dd-MM-yyyy" format-date/>
                     </p>
                     <p style="float: left; width: 50%; padding-left: 1%;">
                         <span class="display_bold"><label for="cnpj">Data de Entrada</label></span>
-                        <input type="date" ng-model="nota.dataEntrada" value="{{nota.dataEntrada}}" name="nota.dataEntrada" required="true" ng-disabled="isSaveDisabled" placeholder="dd-MM-yyyy" format-date/>
+                        <input type="date" ng-model="nota.dataEntrada" value="{{nota.dataEntrada}}" name="nota.dataEntrada" required="true" ng-disabled="isSaveDisabled" ng-model-options="{timezone:'UTC'}" placeholder="dd-MM-yyyy" format-date/>
                     </p>
                         <span class="display_bold" ><label for="cnpj">Celulares</label>
                           <button ng-disabled="isSearchDisabled" style="float: right; margin-bottom: -0.5%; margin-top: -1%" type="button" ng-click="addNewPhone()" class="btn btn-info btn-rounded  btn-sm addfields" >
