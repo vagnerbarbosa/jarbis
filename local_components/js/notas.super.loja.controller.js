@@ -15,7 +15,7 @@
 
           $http({
               method: 'GET',
-              url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota-entrada/' + code
+              url: 'http://192.168.19.250:8080/riodopeixe-rest/webservice/nota-entrada/' + code
             }).then(function successCallback(response) {
               $scope.olds = response.data;
               console.log("#[jarbis says]: nota_do_superloja_recuperada!");

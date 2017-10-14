@@ -66,7 +66,9 @@
                             </li>
                         </ul>
                         <form class="form-inline">
-                            <input class="imei form-control" type="text" ng-model="imei" ng-change="getBuscaNota(imei)" size="30" placeholder="Busca por registros ou IMEI(s)">
+                            <!-- <input class="imei form-control" type="text" ng-model="imei" ng-change="getBuscaNota(imei)" size="30" placeholder="Busca por registros ou IMEI(s)"> -->
+                            <input class="imei form-control" type="text" ng-model="imei" size="30" placeholder="Busca por registros ou IMEI(s)">
+                            <button type="button" ng-click="getNotaPorImei(imei)" class="btn btn-primary btn-rounded btn-sm" >Buscar</button>
                             <button type="button" ng-click="addNew()" class="btn btn-primary btn-rounded btn-sm" >Incluir NF-e</button>
                         </form>
 
@@ -102,7 +104,7 @@
                           </a>
                             <button ng-disabled="isSearchDisabled" style="float: right;" type="button" data-target="#myModal1" data-toggle="modal" ng-click="myModal1" class="btn btn-info btn-rounded  btn-sm" >
                               <i class="fa fa-search"></i>
-                              <strong> Buscar Fornecedor</strong>
+                              <strong>Buscar Fornecedor</strong>
                             </button>
                         </span>
                     </p>
@@ -121,10 +123,6 @@
                           </button>
                         </span>
 
-
-                        <!-- <button class="addfields" ng-click="addNewPhone()">Add fields</button> -->
-
-
                         <ul>
                           <li data-ng-repeat="celular in nota.celular">
                             <p style="float: left; width: 16.5%;"><input type="text" ng-model="celular.idProduto" name="celular.idProduto" required="true" ng-disabled="isSaveDisabled" placeholder="Código"></p>
@@ -135,16 +133,6 @@
                               <textarea rows="8" ng-model="celular.imeis" name="celular.imei" ng-list="&#10;" ng-trim="false" required="true" ng-disabled="isSaveDisabled" style="height: 200%;"></textarea>
                           </li>
                         </ul>
-                        <div id="choicesDisplay">
-                          <h6>DEBUG:</h6>
-                          <input type="hidden" value="{{celular.idProduto}}" ng-model="nota.celular.idProduto">
-                          <input type="hidden" value="{{celular.cor}}" ng-model="nota.celular.cor">
-                          <input type="hidden" value="{{celular.voltagem}}" ng-model="nota.celular.voltagem">
-                          <input type="hidden" value="{{celular.descricao}}" ng-model="nota.celular.descricao">
-                          <input type="hidden" value="{{celular.imeis}}" ng-model="nota.celular.imeis">
-                          {{ nota.celular }}
-                        </div>
-
 
                     <div class="control-table">
                         <div class="fornecedor-controle">

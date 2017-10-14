@@ -20,7 +20,7 @@
 
           $http({
               method: 'GET',
-              url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/fornecedor/' + unformattedCnpj
+              url: 'http://192.168.19.250:8080/riodopeixe-rest/webservice/fornecedor/' + unformattedCnpj
             }).then(function successCallback(response) {
               $scope.fornecedor = response.data;
               console.log("#[jarbis says]: fornecedor_recuperado!");
@@ -40,8 +40,8 @@
           };
 
           $http({
-              method: 'GET',
-              url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/fornecedor/'
+              method: 'GET', 
+              url: 'http://192.168.19.250:8080/riodopeixe-rest/webservice/fornecedor/'
             }).then(function successCallback(response) {
               $scope.fornecedores = response.data;
               console.log("#[jarbis says]: fornecedores_recuperados!");

@@ -21,7 +21,7 @@
         $scope.clearForm();
         $http({
             method: 'GET',
-            url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/' + imei
+            url: 'http://192.168.19.250:8080/riodopeixe-rest/webservice/nota/' + imei
           }).then(function successCallback(response) {
             $scope.nota = response.data;
             $scope.operation = "PUT";
@@ -49,7 +49,7 @@
         $scope.getCelularPorCodigo = function (codigo, cor, voltagem) {
           $http({
               method: 'GET',
-              url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/celular/' + codigo + '/' + cor + '/' + voltagem
+              url: 'http://192.168.19.250:8080/riodopeixe-rest/webservice/celular/' + codigo + '/' + cor + '/' + voltagem
             }).then(function successCallback(response) {
               $scope.nota.celular[$scope.nota.celular.length-1] = response.data;
               console.log("#[jarbis says]: celular_recuperado! " + $scope.nota.celular.descricao);
@@ -77,7 +77,7 @@
 
           $http({
               method: 'GET',
-              url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/fornecedor/' + unformattedCnpj
+              url: 'http://192.168.19.250:8080/riodopeixe-rest/webservice/fornecedor/' + unformattedCnpj
             }).then(function successCallback(response) {
               $scope.nota.cnpjFornecedor = response.data;
               console.log("#[jarbis says]: fornecedor_recuperado!");
@@ -125,7 +125,7 @@
 
                 $http({
                     method: $scope.operation,
-                    url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/' + numero,
+                    url: 'http://192.168.19.250:8080/riodopeixe-rest/webservice/nota/' + numero,
                     headers: {"Content-Type": "application/json;charset=UTF-8"},
                     data: $scope.jsonObj
                   }).then(function successCallback(response) {
@@ -154,7 +154,7 @@
 
                   $http({
                       method: 'DELETE',
-                      url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/' + numero,
+                      url: 'http://192.168.19.250:8080/riodopeixe-rest/webservice/nota/' + numero,
                       headers: {"Content-Type": "application/json;charset=UTF-8"}
                     }).then(function successCallback(response) {
                       console.log("#[jarbis says]: nota_deletada!");
@@ -182,7 +182,7 @@
                  'Pragma': 'no-cache',
                  'If-Modified-Since': 'Mon, 26 Jul 1997 05:00:00 GMT'
                },
-              url: 'http://' + 'localhost:1337/' + hostAddress + '/riodopeixe-rest/webservice/nota/'
+              url: 'http://192.168.19.250:8080/riodopeixe-rest/webservice/nota/'
             }).then(function successCallback(response) {
               $scope.nf = response.data;
               console.log("#[jarbis says]: notas_recuperadas!");
